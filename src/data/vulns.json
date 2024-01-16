@@ -1,0 +1,278 @@
+{
+  "5ghoul": {
+    "date": "2023-12-04",
+    "image": "5ghoul.png",
+    "name": "5Ghoul",
+    "url": "https://asset-group.github.io/disclosures/5ghoul/"
+  },
+  "alpaca": {
+    "date": "2021-06-09",
+    "image": "alpaca.png",
+    "name": "ALPACA",
+    "url": "https://alpaca-attack.com/"
+  },
+  "badlock": {
+    "date": "2016-04-12",
+    "image": "badlock.svg.png",
+    "name": "Badlock",
+    "url": "https://web.archive.org/web/20170608065927/http://badlock.org/"
+  },
+  "bleeding-bit": {
+    "date": "2018-11-01",
+    "image": "bleeding-bit.png",
+    "name": "BLEEDINGBIT",
+    "url": "https://armis.com/bleedingbit/"
+  },
+  "blueborne": {
+    "date": "2017-09-12",
+    "image": "blueborne.png",
+    "name": "Blue Borne",
+    "url": "https://www.armis.com/blueborne/"
+  },
+  "boothole": {
+    "date": "2020-07-29",
+    "image": "boothole.png",
+    "name": "BootHole",
+    "url": "https://eclypsium.com/2020/07/29/theres-a-hole-in-the-boot/"
+  },
+  "braktooth": {
+    "date": "2021-08-31",
+    "image": "braktooth.svg",
+    "name": "BRAKTOOTH",
+    "url": "https://asset-group.github.io/disclosures/braktooth/"
+  },
+  "breach": {
+    "date": "2013-08-01",
+    "image": "breach.svg",
+    "name": "BREACH",
+    "url": "https://media.blackhat.com/us-13/US-13-Prado-SSL-Gone-in-30-seconds-A-BREACH-beyond-CRIME-Slides.pdf"
+  },
+  "cacheout": {
+    "date": "2020-01-01",
+    "image": "cacheout.svg",
+    "name": "CacheOut",
+    "url": "https://cacheoutattack.com/"
+  },
+  "cachewarp": {
+    "date": "2023-01-01",
+    "image": "cachewarp.svg",
+    "name": "CacheWarp",
+    "url": "https://cachewarpattack.com/"
+  },
+  "css": {
+    "date": "2015-06-01",
+    "image": "css.png",
+    "name": "CCS Injection Vulnerability",
+    "url": "http://ccsinjection.lepidum.co.jp/"
+  },
+  "dirtycow": {
+    "date": "2016-10-21",
+    "image": "cow.svg",
+    "name": "Dirty Cow",
+    "url": "https://dirtycow.ninja/"
+  },
+  "dnspooq": {
+    "date": "2021-01-01",
+    "image": "dnspooq.png",
+    "name": "DNSpooq",
+    "url": "https://www.jsof-tech.com/disclosures/dnspooq/"
+  },
+  "downfall": {
+    "date": "2022-08-24",
+    "image": "downfall.png",
+    "name": "Downfall Attacks",
+    "url": "https://downfall.page/"
+  },
+  "dragonblood": {
+    "date": "2019-01-04",
+    "image": "dragonblood.png",
+    "name": "Dragonblood",
+    "url": "https://wpa3.mathyvanhoef.com/"
+  },
+  "drown": {
+    "date": "2016-03-01",
+    "image": "drown.svg",
+    "name": "Drown",
+    "url": "https://drownattack.com/"
+  },
+  "drupalgeddon": {
+    "date": "2014-10-15",
+    "image": "drupalgeddon.png",
+    "name": "Drupalgeddon",
+    "url": "http://localhost"
+  },
+  "efail": {
+    "date": "2018-05-13",
+    "image": "efail.svg",
+    "name": "Efail",
+    "url": "https://efail.de/"
+  },
+  "foreshadow": {
+    "date": "2018-01-03",
+    "image": "foreshadow.svg",
+    "name": "Foreshadow",
+    "url": "https://foreshadowattack.eu/"
+  },
+  "fragattacks": {
+    "date": "2021-03-09",
+    "image": "fragattacks.png",
+    "name": "FragAttacks",
+    "url": "https://www.fragattacks.com/"
+  },
+  "ghost": {
+    "date": "2015-01-29",
+    "image": "ghost.svg",
+    "name": "GHOST",
+    "url": "https://blog.qualys.com/laws-of-vulnerabilities/2015/01/27/the-ghost-vulnerability"
+  },
+  "ghostcat": {
+    "date": "2020-03-01",
+    "image": "ghostcat.png",
+    "name": "Ghostcat",
+    "url": "https://www.chaitin.cn/en/ghostcat"
+  },
+  "heartbleed": {
+    "date": "2014-04-03",
+    "image": "heartbleed.png",
+    "name": "Heartbleed",
+    "url": "http://heartbleed.com/"
+  },
+  "holeybeep": {
+    "date": "2018-04-03",
+    "image": "holeybeep.png",
+    "name": "Holey Beep",
+    "url": "https://holeybeep.ninja/"
+  },
+  "imagetragick": {
+    "date": "2016-04-30",
+    "image": "imagetragick.png",
+    "name": "ImageTragick",
+    "url": "https://imagetragick.com/"
+  },
+  "krack": {
+    "date": "2017-11-01",
+    "image": "krack.png",
+    "name": "KRACK",
+    "url": "https://www.krackattacks.com/"
+  },
+  "logjam": {
+    "date": "2015-05-20",
+    "image": "logjam.png",
+    "name": "Logjam",
+    "url": "https://weakdh.org/"
+  },
+  "lviattack": {
+    "date": "2019-04-04",
+    "image": "lviattack.svg",
+    "name": "Load Value Injection",
+    "url": "https://lviattack.eu/"
+  },
+  "meltdown": {
+    "date": "2018-01-03",
+    "image": "meltdown.png",
+    "name": "Meltdown",
+    "url": "https://meltdownattack.com/"
+  },
+  "mousejack": {
+    "date": "2016-02-22",
+    "image": "mousejack.png",
+    "name": "MouseJack",
+    "url": "https://www.mousejack.com/"
+  },
+  "orpheus": {
+    "date": "2017-07-13",
+    "image": "orpheus.png",
+    "name": "Orpheus",
+    "url": "https://www.orpheus-lyre.info/"
+  },
+  "platypus": {
+    "date": "2020-11-01",
+    "image": "platypus.svg",
+    "name": "Platypus",
+    "url": "https://platypusattack.com/"
+  },
+  "plundervolt": {
+    "date": "2019-06-07",
+    "image": "plundervolt.svg",
+    "name": "Plundervolt",
+    "url": "https://plundervolt.com/"
+  },
+  "poodle": {
+    "date": "2014-10-14",
+    "image": "poodle.png",
+    "name": "Poodle",
+    "url": "https://poodle.io/"
+  },
+  "proxylogon": {
+    "date": "2021-01-01",
+    "image": "proxylogon.png",
+    "name": "ProxyLogon",
+    "url": "https://proxylogon.com/"
+  },
+  "racoon": {
+    "date": "2020-09-01",
+    "image": "racoon.png",
+    "name": "Racoon",
+    "url": "https://raccoon-attack.com/"
+  },
+  "rambleed": {
+    "date": "2019-06-01",
+    "image": "rambleed.svg",
+    "name": "RAMBleed",
+    "url": "https://rambleed.com/"
+  },
+  "rampage": {
+    "date": "2018-06-28",
+    "image": "rampage.png",
+    "name": "RAMPAGE",
+    "url": "http://rampageattack.com/"
+  },
+  "ripple20": {
+    "date": "2020-06-01",
+    "image": "ripple20.png",
+    "name": "Ripple20",
+    "url": "https://www.jsof-tech.com/ripple20/"
+  },
+  "robot": {
+    "date": "2018-01-01",
+    "image": "robot.svg",
+    "name": "ROBOT",
+    "url": "https://robotattack.org/"
+  },
+  "shellshock": {
+    "date": "2014-09-24",
+    "image": "shellshock.png",
+    "name": "Shellshock",
+    "url": "http://localhost"
+  },
+  "spectre": {
+    "date": "2018-01-03",
+    "image": "spectre.png",
+    "name": "Spectre",
+    "url": "https://spectreattack.com/"
+  },
+  "sweyntooth": {
+    "date": "2020-07-14",
+    "image": "sweintooth.jpg",
+    "name": "SweynTooth",
+    "url": "https://asset-group.github.io/disclosures/sweyntooth/"
+  },
+  "terrapin": {
+    "date": "2023-12-19",
+    "image": "terrapin.png",
+    "name": "Terrapin Attack",
+    "url": "https://terrapin-attack.com/"
+  },
+  "thunderspy": {
+    "date": "2020-02-10",
+    "image": "thunderspy.png",
+    "name": "Thunderspy",
+    "url": "https://thunderspy.io/"
+  },
+  "zombieLoad-attack": {
+    "date": "2019-05-01",
+    "image": "zombieloadattack.svg",
+    "name": "ZombieLoad Attack",
+    "url": "https://zombieloadattack.com/"
+  }
+}
