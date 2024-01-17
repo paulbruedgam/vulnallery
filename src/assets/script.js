@@ -1,23 +1,16 @@
 var requestURL = '/data/vulns.json';
 
-function buttonClick(){
+function buttonClick() {
     var allButtons = document.querySelectorAll('.btn');
-    var galleryCards = document.querySelectorAll('.gallery-card');
     allButtons.forEach(function(el){
         el.classList.remove('active');
     });
     this.classList.add('active')
     var year = this.textContent;
-    galleryCards.forEach(function(el){
-        if(el.getAttribute('data-year') == year || year == "All"){
-            el.style.display = 'block';
-        } else{
-            el.style.display = 'none';
-        }
-    });
+    toogleGallery(year);
 }
 
-function genGalleryElement(el){
+function genGalleryElement(el) {
     // Browsersupport-Check, indem die Existenz des content Attributs
     // des template Elements geprüft wird.
     if ('content' in document.createElement('template')) {
@@ -53,7 +46,7 @@ function genGalleryElement(el){
     }
 }
 
-function genMenu(){
+function genMenu() {
     var years = Array('All');
     var cols = document.querySelectorAll('.col');
     cols.forEach(function(el){
@@ -76,6 +69,31 @@ function genMenu(){
     buttons = document.querySelectorAll('.btn');
     buttons.forEach(function(el){
         el.addEventListener("click", buttonClick);
+    });
+
+    var select = document.querySelector('#filter-select');
+    years.forEach(function(el){
+        var option = document.createElement("option");
+        option.value = el;
+        option.innerHTML = el;
+        select.appendChild(option);
+    });
+    select.addEventListener("change", selectClick);
+}
+
+function selectClick() {
+    var year = this.value;
+    toogleGallery(year);
+}
+
+function toogleGallery(year) {
+    var galleryCards = document.querySelectorAll('.gallery-card');
+    galleryCards.forEach(function(el){
+        if(el.getAttribute('data-year') == year || year == "All"){
+            el.style.display = 'block';
+        } else{
+            el.style.display = 'none';
+        }
     });
 }
 
