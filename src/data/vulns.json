@@ -155,6 +155,12 @@
     "name": "KRACK",
     "url": "https://www.krackattacks.com/"
   },
+  "log4shell": {
+    "date": "2021-12-09",
+    "image": "log4shell.png",
+    "name": "Log4Shell",
+    "url": "https://www.lunasec.io/docs/blog/log4j-zero-day/"
+  },
   "logjam": {
     "date": "2015-05-20",
     "image": "logjam.png",
@@ -269,7 +275,7 @@
     "name": "Thunderspy",
     "url": "https://thunderspy.io/"
   },
-  "zombieLoad-attack": {
+  "zombieload-attack": {
     "date": "2019-05-01",
     "image": "zombieloadattack.svg",
     "name": "ZombieLoad Attack",
