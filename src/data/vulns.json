@@ -281,6 +281,12 @@
     "name": "Thunderspy",
     "url": "https://thunderspy.io/"
   },
+  "venom": {
+    "date": "2015-01-01",
+    "image": "venom.png",
+    "name": "Venom",
+    "url": "https://web.archive.org/web/20150513104122/http://venom.crowdstrike.com/"
+  },
   "zombieload-attack": {
     "date": "2019-05-01",
     "image": "zombieloadattack.svg",
