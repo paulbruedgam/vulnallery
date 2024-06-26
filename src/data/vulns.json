@@ -263,6 +263,12 @@
     "name": "Spectre",
     "url": "https://spectreattack.com/"
   },
+  "stagefright": {
+    "date": "2015-07-27",
+    "image": "stagefright.png",
+    "name": "Stagefright",
+    "url": "https://blog.zimperium.com/experts-found-a-unicorn-in-the-heart-of-android/"
+  },
   "sweyntooth": {
     "date": "2020-07-14",
     "image": "sweintooth.jpg",
