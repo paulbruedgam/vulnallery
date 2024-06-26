@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-BOOTSTRAP="5.3.2"
+BOOTSTRAP="5.3.3"
 VENDOR_DIR="src/assets/vendor"
 
 rm -rf "${VENDOR_DIR}"
