@@ -251,6 +251,12 @@
     "name": "Shellshock",
     "url": "http://localhost"
   },
+  "snailload": {
+    "date": "2024-06-01",
+    "image": "snailload.png",
+    "name": "SnailLoad",
+    "url": "https://www.snailload.com/"
+  },
   "spectre": {
     "date": "2018-01-03",
     "image": "spectre.png",
