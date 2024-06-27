@@ -251,6 +251,12 @@
     "name": "Shellshock",
     "url": "http://localhost"
   },
+  "slowloris": {
+    "date": "2009",
+    "image": "slowloris.png",
+    "name": "Slowloris",
+    "url": "https://web.archive.org/web/20120108183614/http://ha.ckers.org/slowloris/"
+  },
   "snailload": {
     "date": "2024-06-01",
     "image": "snailload.png",
