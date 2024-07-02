@@ -125,6 +125,12 @@
     "name": "GHOST",
     "url": "https://blog.qualys.com/laws-of-vulnerabilities/2015/01/27/the-ghost-vulnerability"
   },
+  "gofetch": {
+    "date": "2023-12-05",
+    "image": "gofetch.svg",
+    "name": "GoFetch",
+    "url": "https://gofetch.fail/"
+  },
   "ghostcat": {
     "date": "2020-03-01",
     "image": "ghostcat.png",
