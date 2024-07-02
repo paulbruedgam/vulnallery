@@ -239,6 +239,12 @@
     "name": "RAMPAGE",
     "url": "http://rampageattack.com/"
   },
+  "regresshion": {
+    "date": "2024-07-01",
+    "image": "regresshion.jpg",
+    "name": "regreSSHion",
+    "url": "https://blog.qualys.com/vulnerabilities-threat-research/2024/07/01/regresshion-remote-unauthenticated-code-execution-vulnerability-in-openssh-server"
+  },
   "ripple20": {
     "date": "2020-06-01",
     "image": "ripple20.png",
