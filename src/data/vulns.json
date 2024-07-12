@@ -17,6 +17,12 @@
     "name": "Badlock",
     "url": "https://web.archive.org/web/20170608065927/http://badlock.org/"
   },
+  "blast-radius": {
+    "date": "2024-01-01",
+    "image": "blast-radius.png",
+    "name": "Blast-RADUIS",
+    "url": "https://www.blastradius.fail"
+  },
   "bleeding-bit": {
     "date": "2018-11-01",
     "image": "bleeding-bit.png",
