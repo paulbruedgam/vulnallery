@@ -3,8 +3,8 @@
   "id": "php2shell",
   "name": "PHP2Shell",
   "date": "2026-10-21",
-  "image": "php2shell.webp",
-  "url": "https://calif.io/php2shell/",
+  "image": "php2shell.svg",
+  "url": "https://www.php2shell.com/",
   "category": "software",
   "cve": [
    "CVE-2026-109618",
@@ -61,22 +61,6 @@
   "added": "2026-10"
  },
  {
-  "id": "tarmageddon",
-  "name": "TARmageddon",
-  "date": "2025-10-21",
-  "image": "tarmageddon.webp",
-  "url": "https://edera.dev/stories/tarmageddon",
-  "category": "software",
-  "cve": [
-   "CVE-2025-62518"
-  ],
-  "description": {
-   "de": "Fehler beim Parsen von TAR-Archiven in der Rust-Bibliothek async-tar und ihren Forks, mit dem Angreifer Dateien in Archive schmuggeln und Code ausführen können.",
-   "en": "Parsing flaw in the Rust async-tar library and its forks that lets attackers smuggle files into archives and execute code."
-  },
-  "added": "2026-10"
- },
- {
   "id": "pixnapping",
   "name": "Pixnapping",
   "date": "2025-10-13",
@@ -103,22 +87,6 @@
   "description": {
    "de": "Passiver DDR4-Bus-Interposer, der Attestierungsschlüssel aus Intel-SGX-Servern extrahiert.",
    "en": "Passive DDR4 bus interposer that extracts attestation keys from Intel SGX servers."
-  },
-  "added": "2026-10"
- },
- {
-  "id": "redishell",
-  "name": "RediShell",
-  "date": "2025-10",
-  "image": "redishell.webp",
-  "url": "https://www.wiz.io/blog/wiz-research-redis-rce-cve-2025-49844",
-  "category": "software",
-  "cve": [
-   "CVE-2025-49844"
-  ],
-  "description": {
-   "de": "Use-after-free in der Lua-Engine von Redis, die nach Anmeldung einen Ausbruch aus der Sandbox und Codeausführung auf dem Host erlaubt.",
-   "en": "Use-after-free in Redis' Lua engine allowing an authenticated user to escape the sandbox and execute code on the host."
   },
   "added": "2026-10"
  },
