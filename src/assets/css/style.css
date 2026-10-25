@@ -355,37 +355,6 @@ main { max-width: 1440px; margin: 0 auto; padding: 0 var(--gutter); }
 .sticker img[src$=".svg"] { width: 100%; height: 100%; }
 .sticker.dark { background: #15171a; }
 
-/* lettered stand-in for vulnerabilities without an official logo */
-.sticker.no-logo { background: var(--paper); container-type: inline-size; }
-.stand-in {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  width: 100%;
-  height: 100%;
-  border: 2px dashed #b9c3c8;
-  border-radius: calc(var(--radius-sticker) - 6px);
-  color: #14222b;
-  text-align: center;
-}
-.stand-in-name {
-  max-width: 100%;
-  padding: 0 0.3rem;
-  font-weight: 860;
-  font-stretch: 100%;
-  font-size: clamp(0.8rem, 9.5cqi, 2.4rem);
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.stand-in-hint { font-size: 0.78rem; color: #5b6b74; }
-.t-item .stand-in-name { font-size: clamp(0.5rem, 12cqi, 1rem); padding: 0; }
-.t-item .stand-in-hint { display: none; }
-
 /* ---------- wall ---------- */
 .wall {
   display: grid;
