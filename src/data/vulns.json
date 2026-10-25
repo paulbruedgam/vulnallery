@@ -3,6 +3,7 @@
   "id": "php2shell",
   "name": "PHP2Shell",
   "date": "2026-10-21",
+  "image": "php2shell.webp",
   "url": "https://calif.io/php2shell/",
   "category": "software",
   "cve": [
@@ -33,6 +34,7 @@
   "id": "copyfail",
   "name": "Copy Fail",
   "date": "2026-04-29",
+  "image": "copyfail.svg",
   "url": "https://copy.fail/",
   "category": "software",
   "cve": [
@@ -51,7 +53,8 @@
   "url": "https://react2shell.com/",
   "category": "software",
   "cve": [
-   "CVE-2025-55182"
+   "CVE-2025-55182",
+   "CVE-2025-66478"
   ],
   "description": {
    "de": "Unsichere Deserialisierung in React Server Components, die ohne Anmeldung Codeausführung auf Servern mit Next.js und anderen Frameworks ermöglicht.",
@@ -92,6 +95,7 @@
   "id": "tarmageddon",
   "name": "TARmageddon",
   "date": "2025-10-21",
+  "image": "tarmageddon.webp",
   "url": "https://edera.dev/stories/tarmageddon",
   "category": "software",
   "cve": [
@@ -137,6 +141,7 @@
   "id": "redishell",
   "name": "RediShell",
   "date": "2025-10",
+  "image": "redishell.webp",
   "url": "https://www.wiz.io/blog/wiz-research-redis-rce-cve-2025-49844",
   "category": "software",
   "cve": [
