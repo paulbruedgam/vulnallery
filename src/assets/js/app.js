@@ -443,6 +443,7 @@
       const li = document.createElement("li");
       const a = document.createElement("a");
       a.href = "https://nvd.nist.gov/vuln/detail/" + c;
+      a.target = "_blank";
       a.rel = "noopener noreferrer";
       a.textContent = c;
       li.append(a);
