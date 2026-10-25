@@ -1,123 +1,143 @@
 <!doctype html>
-<html lang="en" data-bs-theme="dark">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="color-scheme" content="dark light">
+  <title>Vulnallery – the gallery of vulnerabilities</title>
+  <meta name="description" content="Vulnallery collects security vulnerabilities that come with their own logo, from Heartbleed to the latest CPU side channels. In English and German.">
+  <meta property="og:title" content="Vulnallery">
+  <meta property="og:description" content="There is no critical vulnerability without a logo in this world.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vulnallery.de/">
+  <meta property="og:image" content="https://vulnallery.de/assets/og-image.png">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/archivo-latin-wdth.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css" integrity="sha384-x5Miohq3GViZPvHBVqxq1EDF/FcKfTJGvrtUwNPgZQMGscg6fQ2976yfmaTtUMn7" crossorigin="anonymous">
+  <script src="assets/js/app.js" integrity="sha384-SYkDmkXaB3Ng1JQvj/ysEKkETkb0Rli+MKWdVA2KPLZB2qrgIr6Wd4KwxCONdRAs" crossorigin="anonymous" defer></script>
+</head>
+<body>
+  <a class="skip" href="#gallery" data-i18n="skip">Skip to the gallery</a>
 
-    <!-- Bootstrap CSS -->
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link href="assets/style.css" rel="stylesheet" integrity="sha384-UpMKSS4hmuBSFDr+25n/JvPnYfv2Cs3aSheTFodIl8SEdmNh+WWoZ+Ret4bIVFEI" crossorigin="anonymous">
+  <header class="top">
+    <a class="brand" href="./">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M6 3h15l8 8v15a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3Z"/><path class="fold" d="M21 3v5a3 3 0 0 0 3 3h5Z"/></svg>
+      <span>Vulnallery</span>
+    </a>
+    <div class="toggles">
+      <div class="seg lang" role="group" aria-label="Language / Sprache">
+        <button type="button" data-lang="de" lang="de" aria-label="Deutsch">DE</button>
+        <button type="button" data-lang="en" lang="en" aria-label="English">EN</button>
+      </div>
+      <button type="button" class="icon-btn" id="theme-toggle" data-i18n-aria="theme" aria-label="Switch colour scheme">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path class="half" d="M12 3.5a8.5 8.5 0 0 1 0 17Z"/></svg>
+      </button>
+    </div>
+  </header>
 
-    <title>Vulnallery</title>
-  </head>
-  <body>
+  <main>
+    <section class="intro">
+      <h1 data-i18n="headline">No critical vulnerability without a logo.</h1>
+      <p class="lede" id="lede"></p>
+    </section>
 
-    <header data-bs-theme="dark">
-      <div class="collapse text-bg-dark" id="navbarHeader">
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-8 col-md-7 py-4">
-              <h4>About</h4>
-              <p class="text-body-secondary">Vulnallery is a fun project that shows you all vulnerabilities with a logo.<br>Please inform me if image rights have been violated. Requirements will be fulfilled or the images will be removed.</p>
-            </div>
-            <div class="col-sm-4 offset-md-1 py-4">
-              <h4>Contact</h4>
-              <ul class="list-unstyled">
-                <li>
-                  <a href="https://github.com/paulbruedgam" class="text-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
-                      <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
-                    </svg>
-                    paulbruedgam
-                  </a>
-                </li>
-                <li><a href="https://github.com/paulbruedgam/vulnallery.github.io/issues/new/choose" class="text-white">Create issue @ Github</a></li>
-              </ul>
-            </div>
-          </div>
+    <section class="controls" aria-labelledby="filter-heading">
+      <h2 id="filter-heading" class="visually-hidden" data-i18n="filterHeading">Filter the gallery</h2>
+      <div class="search">
+        <label for="q" class="visually-hidden" data-i18n="searchLabel">Search by name, CVE or description</label>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg>
+        <input id="q" type="search" autocomplete="off" spellcheck="false" maxlength="80" data-i18n-placeholder="searchPlaceholder" placeholder="Search name, CVE or text">
+      </div>
+      <div class="chips" id="cats" role="group" data-i18n-aria="catGroup" aria-label="Category"></div>
+      <div class="selects">
+        <label class="field"><span data-i18n="year">Year</span>
+          <select id="year"></select>
+        </label>
+        <label class="field"><span data-i18n="sort">Sort</span>
+          <select id="sort">
+            <option value="new" data-i18n="sortNew">Newest first</option>
+            <option value="old" data-i18n="sortOld">Oldest first</option>
+            <option value="az" data-i18n="sortAz">A to Z</option>
+          </select>
+        </label>
+        <div class="seg view" role="group" data-i18n-aria="viewGroup" aria-label="View">
+          <button type="button" data-view="grid" data-i18n="viewGrid">Sticker wall</button>
+          <button type="button" data-view="timeline" data-i18n="viewTimeline">Timeline</button>
         </div>
       </div>
-      <div class="navbar navbar-dark bg-dark shadow-sm">
-        <div class="container">
-          <a href="#" class="navbar-brand d-flex align-items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
-            <strong>Vulnallery</strong>
-          </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+    </section>
+
+    <p class="count" id="count" role="status" aria-live="polite"></p>
+
+    <section id="gallery" class="wall" aria-labelledby="count"></section>
+    <section id="timeline" class="timeline" aria-labelledby="count" hidden></section>
+
+    <div class="empty" id="empty" hidden>
+      <p data-i18n="emptyText">No vulnerability matches these filters.</p>
+      <button type="button" class="btn" id="reset" data-i18n="reset">Reset filters</button>
+    </div>
+
+    <p class="error" id="error" hidden></p>
+
+    <noscript>
+      <p class="noscript">Vulnallery needs JavaScript to load the gallery. Vulnallery braucht JavaScript, um die Galerie zu laden.</p>
+    </noscript>
+  </main>
+
+  <footer class="foot">
+    <div class="foot-col">
+      <h2 data-i18n="aboutTitle">About</h2>
+      <p data-i18n="about">Vulnallery is a fun project that collects vulnerabilities that come with a logo. Every logo belongs to its creators and links to the original source.</p>
+      <p data-i18n="rights">If image rights have been violated, please let me know. Requirements will be met or the image will be removed.</p>
+    </div>
+    <div class="foot-col">
+      <h2 data-i18n="contactTitle">Contact</h2>
+      <ul>
+        <li><a href="https://github.com/paulbruedgam" rel="noopener noreferrer">GitHub: paulbruedgam</a></li>
+        <li><a href="https://github.com/paulbruedgam/vulnallery.github.io/issues/new/choose" rel="noopener noreferrer" data-i18n="issue">Suggest a vulnerability or report a problem</a></li>
+        <li><a href="https://www.bruedgam.eu/" rel="noopener noreferrer">bruedgam.eu</a></li>
+      </ul>
+    </div>
+    <p class="colophon" data-i18n="colophon">Plain HTML, CSS and JavaScript. No cookies, no trackers, no requests to other sites.</p>
+  </footer>
+
+  <dialog id="detail" aria-labelledby="d-name">
+    <div class="d-inner">
+      <button type="button" class="icon-btn d-close" id="d-close" data-i18n-aria="close" aria-label="Close">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+      <div class="d-stage"><span class="sticker big"><img id="d-img" alt=""></span></div>
+      <div class="d-body">
+        <p class="meta"><time id="d-date"></time><span class="cat" id="d-cat"></span></p>
+        <h2 id="d-name"></h2>
+        <p id="d-desc" class="d-desc"></p>
+        <div id="d-cve-wrap">
+          <h3 data-i18n="cveTitle">CVE identifiers</h3>
+          <ul class="cves" id="d-cves"></ul>
+        </div>
+        <p id="d-nocve" class="muted" data-i18n="noCve">No CVE identifier has been assigned.</p>
+        <div class="d-actions">
+          <a id="d-src" class="btn primary" rel="noopener noreferrer" data-i18n="source">Open original source</a>
+          <button type="button" class="btn" id="d-copy" data-i18n="copy">Copy link</button>
+        </div>
+        <div class="d-nav">
+          <button type="button" class="btn ghost" id="d-prev"><span aria-hidden="true">‹ </span><span data-i18n="prev">Previous</span></button>
+          <button type="button" class="btn ghost" id="d-next"><span data-i18n="next">Next</span><span aria-hidden="true"> ›</span></button>
         </div>
       </div>
-    </header>
+    </div>
+  </dialog>
 
-    <main>
-      <section class="py-5 text-center">
-        <div class="container">
-          <div class="row py-lg-5">
-            <div class="col-lg-6 col-md-8 mx-auto">
-              <h1 class="fw-light">Vulnallery</h1>
-              <p class="lead text-body-secondary">The gallery of vulnerabilities.<br>There is no critical vulnerability without a logo in this world.</p>
-              <!--
-              <p>
-                <a href="#" class="btn btn-primary my-2">Main call to action</a>
-                <a href="#" class="btn btn-secondary my-2">Secondary action</a>
-              </p>
-              -->
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="album py-5 bg-body-tertiary">
-        <div class="container">
-          <div class="row pb-4">
-            <div id="filter-buttons" class="btn-group text-center d-none d-xl-flex" role="group"></div>
-            <div class="d-xl-none">
-              <select id="filter-select" class="form-select form-select-lg" aria-label="Select filter">
-              </select>
-            </div>
-          </div>
-          <div id="gallery" class="row row-cols-1 row-cols-xl-4 row-cols-md-3 row-cols-sm-2 g-4">
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="text-body-secondary py-5">
-      <div class="container">
-        <p class="float-end mb-1">
-          <a href="#">Back to top</a>
-        </p>
-        <p class="mb-1">Vulnallery was originally created by
-          <a href="https://github.com/paulbruedgam">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
-              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
-            </svg>
-            paulbruedgam
-          </a>
-        </p>
-        <p class="mb-0">Template based on <a href="https://getbootstrap.com/docs/5.3/examples/album/">Bootstrap Album Example</a>.</p>
-      </div>
-    </footer>
-
-    <template id="vuln-img">
-      <div class="col gallery-card" data-year="...">
-        <div class="card shadow-sm border-light h-100">
-          <img src="..." class="card-img-top img-fluid bg-white" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <!--<p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>-->
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary btn-view">View</button>
-              </div>
-              <small class="text-body-secondary publish-date">01.01.1970</small>
-            </div>
-          </div>
-        </div>
-      </div>
-    </template>
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="assets/script.js" integrity="sha384-1RfsHBC2Uq8Vvd0oSfYw5/6CnvAEV+VBagFB7/qt5T8Mro9pDUa7XoGFt8Hrv3pF" crossorigin="anonymous"></script>
-  </body>
+  <template id="card-tpl">
+    <a class="card">
+      <span class="sticker"><img loading="lazy" decoding="async" alt=""></span>
+      <span class="label">
+        <span class="name"></span>
+        <span class="meta"><time></time><span class="cat"></span></span>
+      </span>
+    </a>
+  </template>
+</body>
 </html>

@@ -1,326 +1,1210 @@
-{
-  "5ghoul": {
-    "date": "2023-12-04",
-    "image": "5ghoul.png",
-    "name": "5Ghoul",
-    "url": "https://asset-group.github.io/disclosures/5ghoul/"
+[
+ {
+  "id": "ddrop",
+  "name": "DDRop",
+  "date": "2026-09-14",
+  "image": "ddrop.svg",
+  "url": "https://ddropattack.eu/",
+  "category": "hardware",
+  "cve": [],
+  "description": {
+   "de": "Aktiver Interposer, der DDR5-Schreibzugriffe verwirft und so vertrauliche VMs unter Intel TDX und AMD SEV-SNP angreift.",
+   "en": "Active interposer that drops DDR5 writes to attack confidential VMs under Intel TDX and AMD SEV-SNP."
   },
-  "alpaca": {
-    "date": "2021-06-09",
-    "image": "alpaca.png",
-    "name": "ALPACA",
-    "url": "https://alpaca-attack.com/"
+  "added": "2026-10"
+ },
+ {
+  "id": "teefail",
+  "name": "TEE.fail",
+  "date": "2025-10-28",
+  "image": "teefail.svg",
+  "url": "https://tee.fail/",
+  "category": "hardware",
+  "cve": [],
+  "description": {
+   "de": "DDR5-Bus-Interposer für unter 1000 US-Dollar, der Intel SGX/TDX und AMD SEV-SNP bricht.",
+   "en": "Sub-$1,000 DDR5 bus interposer that breaks Intel SGX/TDX and AMD SEV-SNP."
   },
-  "badlock": {
-    "date": "2016-04-12",
-    "image": "badlock.svg.png",
-    "name": "Badlock",
-    "url": "https://web.archive.org/web/20170608065927/http://badlock.org/"
+  "added": "2026-10"
+ },
+ {
+  "id": "pixnapping",
+  "name": "Pixnapping",
+  "date": "2025-10-13",
+  "image": "pixnapping.svg",
+  "url": "https://www.pixnapping.com/",
+  "category": "hardware",
+  "cve": [
+   "CVE-2025-48561"
+  ],
+  "description": {
+   "de": "Bösartige Android-Apps lesen über Android-APIs und den GPU.zip-Seitenkanal Bildschirminhalte anderer Apps, z. B. 2FA-Codes.",
+   "en": "Malicious Android apps read other apps' screen contents, such as 2FA codes, via Android APIs and the GPU.zip side channel."
   },
-  "blast-radius": {
-    "date": "2024-01-01",
-    "image": "blast-radius.png",
-    "name": "Blast-RADUIS",
-    "url": "https://www.blastradius.fail"
+  "added": "2026-10"
+ },
+ {
+  "id": "wiretap",
+  "name": "WireTap",
+  "date": "2025-10-01",
+  "image": "wiretap.svg",
+  "url": "https://wiretap.fail/",
+  "category": "hardware",
+  "cve": [],
+  "description": {
+   "de": "Passiver DDR4-Bus-Interposer, der Attestierungsschlüssel aus Intel-SGX-Servern extrahiert.",
+   "en": "Passive DDR4 bus interposer that extracts attestation keys from Intel SGX servers."
   },
-  "bleeding-bit": {
-    "date": "2018-11-01",
-    "image": "bleeding-bit.png",
-    "name": "BLEEDINGBIT",
-    "url": "https://armis.com/bleedingbit/"
+  "added": "2026-10"
+ },
+ {
+  "id": "batteringram",
+  "name": "Battering RAM",
+  "date": "2025-09-30",
+  "image": "batteringram.svg",
+  "url": "https://batteringram.eu/",
+  "category": "hardware",
+  "cve": [],
+  "description": {
+   "de": "Günstiger Speicher-Interposer, der Speicher-Aliase erzeugt und so Intel SGX und AMD SEV-SNP aushebelt.",
+   "en": "Low-cost memory interposer that creates memory aliases and defeats Intel SGX and AMD SEV-SNP."
   },
-  "blueborne": {
-    "date": "2017-09-12",
-    "image": "blueborne.png",
-    "name": "Blue Borne",
-    "url": "https://www.armis.com/blueborne/"
+  "added": "2026-10"
+ },
+ {
+  "id": "phoenix",
+  "name": "Phoenix",
+  "date": "2025-09-15",
+  "image": "phoenix.png",
+  "url": "https://comsec.ethz.ch/research/dram/phoenix/",
+  "category": "hardware",
+  "cve": [
+   "CVE-2025-6202"
+  ],
+  "description": {
+   "de": "Rowhammer-Angriff, der die TRR-Schutzmechanismen aktueller DDR5-Module überwindet und Root-Rechte erlangt.",
+   "en": "Rowhammer attack that defeats the TRR protections of current DDR5 modules to gain root privileges."
   },
-  "boothole": {
-    "date": "2020-07-29",
-    "image": "boothole.png",
-    "name": "BootHole",
-    "url": "https://eclypsium.com/2020/07/29/theres-a-hole-in-the-boot/"
+  "added": "2026-10"
+ },
+ {
+  "id": "opossum",
+  "name": "Opossum",
+  "date": "2025-07-09",
+  "image": "opossum.webp",
+  "url": "https://opossum-attack.com/",
+  "category": "crypto",
+  "cve": [
+   "CVE-2025-49812"
+  ],
+  "description": {
+   "de": "Desynchronisiert Anwendungsprotokolle bei opportunistischem TLS, sodass Client und Server unterschiedliche Antworten sehen.",
+   "en": "Desynchronises application protocols that use opportunistic TLS so that client and server see different responses."
   },
-  "braktooth": {
-    "date": "2021-08-31",
-    "image": "braktooth.svg",
-    "name": "BRAKTOOTH",
-    "url": "https://asset-group.github.io/disclosures/braktooth/"
+  "added": "2026-10"
+ },
+ {
+  "id": "slap",
+  "name": "SLAP",
+  "date": "2025-01-28",
+  "image": "slap.svg",
+  "url": "https://predictors.fail/",
+  "category": "hardware",
+  "cve": [],
+  "description": {
+   "de": "Spekulativer Angriff auf die Load Address Prediction von Apple-Chips ab M2/A15, der Daten im Browser ausliest.",
+   "en": "Speculative attack on load address prediction in Apple chips from M2/A15 onwards that leaks data in the browser."
   },
-  "breach": {
-    "date": "2013-08-01",
-    "image": "breach.svg",
-    "name": "BREACH",
-    "url": "https://media.blackhat.com/us-13/US-13-Prado-SSL-Gone-in-30-seconds-A-BREACH-beyond-CRIME-Slides.pdf"
+  "added": "2026-10"
+ },
+ {
+  "id": "flop",
+  "name": "FLOP",
+  "date": "2025-01-28",
+  "image": "flop.svg",
+  "url": "https://predictors.fail/",
+  "category": "hardware",
+  "cve": [],
+  "description": {
+   "de": "Missbraucht die Load Value Prediction von Apple-Chips ab M3/A17, um Daten aus Safari und Chrome auszulesen.",
+   "en": "Abuses load value prediction in Apple chips from M3/A17 onwards to leak data from Safari and Chrome."
   },
-  "cacheout": {
-    "date": "2020-01-01",
-    "image": "cacheout.svg",
-    "name": "CacheOut",
-    "url": "https://cacheoutattack.com/"
+  "added": "2026-10"
+ },
+ {
+  "id": "badram",
+  "name": "BadRAM",
+  "date": "2024-12-10",
+  "image": "badram.svg",
+  "url": "https://badram.eu/",
+  "category": "hardware",
+  "cve": [
+   "CVE-2024-21944"
+  ],
+  "description": {
+   "de": "Manipulierte SPD-Daten von Speichermodulen täuschen der CPU zusätzlichen Speicher vor und brechen so AMD SEV-SNP.",
+   "en": "Tampered memory module SPD data fakes extra memory to the CPU and breaks AMD SEV-SNP."
   },
-  "cachewarp": {
-    "date": "2023-01-01",
-    "image": "cachewarp.svg",
-    "name": "CacheWarp",
-    "url": "https://cachewarpattack.com/"
+  "added": "2026-10"
+ },
+ {
+  "id": "ghostwrite",
+  "name": "GhostWrite",
+  "date": "2024-08",
+  "image": "ghostwrite.svg",
+  "url": "https://ghostwriteattack.com/",
+  "category": "hardware",
+  "cve": [
+   "CVE-2024-44067"
+  ],
+  "description": {
+   "de": "Fehlerhafte Vektor-Instruktionen in T-Head-RISC-V-CPUs, mit denen unprivilegierte Programme beliebigen physischen Speicher schreiben.",
+   "en": "Faulty vector instructions in T-Head RISC-V CPUs letting unprivileged code write arbitrary physical memory."
   },
-  "css": {
-    "date": "2015-06-01",
-    "image": "css.png",
-    "name": "CCS Injection Vulnerability",
-    "url": "http://ccsinjection.lepidum.co.jp/"
+  "added": "2026-10"
+ },
+ {
+  "id": "pkfail",
+  "name": "PKfail",
+  "date": "2024-07-25",
+  "image": "pkfail.svg",
+  "url": "https://pk.fail/",
+  "category": "software",
+  "cve": [
+   "CVE-2024-8105"
+  ],
+  "description": {
+   "de": "Hunderte Geräte-Firmwares nutzten einen öffentlich bekannten Test-Platform-Key, was Secure Boot wirkungslos macht.",
+   "en": "Hundreds of device firmwares shipped a publicly leaked test Platform Key, rendering Secure Boot ineffective."
   },
-  "dirtycow": {
-    "date": "2016-10-21",
-    "image": "cow.svg",
-    "name": "Dirty Cow",
-    "url": "https://dirtycow.ninja/"
-  },
-  "dnspooq": {
-    "date": "2021-01-01",
-    "image": "dnspooq.png",
-    "name": "DNSpooq",
-    "url": "https://www.jsof-tech.com/disclosures/dnspooq/"
-  },
-  "downfall": {
-    "date": "2022-08-24",
-    "image": "downfall.png",
-    "name": "Downfall Attacks",
-    "url": "https://downfall.page/"
-  },
-  "dragonblood": {
-    "date": "2019-01-04",
-    "image": "dragonblood.png",
-    "name": "Dragonblood",
-    "url": "https://wpa3.mathyvanhoef.com/"
-  },
-  "drown": {
-    "date": "2016-03-01",
-    "image": "drown.svg",
-    "name": "Drown",
-    "url": "https://drownattack.com/"
-  },
-  "drupalgeddon": {
-    "date": "2014-10-15",
-    "image": "drupalgeddon.png",
-    "name": "Drupalgeddon",
-    "url": "http://localhost"
-  },
-  "efail": {
-    "date": "2018-05-13",
-    "image": "efail.svg",
-    "name": "Efail",
-    "url": "https://efail.de/"
-  },
-  "foreshadow": {
-    "date": "2018-01-03",
-    "image": "foreshadow.svg",
-    "name": "Foreshadow",
-    "url": "https://foreshadowattack.eu/"
-  },
-  "fragattacks": {
-    "date": "2021-03-09",
-    "image": "fragattacks.png",
-    "name": "FragAttacks",
-    "url": "https://www.fragattacks.com/"
-  },
-  "ghost": {
-    "date": "2015-01-29",
-    "image": "ghost.svg",
-    "name": "GHOST",
-    "url": "https://blog.qualys.com/laws-of-vulnerabilities/2015/01/27/the-ghost-vulnerability"
-  },
-  "gofetch": {
-    "date": "2023-12-05",
-    "image": "gofetch.svg",
-    "name": "GoFetch",
-    "url": "https://gofetch.fail/"
-  },
-  "ghostcat": {
-    "date": "2020-03-01",
-    "image": "ghostcat.png",
-    "name": "Ghostcat",
-    "url": "https://www.chaitin.cn/en/ghostcat"
-  },
-  "heartbleed": {
-    "date": "2014-04-03",
-    "image": "heartbleed.png",
-    "name": "Heartbleed",
-    "url": "http://heartbleed.com/"
-  },
-  "holeybeep": {
-    "date": "2018-04-03",
-    "image": "holeybeep.png",
-    "name": "Holey Beep",
-    "url": "https://holeybeep.ninja/"
-  },
-  "imagetragick": {
-    "date": "2016-04-30",
-    "image": "imagetragick.png",
-    "name": "ImageTragick",
-    "url": "https://imagetragick.com/"
-  },
-  "krack": {
-    "date": "2017-11-01",
-    "image": "krack.png",
-    "name": "KRACK",
-    "url": "https://www.krackattacks.com/"
-  },
-  "log4shell": {
-    "date": "2021-12-09",
-    "image": "log4shell.png",
-    "name": "Log4Shell",
-    "url": "https://www.lunasec.io/docs/blog/log4j-zero-day/"
-  },
-  "logjam": {
-    "date": "2015-05-20",
-    "image": "logjam.png",
-    "name": "Logjam",
-    "url": "https://weakdh.org/"
-  },
-  "lviattack": {
-    "date": "2019-04-04",
-    "image": "lviattack.svg",
-    "name": "Load Value Injection",
-    "url": "https://lviattack.eu/"
-  },
-  "meltdown": {
-    "date": "2018-01-03",
-    "image": "meltdown.png",
-    "name": "Meltdown",
-    "url": "https://meltdownattack.com/"
-  },
-  "mousejack": {
-    "date": "2016-02-22",
-    "image": "mousejack.png",
-    "name": "MouseJack",
-    "url": "https://www.mousejack.com/"
-  },
-  "orpheus": {
-    "date": "2017-07-13",
-    "image": "orpheus.png",
-    "name": "Orpheus",
-    "url": "https://www.orpheus-lyre.info/"
-  },
-  "platypus": {
-    "date": "2020-11-01",
-    "image": "platypus.svg",
-    "name": "Platypus",
-    "url": "https://platypusattack.com/"
-  },
-  "plundervolt": {
-    "date": "2019-06-07",
-    "image": "plundervolt.svg",
-    "name": "Plundervolt",
-    "url": "https://plundervolt.com/"
-  },
-  "poodle": {
-    "date": "2014-10-14",
-    "image": "poodle.png",
-    "name": "Poodle",
-    "url": "https://poodle.io/"
-  },
-  "proxylogon": {
-    "date": "2021-01-01",
-    "image": "proxylogon.png",
-    "name": "ProxyLogon",
-    "url": "https://proxylogon.com/"
-  },
-  "racoon": {
-    "date": "2020-09-01",
-    "image": "racoon.png",
-    "name": "Racoon",
-    "url": "https://raccoon-attack.com/"
-  },
-  "rambleed": {
-    "date": "2019-06-01",
-    "image": "rambleed.svg",
-    "name": "RAMBleed",
-    "url": "https://rambleed.com/"
-  },
-  "rampage": {
-    "date": "2018-06-28",
-    "image": "rampage.png",
-    "name": "RAMPAGE",
-    "url": "http://rampageattack.com/"
-  },
-  "regresshion": {
-    "date": "2024-07-01",
-    "image": "regresshion.jpg",
-    "name": "regreSSHion",
-    "url": "https://blog.qualys.com/vulnerabilities-threat-research/2024/07/01/regresshion-remote-unauthenticated-code-execution-vulnerability-in-openssh-server"
-  },
-  "ripple20": {
-    "date": "2020-06-01",
-    "image": "ripple20.png",
-    "name": "Ripple20",
-    "url": "https://www.jsof-tech.com/ripple20/"
-  },
-  "robot": {
-    "date": "2018-01-01",
-    "image": "robot.svg",
-    "name": "ROBOT",
-    "url": "https://robotattack.org/"
-  },
-  "shellshock": {
-    "date": "2014-09-24",
-    "image": "shellshock.png",
-    "name": "Shellshock",
-    "url": "http://localhost"
-  },
-  "slowloris": {
-    "date": "2009",
-    "image": "slowloris.png",
-    "name": "Slowloris",
-    "url": "https://web.archive.org/web/20120108183614/http://ha.ckers.org/slowloris/"
-  },
-  "snailload": {
-    "date": "2024-06-01",
-    "image": "snailload.png",
-    "name": "SnailLoad",
-    "url": "https://www.snailload.com/"
-  },
-  "spectre": {
-    "date": "2018-01-03",
-    "image": "spectre.png",
-    "name": "Spectre",
-    "url": "https://spectreattack.com/"
-  },
-  "stagefright": {
-    "date": "2015-07-27",
-    "image": "stagefright.png",
-    "name": "Stagefright",
-    "url": "https://blog.zimperium.com/experts-found-a-unicorn-in-the-heart-of-android/"
-  },
-  "sweyntooth": {
-    "date": "2020-07-14",
-    "image": "sweintooth.jpg",
-    "name": "SweynTooth",
-    "url": "https://asset-group.github.io/disclosures/sweyntooth/"
-  },
-  "terrapin": {
-    "date": "2023-12-19",
-    "image": "terrapin.png",
-    "name": "Terrapin Attack",
-    "url": "https://terrapin-attack.com/"
-  },
-  "thunderspy": {
-    "date": "2020-02-10",
-    "image": "thunderspy.png",
-    "name": "Thunderspy",
-    "url": "https://thunderspy.io/"
-  },
-  "venom": {
-    "date": "2015-01-01",
-    "image": "venom.png",
-    "name": "Venom",
-    "url": "https://web.archive.org/web/20150513104122/http://venom.crowdstrike.com/"
-  },
-  "zombieload-attack": {
-    "date": "2019-05-01",
-    "image": "zombieloadattack.svg",
-    "name": "ZombieLoad Attack",
-    "url": "https://zombieloadattack.com/"
+  "added": "2026-10",
+  "darkBackground": true
+ },
+ {
+  "id": "blast-radius",
+  "name": "Blast-RADIUS",
+  "date": "2024-07-09",
+  "image": "blast-radius.png",
+  "url": "https://www.blastradius.fail/",
+  "category": "network",
+  "cve": [
+   "CVE-2024-3596"
+  ],
+  "description": {
+   "de": "MD5-Kollisionsangriff auf das RADIUS-Protokoll, mit dem ein Angreifer im Netz Zugriffsentscheidungen fälschen kann.",
+   "en": "MD5 collision attack on the RADIUS protocol that lets an on-path attacker forge access-accept decisions."
   }
-}
+ },
+ {
+  "id": "regresshion",
+  "name": "regreSSHion",
+  "date": "2024-07-01",
+  "image": "regresshion.jpg",
+  "url": "https://blog.qualys.com/vulnerabilities-threat-research/2024/07/01/regresshion-remote-unauthenticated-code-execution-vulnerability-in-openssh-server",
+  "category": "software",
+  "cve": [
+   "CVE-2024-6387"
+  ],
+  "description": {
+   "de": "Wiederkehrende Race Condition im Signal-Handler von OpenSSH, die ohne Anmeldung Codeausführung als root erlaubt.",
+   "en": "Regressed signal-handler race condition in OpenSSH allowing unauthenticated remote code execution as root."
+  }
+ },
+ {
+  "id": "snailload",
+  "name": "SnailLoad",
+  "date": "2024-06",
+  "image": "snailload.png",
+  "url": "https://www.snailload.com/",
+  "category": "network",
+  "cve": [],
+  "description": {
+   "de": "Netzwerk-Seitenkanal, der allein über Latenzschwankungen einer harmlosen Datei erkennt, welche Videos oder Websites ein Opfer aufruft.",
+   "en": "Network side channel that infers which videos or websites a victim views purely from latency changes of a benign download."
+  }
+ },
+ {
+  "id": "tunnelvision",
+  "name": "TunnelVision",
+  "date": "2024-05-06",
+  "image": "tunnelvision.webp",
+  "url": "https://www.tunnelvisionbug.com/",
+  "category": "network",
+  "cve": [
+   "CVE-2024-3661"
+  ],
+  "description": {
+   "de": "Missbraucht DHCP-Option 121, um Datenverkehr an routingbasierten VPNs vorbei unverschlüsselt umzuleiten.",
+   "en": "Abuses DHCP option 121 to route traffic around routing-based VPNs, unencrypted."
+  },
+  "added": "2026-10"
+ },
+ {
+  "id": "gofetch",
+  "name": "GoFetch",
+  "date": "2024-03-21",
+  "image": "gofetch.svg",
+  "url": "https://gofetch.fail/",
+  "category": "hardware",
+  "cve": [],
+  "description": {
+   "de": "Seitenkanal über den Data Memory-dependent Prefetcher von Apple-M-Chips, der kryptografische Schlüssel ausliest.",
+   "en": "Side channel via the data memory-dependent prefetcher in Apple M-series chips that extracts cryptographic keys."
+  }
+ },
+ {
+  "id": "terrapin",
+  "name": "Terrapin",
+  "date": "2023-12-18",
+  "image": "terrapin.png",
+  "url": "https://terrapin-attack.com/",
+  "category": "crypto",
+  "cve": [
+   "CVE-2023-48795"
+  ],
+  "description": {
+   "de": "Präfix-Trunkierungsangriff auf SSH, der Nachrichten zu Verbindungsbeginn unbemerkt entfernt und Sicherheitsfunktionen abschwächt.",
+   "en": "Prefix truncation attack on SSH that silently drops early messages and downgrades connection security."
+  }
+ },
+ {
+  "id": "5ghoul",
+  "name": "5Ghoul",
+  "date": "2023-12-07",
+  "image": "5ghoul.png",
+  "url": "https://asset-group.github.io/disclosures/5ghoul/",
+  "category": "wireless",
+  "cve": [
+   "CVE-2023-33042",
+   "CVE-2023-33043",
+   "CVE-2023-33044",
+   "CVE-2023-32842",
+   "CVE-2023-32843",
+   "CVE-2023-32845"
+  ],
+  "description": {
+   "de": "Implementierungsfehler in 5G-Modems von Qualcomm und MediaTek, über die eine bösartige Basisstation Smartphones abstürzen lassen oder vom 5G-Netz trennen kann.",
+   "en": "Implementation flaws in Qualcomm and MediaTek 5G modems that let a rogue base station crash phones or knock them off 5G."
+  }
+ },
+ {
+  "id": "cachewarp",
+  "name": "CacheWarp",
+  "date": "2023-11-14",
+  "image": "cachewarp.svg",
+  "url": "https://cachewarpattack.com/",
+  "category": "hardware",
+  "cve": [
+   "CVE-2023-20592"
+  ],
+  "description": {
+   "de": "Software-Fehlerangriff auf AMD SEV, der Schreibzugriffe in vertraulichen VMs rückgängig macht und so Rechteausweitung erlaubt.",
+   "en": "Software fault attack on AMD SEV that reverts writes inside confidential VMs to escalate privileges."
+  }
+ },
+ {
+  "id": "ileakage",
+  "name": "iLeakage",
+  "date": "2023-10-25",
+  "image": "ileakage.svg",
+  "url": "https://ileakage.com/",
+  "category": "hardware",
+  "cve": [],
+  "description": {
+   "de": "Spectre-artiger Angriff ohne Timer auf Safari, der auf Macs, iPads und iPhones Daten anderer Websites liest.",
+   "en": "Timer-free Spectre-style attack on Safari that reads data of other websites on Macs, iPads and iPhones."
+  },
+  "added": "2026-10"
+ },
+ {
+  "id": "gpuzip",
+  "name": "GPU.zip",
+  "date": "2023-09-26",
+  "image": "gpuzip.svg",
+  "url": "https://www.hertzbleed.com/gpu.zip/",
+  "category": "hardware",
+  "cve": [],
+  "description": {
+   "de": "Seitenkanal über die Datenkompression integrierter Grafikchips, mit dem Webseiten Pixel fremder Seiten stehlen können.",
+   "en": "Side channel via graphics data compression in integrated GPUs that lets web pages steal cross-origin pixels."
+  },
+  "added": "2026-10"
+ },
+ {
+  "id": "downfall",
+  "name": "Downfall",
+  "date": "2023-08-08",
+  "image": "downfall.png",
+  "url": "https://downfall.page/",
+  "category": "hardware",
+  "cve": [
+   "CVE-2022-40982"
+  ],
+  "description": {
+   "de": "Missbrauch der Gather-Instruktion auf Intel-CPUs, um Daten anderer Programme und Nutzer auszulesen.",
+   "en": "Abuses the gather instruction on Intel CPUs to leak data belonging to other programs and users."
+  }
+ },
+ {
+  "id": "collidepower",
+  "name": "Collide+Power",
+  "date": "2023-08-01",
+  "image": "collidepower.svg",
+  "url": "https://collidepower.com/",
+  "category": "hardware",
+  "cve": [
+   "CVE-2023-20583"
+  ],
+  "description": {
+   "de": "Software-basierter Power-Seitenkanal, der Daten über Kollisionen in gemeinsam genutzten CPU-Komponenten ausliest.",
+   "en": "Software-based power side channel that leaks data through collisions in shared CPU components."
+  },
+  "added": "2026-10"
+ },
+ {
+  "id": "aepicleak",
+  "name": "ÆPIC Leak",
+  "date": "2022-08-09",
+  "image": "aepicleak.svg",
+  "url": "https://aepicleak.com/",
+  "category": "hardware",
+  "cve": [
+   "CVE-2022-21233"
+  ],
+  "description": {
+   "de": "Erster architektonischer CPU-Fehler, der veraltete Daten über die APIC-Register von Intel-CPUs direkt offenlegt.",
+   "en": "First architectural CPU bug that directly discloses stale data through the APIC registers of Intel CPUs."
+  },
+  "added": "2026-10"
+ },
+ {
+  "id": "hertzbleed",
+  "name": "Hertzbleed",
+  "date": "2022-06-14",
+  "image": "hertzbleed.svg",
+  "url": "https://www.hertzbleed.com/",
+  "category": "hardware",
+  "cve": [
+   "CVE-2022-24436",
+   "CVE-2022-23823"
+  ],
+  "description": {
+   "de": "Macht Leistungsseitenkanäle über dynamische Taktanpassung (DVFS) zu Timing-Angriffen, die sich aus der Ferne ausnutzen lassen.",
+   "en": "Turns power side channels into remote timing attacks via dynamic frequency scaling (DVFS)."
+  },
+  "added": "2026-10"
+ },
+ {
+  "id": "pacman",
+  "name": "PACMAN",
+  "date": "2022-06-10",
+  "image": "pacman.png",
+  "url": "https://pacmanattack.com/",
+  "category": "hardware",
+  "cve": [],
+  "description": {
+   "de": "Umgeht die Pointer Authentication von Apples M1 mithilfe spekulativer Ausführung.",
+   "en": "Bypasses Pointer Authentication on Apple M1 using speculative execution."
+  },
+  "added": "2026-10"
+ },
+ {
+  "id": "log4shell",
+  "name": "Log4Shell",
+  "date": "2021-12-09",
+  "image": "log4shell.png",
+  "url": "https://www.lunasec.io/docs/blog/log4j-zero-day/",
+  "category": "software",
+  "cve": [
+   "CVE-2021-44228"
+  ],
+  "description": {
+   "de": "JNDI-Lookup in Apache Log4j 2, durch den eine einzige geloggte Zeichenkette Code auf dem Server ausführt.",
+   "en": "JNDI lookup in Apache Log4j 2 where a single logged string executes code on the server."
+  }
+ },
+ {
+  "id": "spookjs",
+  "name": "Spook.js",
+  "date": "2021-09-09",
+  "image": "spookjs.svg",
+  "url": "https://www.spookjs.com/",
+  "category": "hardware",
+  "cve": [],
+  "description": {
+   "de": "Spectre-Angriff aus JavaScript, der trotz Site Isolation Daten anderer Websites in Google Chrome ausliest.",
+   "en": "Spectre attack from JavaScript that leaks data of other websites in Google Chrome despite Site Isolation."
+  },
+  "added": "2026-10"
+ },
+ {
+  "id": "braktooth",
+  "name": "BrakTooth",
+  "date": "2021-08-31",
+  "image": "braktooth.svg",
+  "url": "https://asset-group.github.io/disclosures/braktooth/",
+  "category": "wireless",
+  "cve": [
+   "CVE-2021-28139",
+   "CVE-2021-34144"
+  ],
+  "description": {
+   "de": "Familie von Lücken in kommerziellen Bluetooth-Classic-Stacks, die von Abstürzen bis zur Codeausführung reichen.",
+   "en": "Family of flaws in commercial Bluetooth Classic stacks ranging from crashes to arbitrary code execution."
+  }
+ },
+ {
+  "id": "alpaca",
+  "name": "ALPACA",
+  "date": "2021-06-09",
+  "image": "alpaca.png",
+  "url": "https://alpaca-attack.com/",
+  "category": "crypto",
+  "cve": [
+   "CVE-2021-3618"
+  ],
+  "description": {
+   "de": "Cross-Protocol-Angriff, der TLS-Verbindungen auf einen anderen Dienst mit kompatiblem Zertifikat (z. B. FTP oder Mail) umleitet.",
+   "en": "Cross-protocol attack that redirects TLS traffic to a different service sharing a compatible certificate, such as FTP or mail."
+  }
+ },
+ {
+  "id": "fragattacks",
+  "name": "FragAttacks",
+  "date": "2021-05-11",
+  "image": "fragattacks.png",
+  "url": "https://www.fragattacks.com/",
+  "category": "wireless",
+  "cve": [
+   "CVE-2020-24586",
+   "CVE-2020-24587",
+   "CVE-2020-24588"
+  ],
+  "description": {
+   "de": "Design- und Implementierungsfehler bei Fragmentierung und Aggregation in WLAN, die praktisch alle Geräte betreffen.",
+   "en": "Design and implementation flaws in Wi-Fi fragmentation and aggregation affecting nearly every device."
+  }
+ },
+ {
+  "id": "proxylogon",
+  "name": "ProxyLogon",
+  "date": "2021-03-02",
+  "image": "proxylogon.png",
+  "url": "https://proxylogon.com/",
+  "category": "software",
+  "cve": [
+   "CVE-2021-26855",
+   "CVE-2021-27065"
+  ],
+  "description": {
+   "de": "Lückenkette in Microsoft Exchange Server, die ohne Anmeldung zu Codeausführung führte und massenhaft ausgenutzt wurde.",
+   "en": "Chain of Microsoft Exchange Server flaws leading to unauthenticated code execution, exploited at massive scale."
+  }
+ },
+ {
+  "id": "dnspooq",
+  "name": "DNSpooq",
+  "date": "2021-01-19",
+  "image": "dnspooq.png",
+  "url": "https://www.jsof-tech.com/disclosures/dnspooq/",
+  "category": "network",
+  "cve": [
+   "CVE-2020-25681",
+   "CVE-2020-25682",
+   "CVE-2020-25683",
+   "CVE-2020-25684",
+   "CVE-2020-25685",
+   "CVE-2020-25686",
+   "CVE-2020-25687"
+  ],
+  "description": {
+   "de": "Sieben Lücken in dnsmasq, die DNS-Cache-Poisoning und Codeausführung auf Routern und Embedded-Geräten erlauben.",
+   "en": "Seven flaws in dnsmasq enabling DNS cache poisoning and code execution on routers and embedded devices."
+  }
+ },
+ {
+  "id": "platypus",
+  "name": "PLATYPUS",
+  "date": "2020-11-10",
+  "image": "platypus.svg",
+  "url": "https://platypusattack.com/",
+  "category": "hardware",
+  "cve": [
+   "CVE-2020-8694",
+   "CVE-2020-8695"
+  ],
+  "description": {
+   "de": "Software-basierter Power-Seitenkanal über die RAPL-Schnittstelle, der kryptografische Schlüssel aus Intel-CPUs ableitet.",
+   "en": "Software-based power side channel via the RAPL interface that extracts cryptographic keys from Intel CPUs."
+  }
+ },
+ {
+  "id": "raccoon",
+  "name": "Raccoon",
+  "date": "2020-09-09",
+  "image": "racoon.png",
+  "url": "https://raccoon-attack.com/",
+  "category": "crypto",
+  "cve": [
+   "CVE-2020-1968"
+  ],
+  "description": {
+   "de": "Timing-Angriff auf den Diffie-Hellman-Schlüsselaustausch in TLS 1.2 und älter, der das Pre-Master-Secret offenlegen kann.",
+   "en": "Timing attack on Diffie-Hellman key exchange in TLS 1.2 and earlier that can reveal the pre-master secret."
+  }
+ },
+ {
+  "id": "boothole",
+  "name": "BootHole",
+  "date": "2020-07-29",
+  "image": "boothole.png",
+  "url": "https://eclypsium.com/2020/07/29/theres-a-hole-in-the-boot/",
+  "category": "software",
+  "cve": [
+   "CVE-2020-10713"
+  ],
+  "description": {
+   "de": "Pufferüberlauf in GRUB2, mit dem sich Secure Boot umgehen und Code vor dem Betriebssystem ausführen lässt.",
+   "en": "Buffer overflow in GRUB2 that bypasses Secure Boot and runs code before the operating system loads."
+  }
+ },
+ {
+  "id": "ripple20",
+  "name": "Ripple20",
+  "date": "2020-06-16",
+  "image": "ripple20.png",
+  "url": "https://www.jsof-tech.com/ripple20/",
+  "category": "network",
+  "cve": [
+   "CVE-2020-11896",
+   "CVE-2020-11897",
+   "CVE-2020-11898"
+  ],
+  "description": {
+   "de": "19 Lücken im TCP/IP-Stack von Treck, der in Hunderten Millionen IoT-, Medizin- und Industriegeräten steckt.",
+   "en": "Nineteen flaws in the Treck TCP/IP stack found in hundreds of millions of IoT, medical and industrial devices."
+  }
+ },
+ {
+  "id": "sgaxe",
+  "name": "SGAxe",
+  "date": "2020-06-09",
+  "image": "sgaxe.svg",
+  "url": "https://sgaxe.com/",
+  "category": "hardware",
+  "cve": [
+   "CVE-2020-0549"
+  ],
+  "description": {
+   "de": "Nutzt CacheOut, um Attestierungsschlüssel aus Intels SGX-Quoting-Enklave zu extrahieren und damit Attestierung zu fälschen.",
+   "en": "Uses CacheOut to extract attestation keys from Intel's SGX quoting enclave and forge attestations."
+  },
+  "added": "2026-10"
+ },
+ {
+  "id": "thunderspy",
+  "name": "Thunderspy",
+  "date": "2020-05-10",
+  "image": "thunderspy.png",
+  "url": "https://thunderspy.io/",
+  "category": "hardware",
+  "cve": [],
+  "description": {
+   "de": "Angriffe auf Thunderbolt, mit denen sich in wenigen Minuten physischen Zugriffs Sperrbildschirm und Festplattenverschlüsselung umgehen lassen.",
+   "en": "Thunderbolt attacks that bypass the lock screen and disk encryption within minutes of physical access."
+  }
+ },
+ {
+  "id": "lvi",
+  "name": "LVI – Load Value Injection",
+  "date": "2020-03-10",
+  "image": "lviattack.svg",
+  "url": "https://lviattack.eu/",
+  "category": "hardware",
+  "cve": [
+   "CVE-2020-0551"
+  ],
+  "description": {
+   "de": "Kehrt Meltdown-artige Datenlecks um und schleust Angreiferwerte in die transiente Ausführung von Intel-SGX-Enklaven.",
+   "en": "Turns Meltdown-style leakage around by injecting attacker values into the transient execution of Intel SGX enclaves."
+  }
+ },
+ {
+  "id": "ghostcat",
+  "name": "Ghostcat",
+  "date": "2020-02-20",
+  "image": "ghostcat.png",
+  "url": "https://www.chaitin.cn/en/ghostcat",
+  "category": "software",
+  "cve": [
+   "CVE-2020-1938"
+  ],
+  "description": {
+   "de": "Fehler im AJP-Connector von Apache Tomcat, über den Dateien gelesen und unter Umständen Code ausgeführt werden kann.",
+   "en": "Flaw in Apache Tomcat's AJP connector allowing file disclosure and, in some setups, code execution."
+  }
+ },
+ {
+  "id": "sweyntooth",
+  "name": "SweynTooth",
+  "date": "2020-02-11",
+  "image": "sweintooth.jpg",
+  "url": "https://asset-group.github.io/disclosures/sweyntooth/",
+  "category": "wireless",
+  "cve": [
+   "CVE-2019-16336",
+   "CVE-2019-17519",
+   "CVE-2019-19194"
+  ],
+  "description": {
+   "de": "Lücken in Bluetooth-Low-Energy-SDKs mehrerer Chiphersteller, die Abstürze, Deadlocks und Sicherheitsumgehung erlauben.",
+   "en": "Flaws in Bluetooth Low Energy SDKs from several chip vendors causing crashes, deadlocks and security bypasses."
+  }
+ },
+ {
+  "id": "cacheout",
+  "name": "CacheOut",
+  "date": "2020-01-27",
+  "image": "cacheout.svg",
+  "url": "https://cacheoutattack.com/",
+  "category": "hardware",
+  "cve": [
+   "CVE-2020-0549"
+  ],
+  "description": {
+   "de": "Spekulativer Angriff auf Intel-CPUs, der über Cache-Verdrängungen gezielt Daten über Sicherheitsgrenzen hinweg ausliest.",
+   "en": "Speculative execution attack on Intel CPUs that uses cache evictions to leak chosen data across security boundaries."
+  }
+ },
+ {
+  "id": "plundervolt",
+  "name": "Plundervolt",
+  "date": "2019-12-10",
+  "image": "plundervolt.svg",
+  "url": "https://plundervolt.com/",
+  "category": "hardware",
+  "cve": [
+   "CVE-2019-11157"
+  ],
+  "description": {
+   "de": "Gezieltes Unterspannen von Intel-CPUs per Software, um Rechenfehler in SGX-Enklaven zu provozieren.",
+   "en": "Software-controlled undervolting of Intel CPUs to induce faults inside SGX enclaves."
+  }
+ },
+ {
+  "id": "tpm-fail",
+  "name": "TPM-Fail",
+  "date": "2019-11-12",
+  "image": "tpmfail.webp",
+  "url": "https://tpm.fail/",
+  "category": "hardware",
+  "cve": [
+   "CVE-2019-11090",
+   "CVE-2019-16863"
+  ],
+  "description": {
+   "de": "Timing-Lecks in Intel fTPM und STMicroelectronics-TPMs, über die sich ECDSA-Schlüssel rekonstruieren lassen.",
+   "en": "Timing leaks in Intel fTPM and STMicroelectronics TPMs that allow recovering ECDSA private keys."
+  },
+  "added": "2026-10"
+ },
+ {
+  "id": "rambleed",
+  "name": "RAMBleed",
+  "date": "2019-06-11",
+  "image": "rambleed.svg",
+  "url": "https://rambleed.com/",
+  "category": "hardware",
+  "cve": [
+   "CVE-2019-0174"
+  ],
+  "description": {
+   "de": "Rowhammer-Variante, die Bits benachbarter Speicherzellen nicht verändert, sondern ausliest.",
+   "en": "Rowhammer variant that reads, rather than flips, bits in neighbouring memory rows."
+  }
+ },
+ {
+  "id": "zombieload",
+  "name": "ZombieLoad",
+  "date": "2019-05-14",
+  "image": "zombieloadattack.svg",
+  "url": "https://zombieloadattack.com/",
+  "category": "hardware",
+  "cve": [
+   "CVE-2018-12130"
+  ],
+  "description": {
+   "de": "MDS-Angriff, der über die Fill-Buffer von Intel-CPUs Daten anderer Prozesse, VMs und des Kernels ausliest.",
+   "en": "MDS attack that leaks data of other processes, VMs and the kernel through Intel CPU fill buffers."
+  }
+ },
+ {
+  "id": "ridl-fallout",
+  "name": "RIDL & Fallout (MDS)",
+  "date": "2019-05-14",
+  "image": "mds.svg",
+  "url": "https://mdsattacks.com/",
+  "category": "hardware",
+  "cve": [
+   "CVE-2018-12126",
+   "CVE-2018-12127",
+   "CVE-2019-11091"
+  ],
+  "description": {
+   "de": "Microarchitectural-Data-Sampling-Angriffe, die Daten aus internen Puffern von Intel-CPUs über Sicherheitsgrenzen hinweg auslesen.",
+   "en": "Microarchitectural Data Sampling attacks leaking data from internal Intel CPU buffers across security boundaries."
+  },
+  "added": "2026-10"
+ },
+ {
+  "id": "dragonblood",
+  "name": "Dragonblood",
+  "date": "2019-04-10",
+  "image": "dragonblood.png",
+  "url": "https://wpa3.mathyvanhoef.com/",
+  "category": "wireless",
+  "cve": [
+   "CVE-2019-9494",
+   "CVE-2019-9495",
+   "CVE-2019-9496"
+  ],
+  "description": {
+   "de": "Design- und Implementierungsfehler im WPA3-Handshake (SAE), die Downgrades und das Ermitteln des WLAN-Passworts erlauben.",
+   "en": "Design and implementation flaws in WPA3's SAE handshake enabling downgrades and Wi-Fi password recovery."
+  }
+ },
+ {
+  "id": "bleeding-bit",
+  "name": "BLEEDINGBIT",
+  "date": "2018-11-01",
+  "image": "bleeding-bit.png",
+  "url": "https://armis.com/bleedingbit/",
+  "category": "wireless",
+  "cve": [
+   "CVE-2018-16986",
+   "CVE-2018-7080"
+  ],
+  "description": {
+   "de": "Zwei Lücken in Bluetooth-Low-Energy-Chips von Texas Instruments, die vor allem WLAN-Access-Points für Codeausführung angreifbar machten.",
+   "en": "Two flaws in Texas Instruments Bluetooth Low Energy chips, exposing enterprise Wi-Fi access points to remote code execution."
+  }
+ },
+ {
+  "id": "foreshadow",
+  "name": "Foreshadow",
+  "date": "2018-08-14",
+  "image": "foreshadow.svg",
+  "url": "https://foreshadowattack.eu/",
+  "category": "hardware",
+  "cve": [
+   "CVE-2018-3615",
+   "CVE-2018-3620",
+   "CVE-2018-3646"
+  ],
+  "description": {
+   "de": "L1-Terminal-Fault-Angriff auf Intel-CPUs, der Daten aus SGX-Enklaven, dem Kernel und anderen VMs ausliest.",
+   "en": "L1 Terminal Fault attack on Intel CPUs that leaks data from SGX enclaves, the kernel and other VMs."
+  }
+ },
+ {
+  "id": "rampage",
+  "name": "RAMpage",
+  "date": "2018-06-28",
+  "image": "rampage.png",
+  "url": "http://rampageattack.com/",
+  "category": "hardware",
+  "cve": [
+   "CVE-2018-9442"
+  ],
+  "description": {
+   "de": "Rowhammer-Angriff auf Android-Geräte, der die Isolation zwischen Apps und Betriebssystem bricht.",
+   "en": "Rowhammer attack on Android devices that breaks the isolation between apps and the operating system."
+  }
+ },
+ {
+  "id": "efail",
+  "name": "EFAIL",
+  "date": "2018-05-14",
+  "image": "efail.svg",
+  "url": "https://efail.de/",
+  "category": "crypto",
+  "cve": [
+   "CVE-2017-17688",
+   "CVE-2017-17689"
+  ],
+  "description": {
+   "de": "Angriffe auf OpenPGP- und S/MIME-verschlüsselte E-Mails, die den Klartext über aktive Inhalte an den Angreifer schicken.",
+   "en": "Attacks on OpenPGP and S/MIME encrypted email that exfiltrate the plaintext via active content."
+  }
+ },
+ {
+  "id": "holeybeep",
+  "name": "Holey Beep",
+  "date": "2018-04",
+  "image": "holeybeep.png",
+  "url": "https://holeybeep.ninja/",
+  "category": "software",
+  "cve": [
+   "CVE-2018-0492"
+  ],
+  "description": {
+   "de": "Race Condition im Linux-Tool beep, die lokale Rechteausweitung erlaubt – berühmt für ihre ironische Vermarktung.",
+   "en": "Race condition in the Linux beep utility allowing local privilege escalation, famous for its tongue-in-cheek branding."
+  }
+ },
+ {
+  "id": "meltdown",
+  "name": "Meltdown",
+  "date": "2018-01-03",
+  "image": "meltdown.svg",
+  "url": "https://meltdownattack.com/",
+  "category": "hardware",
+  "cve": [
+   "CVE-2017-5754"
+  ],
+  "description": {
+   "de": "Hebelt die Trennung zwischen Anwendungen und Betriebssystem aus und liest Kernelspeicher über spekulative Ausführung.",
+   "en": "Breaks the isolation between applications and the operating system, reading kernel memory via speculative execution."
+  }
+ },
+ {
+  "id": "spectre",
+  "name": "Spectre",
+  "date": "2018-01-03",
+  "image": "spectre.svg",
+  "url": "https://spectreattack.com/",
+  "category": "hardware",
+  "cve": [
+   "CVE-2017-5753",
+   "CVE-2017-5715"
+  ],
+  "description": {
+   "de": "Bringt Programme per Sprungvorhersage dazu, spekulativ Geheimnisse zu lesen und über Seitenkanäle preiszugeben.",
+   "en": "Tricks programs via branch prediction into speculatively reading secrets and leaking them through side channels."
+  }
+ },
+ {
+  "id": "robot",
+  "name": "ROBOT",
+  "date": "2017-12-12",
+  "image": "robot.svg",
+  "url": "https://robotattack.org/",
+  "category": "crypto",
+  "cve": [
+   "CVE-2017-13099",
+   "CVE-2017-6168"
+  ],
+  "description": {
+   "de": "Rückkehr von Bleichenbachers Oracle-Angriff auf RSA-Verschlüsselung in TLS – 19 Jahre nach der Erstbeschreibung.",
+   "en": "Return of Bleichenbacher's oracle attack on RSA encryption in TLS, 19 years after it was first described."
+  }
+ },
+ {
+  "id": "krack",
+  "name": "KRACK",
+  "date": "2017-10-16",
+  "image": "krack.png",
+  "url": "https://www.krackattacks.com/",
+  "category": "wireless",
+  "cve": [
+   "CVE-2017-13077",
+   "CVE-2017-13078",
+   "CVE-2017-13080"
+  ],
+  "description": {
+   "de": "Key-Reinstallation-Angriffe auf den WPA2-Handshake, mit denen sich WLAN-Verkehr entschlüsseln lässt.",
+   "en": "Key reinstallation attacks against the WPA2 handshake that allow decrypting Wi-Fi traffic."
+  }
+ },
+ {
+  "id": "blueborne",
+  "name": "BlueBorne",
+  "date": "2017-09-12",
+  "image": "blueborne.png",
+  "url": "https://www.armis.com/blueborne/",
+  "category": "wireless",
+  "cve": [
+   "CVE-2017-1000251",
+   "CVE-2017-1000250",
+   "CVE-2017-0781",
+   "CVE-2017-0785"
+  ],
+  "description": {
+   "de": "Sammlung von Bluetooth-Lücken in Android, Linux, Windows und iOS, die Geräte ohne Kopplung übernehmbar machten.",
+   "en": "Set of Bluetooth vulnerabilities in Android, Linux, Windows and iOS allowing device takeover without pairing."
+  }
+ },
+ {
+  "id": "orpheus",
+  "name": "Orpheus' Lyre",
+  "date": "2017-07",
+  "image": "orpheus.png",
+  "url": "https://www.orpheus-lyre.info/",
+  "category": "network",
+  "cve": [
+   "CVE-2017-11103"
+  ],
+  "description": {
+   "de": "Fehler in Heimdal-Kerberos, bei dem ungeschützte Ticket-Metadaten genutzt wurden und so Dienste-Imitation möglich war.",
+   "en": "Heimdal Kerberos flaw that trusted unauthenticated ticket metadata, allowing service impersonation."
+  }
+ },
+ {
+  "id": "dirtycow",
+  "name": "Dirty COW",
+  "date": "2016-10-20",
+  "image": "cow.svg",
+  "url": "https://dirtycow.ninja/",
+  "category": "software",
+  "cve": [
+   "CVE-2016-5195"
+  ],
+  "description": {
+   "de": "Race Condition im Copy-on-Write-Mechanismus des Linux-Kernels, die lokale Rechteausweitung auf root ermöglicht.",
+   "en": "Race condition in the Linux kernel's copy-on-write mechanism allowing local privilege escalation to root."
+  }
+ },
+ {
+  "id": "sweet32",
+  "name": "Sweet32",
+  "date": "2016-08-24",
+  "image": "sweet32.svg",
+  "url": "https://sweet32.info/",
+  "category": "crypto",
+  "cve": [
+   "CVE-2016-2183",
+   "CVE-2016-6329"
+  ],
+  "description": {
+   "de": "Geburtstagsangriff auf 64-Bit-Blockchiffren wie 3DES und Blowfish in TLS und OpenVPN bei langen Verbindungen.",
+   "en": "Birthday attack on 64-bit block ciphers such as 3DES and Blowfish in long-lived TLS and OpenVPN sessions."
+  },
+  "added": "2026-10"
+ },
+ {
+  "id": "imagetragick",
+  "name": "ImageTragick",
+  "date": "2016-05-03",
+  "image": "imagetragick.png",
+  "url": "https://imagetragick.com/",
+  "category": "software",
+  "cve": [
+   "CVE-2016-3714"
+  ],
+  "description": {
+   "de": "Lücken in ImageMagick, über die präparierte Bilddateien beim Verarbeiten Code auf Webservern ausführen.",
+   "en": "Flaws in ImageMagick letting crafted image files execute code on web servers that process them."
+  }
+ },
+ {
+  "id": "badlock",
+  "name": "Badlock",
+  "date": "2016-04-12",
+  "image": "badlock.svg.png",
+  "url": "https://web.archive.org/web/20170608065927/http://badlock.org/",
+  "category": "network",
+  "cve": [
+   "CVE-2016-2118",
+   "CVE-2016-0128"
+  ],
+  "description": {
+   "de": "Fehler in SAMR/LSA von Samba und Windows, die Man-in-the-Middle-Angriffe auf Active-Directory-Kommunikation ermöglichen.",
+   "en": "Flaws in the SAMR/LSA protocols of Samba and Windows enabling man-in-the-middle attacks on Active Directory traffic."
+  }
+ },
+ {
+  "id": "drown",
+  "name": "DROWN",
+  "date": "2016-03-01",
+  "image": "drown.svg",
+  "url": "https://drownattack.com/",
+  "category": "crypto",
+  "cve": [
+   "CVE-2016-0800"
+  ],
+  "description": {
+   "de": "Nutzt Server mit SSLv2-Unterstützung aus, um moderne TLS-Verbindungen mit demselben RSA-Schlüssel zu entschlüsseln.",
+   "en": "Uses servers that still support SSLv2 to decrypt modern TLS connections sharing the same RSA key."
+  }
+ },
+ {
+  "id": "mousejack",
+  "name": "MouseJack",
+  "date": "2016-02-23",
+  "image": "mousejack.png",
+  "url": "https://www.mousejack.com/",
+  "category": "wireless",
+  "cve": [],
+  "description": {
+   "de": "Lücken in kabellosen Mäusen und Tastaturen, über die Angreifer aus bis zu 100 m Entfernung Tastatureingaben einschleusen.",
+   "en": "Flaws in wireless mice and keyboards letting attackers inject keystrokes from up to 100 metres away."
+  }
+ },
+ {
+  "id": "stagefright",
+  "name": "Stagefright",
+  "date": "2015-07-27",
+  "image": "stagefright.png",
+  "url": "https://blog.zimperium.com/experts-found-a-unicorn-in-the-heart-of-android/",
+  "category": "software",
+  "cve": [
+   "CVE-2015-1538",
+   "CVE-2015-3824"
+  ],
+  "description": {
+   "de": "Lücken in der Android-Medienbibliothek, die schon beim Empfang einer präparierten MMS Code ausführten.",
+   "en": "Flaws in Android's media library that executed code merely on receiving a crafted MMS."
+  }
+ },
+ {
+  "id": "logjam",
+  "name": "Logjam",
+  "date": "2015-05-20",
+  "image": "logjam.png",
+  "url": "https://weakdh.org/",
+  "category": "crypto",
+  "cve": [
+   "CVE-2015-4000"
+  ],
+  "description": {
+   "de": "Downgrade von TLS auf Export-Diffie-Hellman mit 512 Bit, deren Schlüsselaustausch sich brechen lässt.",
+   "en": "Downgrades TLS to 512-bit export-grade Diffie-Hellman, whose key exchange can be broken."
+  }
+ },
+ {
+  "id": "venom",
+  "name": "VENOM",
+  "date": "2015-05-13",
+  "image": "venom.png",
+  "url": "https://web.archive.org/web/20150513104122/http://venom.crowdstrike.com/",
+  "category": "software",
+  "cve": [
+   "CVE-2015-3456"
+  ],
+  "description": {
+   "de": "Pufferüberlauf im virtuellen Diskettencontroller von QEMU, der den Ausbruch aus virtuellen Maschinen ermöglicht.",
+   "en": "Buffer overflow in QEMU's virtual floppy disk controller that allows escaping from virtual machines."
+  }
+ },
+ {
+  "id": "ghost",
+  "name": "GHOST",
+  "date": "2015-01-27",
+  "image": "ghost.svg",
+  "url": "https://blog.qualys.com/vulnerabilities-threat-research/2015/01/27/the-ghost-vulnerability",
+  "category": "software",
+  "cve": [
+   "CVE-2015-0235"
+  ],
+  "description": {
+   "de": "Pufferüberlauf in der gethostbyname-Funktion der glibc, der Codeausführung aus der Ferne ermöglicht.",
+   "en": "Buffer overflow in glibc's gethostbyname functions enabling remote code execution."
+  }
+ },
+ {
+  "id": "drupalgeddon",
+  "name": "Drupalgeddon",
+  "date": "2014-10-15",
+  "image": "drupalgeddon.png",
+  "url": "https://nvd.nist.gov/vuln/detail/CVE-2014-3704",
+  "category": "software",
+  "cve": [
+   "CVE-2014-3704"
+  ],
+  "description": {
+   "de": "SQL-Injection in der Datenbank-API von Drupal 7, die ohne Anmeldung zur vollständigen Übernahme von Websites führte.",
+   "en": "SQL injection in Drupal 7's database API leading to unauthenticated full site takeover."
+  }
+ },
+ {
+  "id": "poodle",
+  "name": "POODLE",
+  "date": "2014-10-14",
+  "image": "poodle.png",
+  "url": "https://poodle.io/",
+  "category": "crypto",
+  "cve": [
+   "CVE-2014-3566"
+  ],
+  "description": {
+   "de": "Padding-Oracle-Angriff auf SSL 3.0, der nach einem Downgrade Teile verschlüsselter Verbindungen offenlegt.",
+   "en": "Padding oracle attack on SSL 3.0 that reveals parts of encrypted connections after a downgrade."
+  }
+ },
+ {
+  "id": "shellshock",
+  "name": "Shellshock",
+  "date": "2014-09-24",
+  "image": "shellshock.png",
+  "url": "https://nvd.nist.gov/vuln/detail/CVE-2014-6271",
+  "category": "software",
+  "cve": [
+   "CVE-2014-6271",
+   "CVE-2014-7169"
+  ],
+  "description": {
+   "de": "Fehler im Bash-Parser für Funktionsdefinitionen in Umgebungsvariablen, der etwa über CGI Codeausführung ermöglicht.",
+   "en": "Bug in Bash's parsing of function definitions in environment variables enabling code execution, e.g. via CGI."
+  }
+ },
+ {
+  "id": "ccs",
+  "name": "CCS Injection",
+  "date": "2014-06-05",
+  "image": "css.png",
+  "url": "http://ccsinjection.lepidum.co.jp/",
+  "category": "crypto",
+  "cve": [
+   "CVE-2014-0224"
+  ],
+  "description": {
+   "de": "Fehler in der ChangeCipherSpec-Verarbeitung von OpenSSL, durch den ein Angreifer schwache Sitzungsschlüssel erzwingen kann.",
+   "en": "Flaw in OpenSSL's ChangeCipherSpec handling that lets an attacker force weak session keys."
+  }
+ },
+ {
+  "id": "heartbleed",
+  "name": "Heartbleed",
+  "date": "2014-04-07",
+  "image": "heartbleed.png",
+  "url": "https://heartbleed.com/",
+  "category": "crypto",
+  "cve": [
+   "CVE-2014-0160"
+  ],
+  "description": {
+   "de": "Fehlende Längenprüfung in der Heartbeat-Erweiterung von OpenSSL, die bis zu 64 KB Serverspeicher pro Anfrage preisgibt.",
+   "en": "Missing bounds check in OpenSSL's heartbeat extension leaking up to 64 KB of server memory per request."
+  }
+ },
+ {
+  "id": "breach",
+  "name": "BREACH",
+  "date": "2013-08-01",
+  "image": "breach.svg",
+  "url": "https://media.blackhat.com/us-13/US-13-Prado-SSL-Gone-in-30-seconds-A-BREACH-beyond-CRIME-Slides.pdf",
+  "category": "crypto",
+  "cve": [
+   "CVE-2013-3587"
+  ],
+  "description": {
+   "de": "Kompressions-Seitenkanal auf HTTP-Antworten, der Geheimnisse wie CSRF-Token aus TLS-geschützten Seiten ableitet.",
+   "en": "Compression side channel on HTTP responses that extracts secrets such as CSRF tokens from TLS-protected pages."
+  }
+ },
+ {
+  "id": "slowloris",
+  "name": "Slowloris",
+  "date": "2009-06-17",
+  "image": "slowloris.png",
+  "url": "https://web.archive.org/web/20120108183614/http://ha.ckers.org/slowloris/",
+  "category": "network",
+  "cve": [
+   "CVE-2007-6750"
+  ],
+  "description": {
+   "de": "Denial-of-Service-Werkzeug, das Webserver mit vielen langsam gesendeten, nie abgeschlossenen HTTP-Anfragen blockiert.",
+   "en": "Denial-of-service tool that ties up web servers with many slowly sent, never completed HTTP requests."
+  }
+ }
+]
