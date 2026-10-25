@@ -108,6 +108,8 @@ body {
   overflow-x: hidden;
 }
 
+[hidden] { display: none !important; }
+
 img, svg { display: block; max-width: 100%; }
 
 a { color: inherit; }
@@ -353,6 +355,37 @@ main { max-width: 1440px; margin: 0 auto; padding: 0 var(--gutter); }
 .sticker img[src$=".svg"] { width: 100%; height: 100%; }
 .sticker.dark { background: #15171a; }
 
+/* lettered stand-in for vulnerabilities without an official logo */
+.sticker.no-logo { background: var(--paper); container-type: inline-size; }
+.stand-in {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  height: 100%;
+  border: 2px dashed #b9c3c8;
+  border-radius: calc(var(--radius-sticker) - 6px);
+  color: #14222b;
+  text-align: center;
+}
+.stand-in-name {
+  max-width: 100%;
+  padding: 0 0.3rem;
+  font-weight: 860;
+  font-stretch: 100%;
+  font-size: clamp(0.8rem, 9.5cqi, 2.4rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.stand-in-hint { font-size: 0.78rem; color: #5b6b74; }
+.t-item .stand-in-name { font-size: clamp(0.5rem, 12cqi, 1rem); padding: 0; }
+.t-item .stand-in-hint { display: none; }
+
 /* ---------- wall ---------- */
 .wall {
   display: grid;
@@ -550,7 +583,22 @@ dialog[open] { animation: lift 0.2s ease-out; }
 .foot p { margin: 0 0 0.7rem; max-width: 60ch; color: var(--muted); }
 .foot ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.35rem; }
 .foot a { text-underline-offset: 3px; }
-.colophon { grid-column: 1 / -1; font-size: 0.88rem; }
+.contact { display: grid; grid-template-columns: auto 1fr; gap: 0.35rem 1rem; margin: 0; }
+.contact dt { color: var(--muted); }
+.contact dd { margin: 0; }
+
+.legal {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.6rem 2rem;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+.legal ul { display: flex; flex-wrap: wrap; gap: 0.4rem 1.4rem; }
+.legal .colophon { margin: 0; font-size: 0.88rem; }
 
 /* ---------- small screens ---------- */
 @media (max-width: 640px) {
@@ -570,6 +618,6 @@ dialog[open] { animation: lift 0.2s ease-out; }
 }
 
 @media print {
-  .controls, .toggles, .foot ul { display: none; }
+  .controls, .toggles { display: none; }
   body { background: #fff; color: #000; }
 }

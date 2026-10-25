@@ -13,8 +13,10 @@
       skip: "Skip to the gallery",
       theme: "Switch colour scheme",
       headline: "No critical vulnerability without a logo.",
-      lede: (n, oldName, oldYear, newName, newYear) => [
-        `${n} vulnerabilities with their own name and logo, from `,
+      lede: (n, logos, oldName, oldYear, newName, newYear) => [
+        n === logos
+          ? `${n} vulnerabilities with their own name and logo, from `
+          : `${n} vulnerabilities with their own name, ${logos} of them with a logo, from `,
         [oldName], ` (${oldYear}) to `, [newName], ` (${newYear}).`,
       ],
       filterHeading: "Filter the gallery",
@@ -42,7 +44,12 @@
       about: "Vulnallery is a fun project that collects vulnerabilities that come with a logo. Every logo belongs to its creators and links to the original source.",
       rights: "If image rights have been violated, please let me know. Requirements will be met or the image will be removed.",
       contactTitle: "Contact",
-      issue: "Suggest a vulnerability or report a problem",
+      website: "Website",
+      email: "Email",
+      legalTitle: "Legal",
+      imprint: "Legal notice",
+      privacy: "Privacy policy",
+      issue: "Suggest a vulnerability on GitHub",
       colophon: "Plain HTML, CSS and JavaScript. No cookies, no trackers, no requests to other sites.",
       close: "Close",
       cveTitle: "CVE identifiers",
@@ -53,6 +60,7 @@
       prev: "Previous",
       next: "Next",
       isNew: "New",
+      noLogo: "Logo pending",
       cats: {
         hardware: "CPU & hardware",
         crypto: "TLS & crypto",
@@ -66,8 +74,10 @@
       skip: "Zur Galerie springen",
       theme: "Farbschema wechseln",
       headline: "Keine kritische Lücke ohne Logo.",
-      lede: (n, oldName, oldYear, newName, newYear) => [
-        `${n} Sicherheitslücken mit eigenem Namen und Logo, von `,
+      lede: (n, logos, oldName, oldYear, newName, newYear) => [
+        n === logos
+          ? `${n} Sicherheitslücken mit eigenem Namen und Logo, von `
+          : `${n} Sicherheitslücken mit eigenem Namen, ${logos} davon mit Logo, von `,
         [oldName], ` (${oldYear}) bis `, [newName], ` (${newYear}).`,
       ],
       filterHeading: "Galerie filtern",
@@ -95,7 +105,12 @@
       about: "Vulnallery ist ein Spaßprojekt, das Sicherheitslücken mit eigenem Logo sammelt. Alle Logos gehören ihren Urhebern und verlinken auf die Originalquelle.",
       rights: "Falls Bildrechte verletzt werden, gib mir bitte Bescheid. Auflagen werden umgesetzt oder das Bild wird entfernt.",
       contactTitle: "Kontakt",
-      issue: "Lücke vorschlagen oder Problem melden",
+      website: "Website",
+      email: "E-Mail",
+      legalTitle: "Rechtliches",
+      imprint: "Impressum",
+      privacy: "Datenschutz",
+      issue: "Lücke auf GitHub vorschlagen",
       colophon: "Reines HTML, CSS und JavaScript. Keine Cookies, keine Tracker, keine Anfragen an andere Seiten.",
       close: "Schließen",
       cveTitle: "CVE-Kennungen",
@@ -106,6 +121,7 @@
       prev: "Vorherige",
       next: "Nächste",
       isNew: "Neu",
+      noLogo: "Logo fehlt noch",
       cats: {
         hardware: "CPU & Hardware",
         crypto: "TLS & Krypto",
@@ -144,7 +160,8 @@
     if (!raw || typeof raw !== "object") return null;
     const { id, name, date, image, url, category, cve = [], description = {}, added, darkBackground } = raw;
     if (!RE_ID.test(id) || typeof name !== "string" || !name.trim()) return null;
-    if (!RE_DATE.test(date) || !RE_IMG.test(image) || !CATS.includes(category)) return null;
+    if (!RE_DATE.test(date) || !CATS.includes(category)) return null;
+    if (image != null && !RE_IMG.test(image)) return null;
     const href = safeUrl(url);
     if (!href) return null;
     return {
@@ -152,7 +169,7 @@
       name: name.trim().slice(0, 80),
       date,
       year: date.slice(0, 4),
-      image,
+      image: image || null,
       url: href,
       category,
       cve: Array.isArray(cve) ? cve.filter((c) => RE_CVE.test(c)) : [],
@@ -266,7 +283,7 @@
     const byDate = [...all].sort((a, b) => a.date.localeCompare(b.date));
     const oldest = byDate[0];
     const newest = byDate[byDate.length - 1];
-    const parts = T[state.lang].lede(all.length, oldest.name, oldest.year, newest.name, newest.year);
+    const parts = T[state.lang].lede(all.length, all.filter((v) => v.image).length, oldest.name, oldest.year, newest.name, newest.year);
     el.lede.replaceChildren(...parts.map((p) => {
       if (Array.isArray(p)) { const s = document.createElement("strong"); s.textContent = p[0]; return s; }
       return document.createTextNode(p);
@@ -322,6 +339,32 @@
     return list;
   }
 
+  // Sticker with the logo, or a lettered stand-in while no logo exists.
+  function setStickerImage(sticker, v) {
+    const img = $("img", sticker);
+    $(".stand-in", sticker)?.remove();
+    sticker.classList.toggle("no-logo", !v.image);
+    if (v.image) {
+      img.hidden = false;
+      img.src = "assets/img/" + v.image;
+      img.alt = sticker.classList.contains("big") ? `${v.name} logo` : "";
+      return;
+    }
+    img.hidden = true;
+    img.removeAttribute("src");
+    img.alt = "";
+    const box = document.createElement("span");
+    box.className = "stand-in";
+    const n = document.createElement("span");
+    n.className = "stand-in-name";
+    n.textContent = v.name;
+    const hint = document.createElement("span");
+    hint.className = "stand-in-hint";
+    hint.textContent = T[state.lang].noLogo;
+    box.append(n, hint);
+    sticker.append(box);
+  }
+
   function fillCard(node, v, withNew) {
     const t = T[state.lang];
     node.href = "#" + v.id;
@@ -329,8 +372,7 @@
     const sticker = $(".sticker", node);
     sticker.style.setProperty("--tilt", tilt(v.id));
     sticker.classList.toggle("dark", v.dark);
-    const img = $("img", sticker);
-    img.src = "assets/img/" + v.image;
+    setStickerImage(sticker, v);
     $(".name", node).textContent = v.name;
     const time = $("time", node);
     time.dateTime = v.date;
@@ -416,9 +458,8 @@
     if (!v) return closeDetail();
     const t = T[state.lang];
     currentId = id;
-    el.dImg.src = "assets/img/" + v.image;
-    el.dImg.alt = `${v.name} logo`;
     const big = $(".sticker", el.dlg);
+    setStickerImage(big, v);
     big.style.setProperty("--tilt", tilt(v.id));
     big.classList.toggle("dark", v.dark);
     el.dDate.dateTime = v.date;

@@ -25,7 +25,7 @@ Reines HTML, CSS und JavaScript ohne Abhängigkeiten, Build-Schritt, Cookies, Tr
 
 ## Eine Lücke hinzufügen / Adding a vulnerability
 
-1. Logo nach `src/assets/img/` legen (SVG bevorzugt, sonst PNG/WebP, max. ca. 100 KB).
+1. Logo nach `src/assets/img/` legen (SVG bevorzugt, sonst PNG/WebP, max. ca. 100 KB). Ohne offizielles Logo das Feld `image` weglassen.
 2. Eintrag in `src/data/vulns.json` ergänzen:
 
 ```json
@@ -48,7 +48,7 @@ Reines HTML, CSS und JavaScript ohne Abhängigkeiten, Build-Schritt, Cookies, Tr
 |---|---|---|
 | `id` | ja | eindeutig, `a-z`, `0-9`, `-`; wird als Deep-Link genutzt (`/#heartbleed`) |
 | `date` | ja | `YYYY`, `YYYY-MM` oder `YYYY-MM-DD` – nur so genau, wie es belegt ist |
-| `image` | ja | Dateiname in `assets/img/` (png, jpg, svg, webp, gif) |
+| `image` | nein | Dateiname in `assets/img/` (png, jpg, svg, webp, gif). Fehlt das Feld, zeigt die Seite einen „Logo fehlt noch“-Sticker. |
 | `url` | ja | Originalquelle, `https://` (oder `http://`) |
 | `category` | ja | `hardware`, `crypto`, `wireless`, `software`, `network` |
 | `cve` | nein | Liste von CVE-IDs, werden mit der NVD verlinkt |

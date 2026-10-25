@@ -15,8 +15,8 @@
   <meta property="og:image" content="https://vulnallery.de/assets/og-image.png">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/archivo-latin-wdth.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/style.css" integrity="sha384-x5Miohq3GViZPvHBVqxq1EDF/FcKfTJGvrtUwNPgZQMGscg6fQ2976yfmaTtUMn7" crossorigin="anonymous">
-  <script src="assets/js/app.js" integrity="sha384-SYkDmkXaB3Ng1JQvj/ysEKkETkb0Rli+MKWdVA2KPLZB2qrgIr6Wd4KwxCONdRAs" crossorigin="anonymous" defer></script>
+  <link rel="stylesheet" href="assets/css/style.css" integrity="sha384-4VcSgwDGx1krVXYPD7zHktqWFcljpdecoiIpf08hEPX991ExBBMMQqVzwjEcOrXK" crossorigin="anonymous">
+  <script src="assets/js/app.js" integrity="sha384-kZXJy9bi1VCvChX4+jIsmESDExSziAA6qQSG7k1fKU/yBkzknKsH/U8oh6eXAHyM" crossorigin="anonymous" defer></script>
 </head>
 <body>
   <a class="skip" href="#gallery" data-i18n="skip">Skip to the gallery</a>
@@ -94,13 +94,24 @@
     </div>
     <div class="foot-col">
       <h2 data-i18n="contactTitle">Contact</h2>
-      <ul>
-        <li><a href="https://github.com/paulbruedgam" rel="noopener noreferrer">GitHub: paulbruedgam</a></li>
-        <li><a href="https://github.com/paulbruedgam/vulnallery.github.io/issues/new/choose" rel="noopener noreferrer" data-i18n="issue">Suggest a vulnerability or report a problem</a></li>
-        <li><a href="https://www.bruedgam.eu/" rel="noopener noreferrer">bruedgam.eu</a></li>
-      </ul>
+      <dl class="contact">
+        <dt data-i18n="website">Website</dt>
+        <dd><a href="https://www.bruedgam.eu" rel="noopener noreferrer">www.bruedgam.eu</a></dd>
+        <dt data-i18n="email">Email</dt>
+        <dd><a href="mailto:info@bruedgam.eu">info@bruedgam.eu</a></dd>
+      </dl>
     </div>
-    <p class="colophon" data-i18n="colophon">Plain HTML, CSS and JavaScript. No cookies, no trackers, no requests to other sites.</p>
+    <div class="legal">
+      <nav aria-labelledby="legal-heading">
+        <h2 id="legal-heading" class="visually-hidden" data-i18n="legalTitle">Legal</h2>
+        <ul>
+          <li><a href="https://www.bruedgam.eu/impressum/" rel="noopener noreferrer" data-i18n="imprint">Legal notice</a></li>
+          <li><a href="https://www.bruedgam.eu/datenschutz/" rel="noopener noreferrer" data-i18n="privacy">Privacy policy</a></li>
+          <li><a href="https://github.com/paulbruedgam/vulnallery.github.io/issues/new/choose" rel="noopener noreferrer" data-i18n="issue">Suggest a vulnerability on GitHub</a></li>
+        </ul>
+      </nav>
+      <p class="colophon" data-i18n="colophon">Plain HTML, CSS and JavaScript. No cookies, no trackers, no requests to other sites.</p>
+    </div>
   </footer>
 
   <dialog id="detail" aria-labelledby="d-name">
