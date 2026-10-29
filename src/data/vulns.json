@@ -1,5 +1,21 @@
 [
  {
+  "id": "broccoli2shell",
+  "name": "Broccoli2Shell",
+  "date": "2026-10-22",
+  "image": "broccoli2shell.webp",
+  "url": "https://broccoli2shell.com/",
+  "category": "software",
+  "cve": [
+   "CVE-2026-111497"
+  ],
+  "description": {
+   "de": "Out-of-bounds-Write im Brotli-Decoder von Google, der über Node.js, Python-Pakete und PAN-OS Abstürze bis hin zu Codeausführung ermöglicht und aktiv ausgenutzt wird.",
+   "en": "Out-of-bounds write in Google's Brotli decoder that, via Node.js, Python packages and PAN-OS, ranges from crashes to code execution and is exploited in the wild."
+  },
+  "added": "2026-10"
+ },
+ {
   "id": "php2shell",
   "name": "PHP2Shell",
   "date": "2026-10-21",
