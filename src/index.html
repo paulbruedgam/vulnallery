@@ -15,8 +15,8 @@
   <meta property="og:image" content="https://vulnallery.de/assets/og-image.png">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/archivo-latin-wdth.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/style.css" integrity="sha384-WVDkWBI9Z5HGmRq0gc38y6F7EYF53ZApUYCWEpEOkkJbXRhNehhE/B6gzFQ4Szbt" crossorigin="anonymous">
-  <script src="assets/js/app.js" integrity="sha384-KaiHQh3qIQDrKG8S24K8nkQ8/+7+U9Q5j2X5mhjaMU/FF0slJU/ndYWDMTvCwdnz" crossorigin="anonymous" defer></script>
+  <link rel="stylesheet" href="assets/css/style.css" integrity="sha384-6TFGpFNaqY6AyNGnC8CgDbCEoak2zymHzFN2PVn62uwxrkUW+PXltQ4U0hgcWsJa" crossorigin="anonymous">
+  <script src="assets/js/app.js" integrity="sha384-EPsbUrKx51qAMQ00BRxgCB+yU2DbgwvUgv2BpGi+fUscctpIWrDl8FIcvK/JXxJf" crossorigin="anonymous" defer></script>
 </head>
 <body>
   <a class="skip" href="#gallery" data-i18n="skip">Skip to the gallery</a>
@@ -90,7 +90,7 @@
     <div class="foot-col">
       <h2 data-i18n="aboutTitle">About</h2>
       <p data-i18n="about">Vulnallery is a fun project that collects vulnerabilities that come with a logo. Every logo belongs to its creators and links to the original source.</p>
-      <p data-i18n="rights">If image rights have been violated, please let me know. Requirements will be met or the image will be removed.</p>
+      <p data-i18n="rights">Each vulnerability's detail view names the designer, rights holder and licence of its logo, as far as they are known. If image rights have been violated, please let me know. Requirements will be met or the image will be removed.</p>
     </div>
     <div class="foot-col">
       <h2 data-i18n="contactTitle">Contact</h2>
@@ -128,6 +128,10 @@
           <ul class="cves" id="d-cves"></ul>
         </div>
         <p id="d-nocve" class="muted" data-i18n="noCve">No CVE identifier has been assigned.</p>
+        <div id="d-credit-wrap">
+          <h3 data-i18n="creditTitle">Image rights</h3>
+          <dl class="credit" id="d-credit"></dl>
+        </div>
         <div class="d-actions">
           <a id="d-src" class="btn primary" target="_blank" rel="noopener noreferrer" data-i18n="source">Open original source</a>
           <button type="button" class="btn" id="d-copy" data-i18n="copy">Copy link</button>

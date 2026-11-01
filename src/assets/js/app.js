@@ -40,7 +40,7 @@
       loadError: "The gallery could not be loaded. Reload the page to try again.",
       aboutTitle: "About",
       about: "Vulnallery is a fun project that collects vulnerabilities that come with a logo. Every logo belongs to its creators and links to the original source.",
-      rights: "If image rights have been violated, please let me know. Requirements will be met or the image will be removed.",
+      rights: "Each vulnerability's detail view names the designer, rights holder and licence of its logo, as far as they are known. If image rights have been violated, please let me know. Requirements will be met or the image will be removed.",
       contactTitle: "Contact",
       website: "Website",
       email: "Email",
@@ -51,6 +51,26 @@
       close: "Close",
       cveTitle: "CVE identifiers",
       noCve: "No CVE identifier has been assigned.",
+      creditTitle: "Image rights",
+      creditAuthor: "Design",
+      creditHolder: "Rights holder",
+      creditLicense: "Licence",
+      creditSource: "Evidence",
+      creditCommons: "according to Wikimedia Commons",
+      lic: {
+        "CC0": "CC0 1.0 – public domain dedication",
+        "CC-BY-4.0": "CC BY 4.0",
+        "CC-BY-2.5": "CC BY 2.5",
+        "CC-BY-SA-4.0": "CC BY-SA 4.0",
+        "PD": "Public domain",
+        "free": "Free to use according to the source, no licence named",
+        "none": "No licence stated – all rights remain with the rights holder",
+      },
+      notes: {
+        chromium: "Contains the Chromium logo (Google, CC BY 2.5).",
+        safari: "Contains a modified Safari logo, which is in the public domain.",
+        ai: "Created with the AI system DALL·E 2.",
+      },
       source: "Open original source",
       copy: "Copy link",
       copied: "Link copied",
@@ -97,7 +117,7 @@
       loadError: "Die Galerie konnte nicht geladen werden. Lade die Seite neu, um es noch einmal zu versuchen.",
       aboutTitle: "Über Vulnallery",
       about: "Vulnallery ist ein Spaßprojekt, das Sicherheitslücken mit eigenem Logo sammelt. Alle Logos gehören ihren Urhebern und verlinken auf die Originalquelle.",
-      rights: "Falls Bildrechte verletzt werden, gib mir bitte Bescheid. Auflagen werden umgesetzt oder das Bild wird entfernt.",
+      rights: "Gestaltung, Rechteinhaber und Lizenz jedes Logos stehen, soweit bekannt, in der Detailansicht der Lücke. Falls Bildrechte verletzt werden, gib mir bitte Bescheid. Auflagen werden umgesetzt oder das Bild wird entfernt.",
       contactTitle: "Kontakt",
       website: "Website",
       email: "E-Mail",
@@ -108,6 +128,26 @@
       close: "Schließen",
       cveTitle: "CVE-Kennungen",
       noCve: "Es wurde keine CVE-Kennung vergeben.",
+      creditTitle: "Bildrechte",
+      creditAuthor: "Gestaltung",
+      creditHolder: "Rechteinhaber",
+      creditLicense: "Lizenz",
+      creditSource: "Nachweis",
+      creditCommons: "laut Wikimedia Commons",
+      lic: {
+        "CC0": "CC0 1.0 – gemeinfrei",
+        "CC-BY-4.0": "CC BY 4.0",
+        "CC-BY-2.5": "CC BY 2.5",
+        "CC-BY-SA-4.0": "CC BY-SA 4.0",
+        "PD": "Gemeinfrei",
+        "free": "Nutzung laut Quelle frei, ohne Lizenzangabe",
+        "none": "Keine Lizenz angegeben – alle Rechte beim Rechteinhaber",
+      },
+      notes: {
+        chromium: "Enthält das Chromium-Logo (Google, CC BY 2.5).",
+        safari: "Enthält ein abgewandeltes Safari-Logo, das gemeinfrei ist.",
+        ai: "Mit dem KI-System DALL·E 2 erstellt.",
+      },
       source: "Originalquelle öffnen",
       copy: "Link kopieren",
       copied: "Link kopiert",
@@ -148,9 +188,33 @@
     } catch { return null; }
   }
 
+  const LICENSES = {
+    "CC0": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "CC-BY-4.0": "https://creativecommons.org/licenses/by/4.0/",
+    "CC-BY-2.5": "https://creativecommons.org/licenses/by/2.5/",
+    "CC-BY-SA-4.0": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "PD": null,
+    "free": null,
+    "none": null,
+  };
+  const NOTES = ["chromium", "safari", "ai"];
+  const str = (x, n = 120) => (typeof x === "string" && x.trim() ? x.trim().slice(0, n) : null);
+
+  function cleanCredit(c) {
+    if (!c || typeof c !== "object" || !Object.hasOwn(LICENSES, c.license)) return null;
+    return {
+      license: c.license,
+      author: str(c.author),
+      holder: str(c.holder),
+      note: NOTES.includes(c.note) ? c.note : null,
+      source: safeUrl(c.source),
+      commons: c.commons === true,
+    };
+  }
+
   function clean(raw) {
     if (!raw || typeof raw !== "object") return null;
-    const { id, name, date, image, url, category, cve = [], description = {}, added, darkBackground } = raw;
+    const { id, name, date, image, url, category, cve = [], description = {}, added, darkBackground, credit } = raw;
     if (!RE_ID.test(id) || typeof name !== "string" || !name.trim()) return null;
     if (!RE_DATE.test(date) || !RE_IMG.test(image) || !CATS.includes(category)) return null;
     const href = safeUrl(url);
@@ -170,6 +234,7 @@
       },
       added: typeof added === "string" ? added : null,
       dark: darkBackground === true,
+      credit: cleanCredit(credit),
     };
   }
 
@@ -243,6 +308,8 @@
     dCves: $("#d-cves"),
     dCveWrap: $("#d-cve-wrap"),
     dNoCve: $("#d-nocve"),
+    dCredit: $("#d-credit"),
+    dCreditWrap: $("#d-credit-wrap"),
     dSrc: $("#d-src"),
     dCopy: $("#d-copy"),
     dPrev: $("#d-prev"),
@@ -451,6 +518,7 @@
     }));
     el.dCveWrap.hidden = !v.cve.length;
     el.dNoCve.hidden = v.cve.length > 0;
+    renderCredit(v.credit);
     el.dSrc.href = v.url;
     el.dCopy.textContent = t.copy;
     const list = shown.some((x) => x.id === id) ? shown : all;
@@ -460,6 +528,40 @@
     el.dPrev.dataset.target = i > 0 ? list[i - 1].id : "";
     el.dNext.dataset.target = i >= 0 && i < list.length - 1 ? list[i + 1].id : "";
     if (!el.dlg.open) el.dlg.showModal();
+  }
+
+  function renderCredit(c) {
+    const t = T[state.lang];
+    el.dCreditWrap.hidden = !c;
+    if (!c) return;
+    const rows = [];
+    const row = (label, ...content) => {
+      const dt = document.createElement("dt");
+      dt.textContent = label;
+      const dd = document.createElement("dd");
+      dd.append(...content);
+      rows.push(dt, dd);
+    };
+    const link = (href, text) => {
+      const a = document.createElement("a");
+      a.href = href;
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      a.textContent = text;
+      return a;
+    };
+    if (c.author) row(t.creditAuthor, c.author);
+    if (c.holder) row(t.creditHolder, c.holder);
+    const lic = LICENSES[c.license];
+    row(t.creditLicense, lic ? link(lic, t.lic[c.license]) : t.lic[c.license]);
+    if (c.note) row("", t.notes[c.note]);
+    if (c.source) {
+      const host = new URL(c.source).hostname.replace(/^www\./, "");
+      const parts = [link(c.source, host)];
+      if (c.commons) parts.push(" (" + t.creditCommons + ")");
+      row(t.creditSource, ...parts);
+    }
+    el.dCredit.replaceChildren(...rows);
   }
 
   function closeDetail() {

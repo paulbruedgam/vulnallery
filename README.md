@@ -55,8 +55,32 @@ Reines HTML, CSS und JavaScript ohne Abhängigkeiten, Build-Schritt, Cookies, Tr
 | `description` | ja | `de` und `en`, je ein Satz |
 | `added` | nein | z. B. `"2026-10"` – zeigt das Etikett „Neu“ |
 | `darkBackground` | nein | `true` für Logos, die für dunklen Hintergrund gemacht sind |
+| `credit` | ja | Bildrechte des Logos, siehe unten |
 
 Einträge, die die Regeln verletzen, blendet `app.js` aus.
+
+### Bildrechte (`credit`)
+
+```json
+"credit": {
+  "license": "CC0",
+  "author": "Natascha Eibl",
+  "holder": "TU Graz",
+  "source": "https://meltdownattack.com/",
+  "commons": false
+}
+```
+
+| Feld | Bedeutung |
+|---|---|
+| `license` | `CC0`, `CC-BY-4.0`, `CC-BY-2.5`, `CC-BY-SA-4.0`, `PD` (gemeinfrei), `free` (Nutzung laut Quelle erlaubt, ohne Lizenz) oder `none` (keine Lizenz angegeben) |
+| `author` | Gestaltung, falls genannt |
+| `holder` | Rechteinhaber, falls bekannt |
+| `note` | optional: `chromium`, `safari` oder `ai` für Zusatzhinweise |
+| `source` | Fundstelle der Angabe |
+| `commons` | `true`, wenn die Angabe von Wikimedia Commons statt von der offiziellen Seite stammt |
+
+Die Angaben werden in der Detailansicht unter „Bildrechte“ angezeigt.
 
 3. Nur wenn CSS oder JS geändert wurden: `./bin/gen_hashes.sh` ausführen.
 
