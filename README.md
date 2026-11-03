@@ -19,6 +19,10 @@ src/
 │   ├── favicon.svg
 │   └── og-image.png        Vorschaubild für Social Media
 bin/gen_hashes.sh           trägt die SRI-Hashes von CSS/JS in index.html ein
+bin/validate.py             prüft vulns.json, Bilder und Bildrechte
+bin/build.sh                prüft und baut das Paket für den Webserver (dist/)
+deploy/                     nginx- und Apache-Konfiguration, Anleitung
+.github/workflows/build.yml Build bei Push, Pull Request und Tag
 ```
 
 Reines HTML, CSS und JavaScript ohne Abhängigkeiten, Build-Schritt, Cookies, Tracker oder externe Requests.
@@ -84,13 +88,25 @@ Die Angaben werden in der Detailansicht unter „Bildrechte“ angezeigt.
 
 3. Nur wenn CSS oder JS geändert wurden: `./bin/gen_hashes.sh` ausführen.
 
+## Bauen und ausliefern / Build and deploy
+
+GitHub baut und prüft nur, ausgeliefert wird vom eigenen Server.
+
+```sh
+./bin/build.sh            # prüft Daten und SRI-Hashes, baut dist/vulnallery-<version>.tar.gz und .zip
+git tag v2026.11.0 && git push origin v2026.11.0   # Release mit Paket und SHA256SUMS
+```
+
+Einspielen auf dem Server, Webserver-Konfiguration und Rückrollen: [deploy/README.md](deploy/README.md).
+
 ## Sicherheit / Security
 
 - Content-Security-Policy per `<meta>`: nur Ressourcen der eigenen Origin, kein Inline-Script/-Style, `base-uri 'none'`, `form-action 'none'`.
 - Subresource Integrity für `style.css` und `app.js`.
 - Daten aus `vulns.json` werden validiert und nur per `textContent`/geprüften Attributen eingefügt, nie als HTML.
 - Externe Links mit `rel="noopener noreferrer"`.
-- GitHub Pages erlaubt keine eigenen HTTP-Header. `frame-ancestors`, `X-Content-Type-Options` u. Ä. lassen sich nur über einen vorgeschalteten Proxy/CDN setzen.
+- Auf dem eigenen Server setzen `deploy/nginx.conf` bzw. `deploy/apache.htaccess` zusätzlich CSP mit `frame-ancestors`, HSTS, `nosniff`, Referrer-, Permissions- und Cross-Origin-Policy; Fremd-SVGs laufen in einer Sandbox.
+- `bin/validate.py` weist SVGs mit Script- oder Event-Inhalten ab.
 
 ## Lizenz
 
