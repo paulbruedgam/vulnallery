@@ -1,0 +1,73 @@
+# Baut das Auslieferungspaket. Deployt wird nicht von hier, sondern auf dem eigenen Server.
+#
+# - Push und Pull Request: Prüfen und bauen, Paket als Artefakt (14 Tage)
+# - Tag v*: zusätzlich GitHub-Release mit tar.gz, zip und SHA256SUMS
+name: Build
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Version bestimmen
+        id: version
+        run: |
+          if [[ "$GITHUB_REF" == refs/tags/v* ]]; then
+            echo "value=${GITHUB_REF_NAME}" >> "$GITHUB_OUTPUT"
+          else
+            echo "value=$(git describe --tags --always)" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Prüfen und bauen
+        run: ./bin/build.sh "${{ steps.version.outputs.value }}"
+
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: vulnallery-${{ steps.version.outputs.value }}
+          path: dist/
+          retention-days: 14
+          if-no-files-found: error
+
+  release:
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Paket bauen
+        run: ./bin/build.sh "${GITHUB_REF_NAME}"
+
+      - name: Release anlegen
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" dist/* \
+            --repo "$GITHUB_REPOSITORY" \
+            --title "Vulnallery $GITHUB_REF_NAME" \
+            --notes "Webroot-Paket. Auf dem Server entpacken und per SHA256SUMS prüfen, siehe deploy/README.md."
