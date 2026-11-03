@@ -1,0 +1,11 @@
+[Unit]
+Description=Vulnallery: stündlich auf neues Release prüfen
+
+[Timer]
+OnBootSec=5min
+OnUnitActiveSec=1h
+RandomizedDelaySec=5min
+Persistent=true
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,30 @@
+[Unit]
+Description=Vulnallery: neueste Version von GitHub einspielen
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=vulnallery
+Group=vulnallery
+EnvironmentFile=-/etc/default/vulnallery
+ExecStart=/usr/local/bin/vulnallery-pull
+# Exit-Code 10 von --check ist kein Fehler; hier nicht genutzt, aber erlaubt
+SuccessExitStatus=10
+
+# Härtung: nur das eigene Verzeichnis ist beschreibbar
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+PrivateDevices=yes
+ReadWritePaths=/var/www/vulnallery
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+RestrictNamespaces=yes
+LockPersonality=yes
+MemoryDenyWriteExecute=yes
+SystemCallArchitectures=native
+CapabilityBoundingSet=

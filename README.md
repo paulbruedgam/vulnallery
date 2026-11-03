@@ -22,7 +22,7 @@ bin/gen_hashes.sh           trägt die SRI-Hashes von CSS/JS in index.html ein
 bin/validate.py             prüft vulns.json, Bilder und Bildrechte
 bin/build.sh                prüft und baut das Paket für den Webserver (dist/)
 deploy/                     nginx- und Apache-Konfiguration, Anleitung
-.github/workflows/build.yml Build bei Push, Pull Request und Tag
+.github/workflows/build.yml Build bei Pull Request; bei Merge nach main Tag und Release
 ```
 
 Reines HTML, CSS und JavaScript ohne Abhängigkeiten, Build-Schritt, Cookies, Tracker oder externe Requests.
@@ -93,11 +93,12 @@ Die Angaben werden in der Detailansicht unter „Bildrechte“ angezeigt.
 GitHub baut und prüft nur, ausgeliefert wird vom eigenen Server.
 
 ```sh
-./bin/build.sh            # prüft Daten und SRI-Hashes, baut dist/vulnallery-<version>.tar.gz und .zip
-git tag v2026.11.0 && git push origin v2026.11.0   # Release mit Paket und SHA256SUMS
+./bin/build.sh            # lokal: prüft Daten und SRI-Hashes, baut dist/vulnallery-<version>.tar.gz und .zip
 ```
 
-Einspielen auf dem Server, Webserver-Konfiguration und Rückrollen: [deploy/README.md](deploy/README.md).
+Jeder Merge nach `main` erzeugt automatisch einen Tag `vJJJJ.MM.N` und ein Release mit Paket und `SHA256SUMS`.
+Auf dem Server holt `deploy/pull-release.sh` die neueste Version, prüft sie und schaltet sie live.
+Einrichtung, Webserver-Konfiguration und Rückrollen: [deploy/README.md](deploy/README.md).
 
 ## Sicherheit / Security
 
