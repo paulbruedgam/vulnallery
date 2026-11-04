@@ -14,15 +14,16 @@ RewriteRule ^ https://vulnallery.de%{REQUEST_URI} [R=301,L]
   Header always set Content-Security-Policy "default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests"
   Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains"
   Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "DENY"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
-  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()"
+  Header always set Permissions-Policy "accelerometer=(), camera=(), display-capture=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()"
   Header always set Cross-Origin-Opener-Policy "same-origin"
   Header always set Cross-Origin-Resource-Policy "same-origin"
 
   <FilesMatch "\.svg$">
     Header always set Content-Security-Policy "default-src 'none'; style-src 'unsafe-inline'; sandbox"
   </FilesMatch>
-  <FilesMatch "^(index\.html|vulns\.json)$">
+  <FilesMatch "^(index\.html|vulns\.json|feed\.xml|sitemap\.xml)$">
     Header set Cache-Control "no-cache"
   </FilesMatch>
   <FilesMatch "\.(css|js|svg|png|jpe?g|webp|gif|woff2)$">
@@ -35,7 +36,7 @@ AddType image/avif .avif
 AddType font/woff2 .woff2
 
 <IfModule mod_deflate.c>
-  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml application/xml application/atom+xml text/xml
 </IfModule>
 
 # Versteckte Dateien sperren (außer .well-known)

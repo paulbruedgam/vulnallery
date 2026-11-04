@@ -1,0 +1,293 @@
+{
+ "year": 2026,
+ "doors": [
+  {
+   "day": 1,
+   "id": "badram",
+   "title": {
+    "de": "Warum trägt ein Speicherriegel einen Gangsterhut?",
+    "en": "Why is a memory module wearing a gangster hat?"
+   },
+   "text": {
+    "de": "Das BadRAM-Logo macht aus einem DDR-Riegel einen grimmigen Ganoven mit Hut. Passend, denn der Angriff braucht nur rund zehn Dollar an Hardware: Manipulierte SPD-Daten lassen das Modul größer erscheinen, als es ist, und schon lügt der Speicher AMDs vertraulichen VMs ins Gesicht.",
+    "en": "The BadRAM logo turns a DDR module into a grim crook in a hat. Fitting, since the attack needs only about ten dollars of hardware: tampered SPD data makes the module look bigger than it is, and the memory starts lying straight to AMD's confidential VMs."
+   }
+  },
+  {
+   "day": 2,
+   "id": "gpuzip",
+   "title": {
+    "de": "Was hat eine Schraubzwinge mit Grafikkarten zu tun?",
+    "en": "What does a clamp have to do with graphics cards?"
+   },
+   "text": {
+    "de": "Im Logo von GPU.zip presst eine Schraubzwinge eine Grafikkarte zusammen, bis bunte Pixel herausrieseln. Genau das passiert sinnbildlich: Grafikchips komprimieren Daten, und die Dauer dieser Kompression verrät, welche Pixel eine fremde Webseite gerade zeichnet.",
+    "en": "In the GPU.zip logo a clamp squeezes a graphics card until coloured pixels trickle out. That is the attack in a nutshell: graphics chips compress data, and how long that compression takes reveals which pixels another website is drawing."
+   }
+  },
+  {
+   "day": 3,
+   "id": "breach",
+   "title": {
+    "de": "Wie sieht ein Bruch auf Englisch aus?",
+    "en": "What does a breach look like?"
+   },
+   "text": {
+    "de": "BREACH ist das Akronym für „Browser Reconnaissance and Exfiltration via Adaptive Compression of Hypertext“ und kam 2013 auf der Black Hat. Das schlichte Schriftlogo von Diego Ferreiro ist gemeinfrei und zeigt: Schon vor Heartbleed bekamen Lücken einen Markennamen.",
+    "en": "BREACH stands for “Browser Reconnaissance and Exfiltration via Adaptive Compression of Hypertext” and debuted at Black Hat 2013. Diego Ferreiro's plain wordmark is in the public domain and shows that vulnerabilities got brand names even before Heartbleed."
+   }
+  },
+  {
+   "day": 4,
+   "id": "cachewarp",
+   "title": {
+    "de": "Warum dreht sich ein Strudel im Prozessor?",
+    "en": "Why is there a vortex inside a processor?"
+   },
+   "text": {
+    "de": "Lea Mosbach hat für CacheWarp einen Wirbel in einen Chip gezeichnet, eingerahmt von den Wörtern „Cache“ und „Warp“. Der Angriff schickt einzelne Schreibzugriffe einer vertraulichen AMD-VM zurück in die Vergangenheit, als hätte es sie nie gegeben. Ein Zeitstrudel im Cache also.",
+    "en": "For CacheWarp, Lea Mosbach drew a swirl inside a chip, framed by the words “Cache” and “Warp”. The attack sends individual writes of a confidential AMD VM back in time, as if they had never happened. A time vortex in the cache, then."
+   }
+  },
+  {
+   "day": 5,
+   "id": "gofetch",
+   "title": {
+    "de": "Warum apportiert ein Hund einen Schlüssel?",
+    "en": "Why is a dog fetching a key?"
+   },
+   "text": {
+    "de": "„Go fetch!“ ruft man einem Hund zu, damit er etwas holt. Im Logo bringt der Hund einen Schlüssel, und genau den holt sich der Angriff: Der Prefetcher der Apple-M-Chips lädt übereifrig Daten vor und verrät dabei geheime kryptografische Schlüssel.",
+    "en": "“Go fetch!” is what you tell a dog to bring something back. In the logo the dog returns with a key, which is exactly what the attack retrieves: the overeager prefetcher in Apple's M-series chips loads data in advance and leaks secret cryptographic keys along the way."
+   }
+  },
+  {
+   "day": 6,
+   "id": "log4shell",
+   "title": {
+    "de": "Welche Lücke hielt im Dezember 2021 die IT-Welt wach?",
+    "en": "Which vulnerability kept IT awake in December 2021?"
+   },
+   "text": {
+    "de": "Eine einzige geloggte Zeichenkette wie ${jndi:ldap://…} genügte, um fremden Code auszuführen, und Log4j steckte in unzähligen Java-Anwendungen. CVSS 10.0, Ausnutzung binnen Stunden, das BSI rief die Warnstufe Rot aus. Den Namen und das handgezeichnete Logo samt augenzwinkerndem „tm“ prägte das Team von LunaSec.",
+    "en": "A single logged string such as ${jndi:ldap://…} was enough to run foreign code, and Log4j sat inside countless Java applications. CVSS 10.0, exploitation within hours, and Germany's BSI declared its highest alert level, red. The name and the hand-drawn logo with its tongue-in-cheek “tm” came from the LunaSec team."
+   }
+  },
+  {
+   "day": 7,
+   "id": "ghostwrite",
+   "title": {
+    "de": "Warum hält ein Geist einen Stift?",
+    "en": "Why is a ghost holding a pencil?"
+   },
+   "text": {
+    "de": "Ein Ghostwriter schreibt im Namen anderer, und GhostWrite schreibt im Namen des Systems: Fehlerhafte Vektorbefehle in RISC-V-Chips von T-Head erlauben jedem Programm, beliebigen physischen Speicher zu beschreiben. Lea Mosbach hat dazu einen Stift über Speicherblöcke gezeichnet.",
+    "en": "A ghostwriter writes in someone else's name, and GhostWrite writes in the system's name: faulty vector instructions in T-Head RISC-V chips let any program write to arbitrary physical memory. Lea Mosbach drew a pencil sweeping over memory blocks to match."
+   }
+  },
+  {
+   "day": 8,
+   "id": "pixnapping",
+   "title": {
+    "de": "Wer entführt hier Pixel?",
+    "en": "Who is kidnapping pixels here?"
+   },
+   "text": {
+    "de": "Pixnapping verbindet „Pixel“ und „Kidnapping“: Eine bösartige Android-App stiehlt Pixel für Pixel, was andere Apps anzeigen, etwa 2FA-Codes. Das Logo zeigt gestapelte Fenster, aus denen einzelne Pixel herausfallen, und baut damit direkt auf GPU.zip hinter Türchen 2 auf.",
+    "en": "Pixnapping blends “pixel” and “kidnapping”: a malicious Android app steals what other apps display, pixel by pixel, including 2FA codes. The logo shows stacked windows shedding single pixels, and the attack builds directly on GPU.zip from door 2."
+   }
+  },
+  {
+   "day": 9,
+   "id": "wiretap",
+   "title": {
+    "de": "Wer zapft hier einen Speicherriegel an?",
+    "en": "Who is tapping a memory module?"
+   },
+   "text": {
+    "de": "Beim Wiretapping wird eine Leitung abgehört, und WireTap macht das mit dem Speicherbus. Das Logo zeigt einen DDR4-Riegel, aus dem Dutzende Drähte ragen. Ein selbstgebauter Abgreifer zwischen Riegel und Mainboard reichte, um Attestierungsschlüssel aus Intel-SGX-Servern zu ziehen.",
+    "en": "Wiretapping means listening in on a line, and WireTap does it to the memory bus. The logo shows a DDR4 module bristling with dozens of wires. A home-built interposer between module and mainboard was enough to pull attestation keys out of Intel SGX servers."
+   }
+  },
+  {
+   "day": 10,
+   "id": "venom",
+   "title": {
+    "de": "Wie entkommt eine Schlange aus der virtuellen Maschine?",
+    "en": "How does a snake escape a virtual machine?"
+   },
+   "text": {
+    "de": "VENOM steht für „Virtualized Environment Neglected Operations Manipulation“ und steckte im virtuellen Diskettenlaufwerk von QEMU, das kaum jemand noch brauchte, aber fast überall aktiv war. Die zubeißende Kobra im Logo von CrowdStrike steht für den Ausbruch aus der VM auf den Host.",
+    "en": "VENOM stands for “Virtualized Environment Neglected Operations Manipulation” and lived in QEMU's virtual floppy controller, which hardly anyone needed but almost everyone had enabled. The striking cobra in CrowdStrike's logo stands for the escape from the VM onto the host."
+   }
+  },
+  {
+   "day": 11,
+   "id": "flop",
+   "title": {
+    "de": "Warum liegen Flip-Flops auf einem Chip?",
+    "en": "Why are there flip-flops on a chip?"
+   },
+   "text": {
+    "de": "FLOP steht für „False Load Output Predictions“, und das Logo nimmt den Namen wörtlich: ein Paar Flip-Flops auf einem Prozessor. Apple-Chips ab M3 und A17 raten Werte, bevor sie aus dem Speicher geladen sind. Rät der Chip falsch, lassen sich Daten aus Safari und Chrome auslesen.",
+    "en": "FLOP stands for “False Load Output Predictions”, and the logo takes the name literally: a pair of flip-flops on a processor. Apple chips from M3 and A17 onwards guess values before they arrive from memory. When the guess is wrong, data from Safari and Chrome can be read out."
+   }
+  },
+  {
+   "day": 12,
+   "id": "fragattacks",
+   "title": {
+    "de": "Warum zerbricht das WLAN-Symbol?",
+    "en": "Why is the Wi-Fi symbol breaking apart?"
+   },
+   "text": {
+    "de": "Darlee Urbiztondo hat für Mathy Vanhoef das bekannte WLAN-Symbol zerspringen lassen, mitten im Wort „FragAttacks“. Die Lücken stecken in der Fragmentierung und Aggregation von WLAN-Paketen, teils schon seit dem Standard von 1997, und betreffen praktisch jedes Gerät.",
+    "en": "Darlee Urbiztondo shattered the familiar Wi-Fi symbol for Mathy Vanhoef, right in the middle of the word “FragAttacks”. The flaws lie in how Wi-Fi fragments and aggregates frames, some dating back to the 1997 standard, and affect practically every device."
+   }
+  },
+  {
+   "day": 13,
+   "id": "copyfail",
+   "title": {
+    "de": "Was ist schiefgegangen beim Kopieren?",
+    "en": "What went wrong while copying?"
+   },
+   "text": {
+    "de": "Das Logo von Copy Fail ist so minimalistisch wie sein Name: zwei gegeneinander verschobene Halbkreise und ein gestrichelter Rand, als wäre beim Kopieren etwas verrutscht. Über die Kryptoschnittstelle AF_ALG des Linux-Kernels konnten lokale Nutzer in den Page Cache schreiben und Root werden.",
+    "en": "The Copy Fail logo is as minimal as its name: two offset half-circles and a dashed outline, as if something slipped during a copy. Through the Linux kernel's AF_ALG crypto interface, local users could write into the page cache and become root."
+   }
+  },
+  {
+   "day": 14,
+   "id": "zombieload",
+   "title": {
+    "de": "Warum greift eine Zombiehand aus dem Prozessor?",
+    "en": "Why is a zombie hand reaching out of a processor?"
+   },
+   "text": {
+    "de": "Natascha Eibl zeichnete für ZombieLoad eine Hand, die sich wie aus einem Grab aus dem Chip gräbt. Der Name beschreibt Ladevorgänge, die der Prozessor eigentlich verwirft und die trotzdem untot weiterleben. Sie verraten Daten anderer Programme, VMs und des Kernels.",
+    "en": "For ZombieLoad, Natascha Eibl drew a hand clawing its way out of the chip as if from a grave. The name describes loads the processor discards that nonetheless live on, undead. They leak data from other programs, VMs and the kernel."
+   }
+  },
+  {
+   "day": 15,
+   "id": "snailload",
+   "title": {
+    "de": "Warum spioniert eine Schnecke?",
+    "en": "Why is a snail spying?"
+   },
+   "text": {
+    "de": "Langsam ist hier Programm: SnailLoad lädt eine harmlose Datei absichtlich schleppend und misst dabei die Latenz der Verbindung. Aus den Schwankungen lässt sich ablesen, welches Video das Opfer gerade schaut. Die Schnecke im Logo trägt passend ein Muster aus Bits auf dem Haus.",
+    "en": "Slowness is the point: SnailLoad deliberately downloads a harmless file at a crawl while measuring the connection's latency. The fluctuations reveal which video the victim is watching. Fittingly, the snail in the logo carries a pattern of bits on its shell."
+   }
+  },
+  {
+   "day": 16,
+   "id": "batteringram",
+   "title": {
+    "de": "Warum rammt ein Widder einen Speicherriegel?",
+    "en": "Why is a ram butting a memory module?"
+   },
+   "text": {
+    "de": "Ein Rammbock heißt auf Englisch „battering ram“, und „RAM“ ist auch der Arbeitsspeicher. Das Logo zeigt deshalb einen Widder, der einen Speicherriegel rammt. Ein Zwischenstecker für rund 50 Dollar erzeugt Speicher-Aliase und hebelt damit Intel SGX und AMD SEV-SNP aus.",
+    "en": "A battering ram is the classic siege weapon, and RAM is also memory, so the logo shows a ram butting a memory module. An interposer costing about 50 dollars creates memory aliases and with that breaks Intel SGX and AMD SEV-SNP."
+   }
+  },
+  {
+   "day": 17,
+   "id": "shellshock",
+   "title": {
+    "de": "Woher kommt die Muschel mit dem Blitz?",
+    "en": "Where does the shell with the lightning bolt come from?"
+   },
+   "text": {
+    "de": "Shellshock bekam kein offizielles Logo vom Entdecker. Bekannt wurde eine Muschel mit Blitz, ein gemeinfreies Bild von Knowledgebattle aus der Openclipart-Sammlung. Das Wortspiel liegt auf der Hand: Die Shell Bash führte Code aus, der in Umgebungsvariablen versteckt war, und Webserver mit CGI waren offen wie eine Muschel.",
+    "en": "Shellshock never got an official logo from its discoverer. The image that stuck is a seashell with a lightning bolt, a public-domain drawing by Knowledgebattle from the Openclipart collection. The pun is obvious: the Bash shell executed code hidden in environment variables, leaving CGI web servers wide open."
+   }
+  },
+  {
+   "day": 18,
+   "id": "lvi",
+   "title": {
+    "de": "Warum eine Spritze?",
+    "en": "Why a syringe?"
+   },
+   "text": {
+    "de": "LVI steht für „Load Value Injection“, und Natascha Eibl hat die Injektion wörtlich genommen. Statt Daten herauszuholen wie Meltdown, spritzt der Angriff dem Prozessor Werte des Angreifers ein, die eine SGX-Enklave dann vorübergehend für echt hält.",
+    "en": "LVI stands for “Load Value Injection”, and Natascha Eibl took the injection literally. Instead of pulling data out like Meltdown, the attack injects the attacker's values into the processor, which an SGX enclave then briefly treats as real."
+   }
+  },
+  {
+   "day": 19,
+   "id": "dirtycow",
+   "title": {
+    "de": "Warum eine Kuh?",
+    "en": "Why a cow?"
+   },
+   "text": {
+    "de": "COW steht für Copy-on-Write, den Mechanismus im Linux-Kernel, den eine Race Condition aushebelte. Die Website dirtycow.ninja spottete in ihren FAQ selbst über Lücken mit Logo und Online-Shop, verzichtete aber trotzdem nicht darauf. So bekam die Kuh ihren Fleck.",
+    "en": "COW stands for copy-on-write, the Linux kernel mechanism that a race condition subverted. In its FAQ, dirtycow.ninja itself mocked vulnerabilities with logos and merch shops, then went ahead with both anyway. And so the cow got its spots."
+   }
+  },
+  {
+   "day": 20,
+   "id": "plundervolt",
+   "title": {
+    "de": "Warum trägt ein Prozessor eine Augenklappe?",
+    "en": "Why is a processor wearing an eye patch?"
+   },
+   "text": {
+    "de": "Plunder heißt Beute, und Mike Stimpson hat dem Chip deshalb eine Piraten-Augenklappe verpasst, darunter ein Blitz im Wort „Volt“. Der Angriff senkt per Software die Spannung der CPU, bis sie sich verrechnet, und plündert so Geheimnisse aus Intel-SGX-Enklaven.",
+    "en": "Plunder means loot, so Mike Stimpson gave the chip a pirate's eye patch, with a lightning bolt in the word “Volt” below. The attack lowers the CPU voltage from software until it miscalculates, plundering secrets from Intel SGX enclaves."
+   }
+  },
+  {
+   "day": 21,
+   "id": "aepicleak",
+   "title": {
+    "de": "Warum tropft es aus dem Chip?",
+    "en": "Why is the chip dripping?"
+   },
+   "text": {
+    "de": "Theresa Dachauer zeichnete für ÆPIC Leak einen Chip, aus dem ein Tropfen leckt. Der Name spielt mit APIC, dem Interrupt-Controller von Intel, und mit „epic“. Episch war es tatsächlich: Es war der erste CPU-Fehler, der Daten architektonisch preisgibt, ganz ohne Seitenkanal.",
+    "en": "For ÆPIC Leak, Theresa Dachauer drew a chip with a drop leaking out. The name plays on APIC, Intel's interrupt controller, and on “epic”. And epic it was: the first CPU bug to leak data architecturally, without any side channel."
+   }
+  },
+  {
+   "day": 22,
+   "id": "spookjs",
+   "title": {
+    "de": "Woher kennt man diesen Geist?",
+    "en": "Where have you seen this ghost before?"
+   },
+   "text": {
+    "de": "Der Geist erinnert an Spectre, und das ist Absicht: Spook.js bringt Spectre-Angriffe in JavaScript zurück. Jason Kim setzte das Chromium-Logo als Punkt in den Schriftzug, denn der Angriff liest trotz Site Isolation Daten anderer Websites in Chrome aus.",
+    "en": "The ghost recalls Spectre, and that is deliberate: Spook.js brings Spectre attacks back to JavaScript. Jason Kim used the Chromium logo as the dot in the wordmark, because the attack reads other websites' data in Chrome despite Site Isolation."
+   }
+  },
+  {
+   "day": 23,
+   "id": "cacheout",
+   "title": {
+    "de": "Warum ein Spielautomat?",
+    "en": "Why a slot machine?"
+   },
+   "text": {
+    "de": "„Cash out“ heißt den Gewinn auszahlen lassen, und Marina Minkin hat CacheOut als einarmigen Banditen gezeichnet. Statt Münzen spuckt der Automat Daten aus: Der Angriff verdrängt gezielt Einträge aus dem Cache von Intel-CPUs und liest sie über Sicherheitsgrenzen hinweg aus.",
+    "en": "To “cash out” means to collect your winnings, so Marina Minkin drew CacheOut as a one-armed bandit. Instead of coins it pays out data: the attack deliberately evicts entries from Intel's CPU cache and reads them across security boundaries."
+   }
+  },
+  {
+   "day": 24,
+   "id": "heartbleed",
+   "title": {
+    "de": "Warum ein blutendes Herz?",
+    "en": "Why a bleeding heart?"
+   },
+   "text": {
+    "de": "Heartbleed ist der Klassiker, mit dem der Trend zu Lücken mit Namen, Logo und Website richtig begann. Leena Kurjenniska von Codenomicon zeichnete das Herz, weil der Fehler in der Heartbeat-Erweiterung von OpenSSL steckte und pro Anfrage bis zu 64 KB Speicher „ausbluten“ ließ. Das Logo wurde gemeinfrei gestellt und ging um die Welt.",
+    "en": "Heartbleed is the classic that really started the trend of vulnerabilities with a name, logo and website. Leena Kurjenniska of Codenomicon drew the heart because the bug sat in OpenSSL's heartbeat extension and let up to 64 KB of memory “bleed” out per request. The logo was released into the public domain and went around the world."
+   }
+  }
+ ]
+}
