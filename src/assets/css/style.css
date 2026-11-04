@@ -579,6 +579,8 @@ dialog[open] { animation: lift 0.2s ease-out; }
 }
 .legal ul { display: flex; flex-wrap: wrap; gap: 0.4rem 1.4rem; }
 .legal .colophon { margin: 0; font-size: 0.88rem; }
+.colophon-wrap { display: flex; flex-direction: column; gap: 0.2rem; }
+.legal .release { color: var(--muted); font-variant-numeric: tabular-nums; }
 
 /* ---------- small screens ---------- */
 @media (max-width: 640px) {
