@@ -25,6 +25,11 @@ GitHub baut nur; ausgeliefert wird vom eigenen Server des Betreibers (siehe depl
 - Vor dem Commit `./bin/build.sh` laufen lassen. Er erzeugt mit `bin/pages.py` die Lückenseiten `/de/<id>/` und `/en/<id>/`, `sitemap.xml` und die Atom-Feeds; diese entstehen nur in `dist/`, nie in `src/`.
 - `bin/pages.py` liest die Texte aus `T` in `app.js`; Einträge dort im Format `schluessel: "Text",` halten.
 
+## Adventskalender
+- Inhalte in `src/data/advent.json` (24 Türchen, je `title` und `text` auf DE/EN); `validate.py` prüft sie.
+- Die Startseite zeigt den Kalender vom 1. bis 24.12. (Berliner Zeit) und öffnet nur Türchen bis heute. Testen mit `?advent-date=2026-12-05`.
+- Archiv und Feeds enthalten nur Türchen bis zum Build-Datum. Im Dezember baut der Zeitplan in `build.yml` jede Nacht ein neues Release. Lokal testen mit `VULNALLERY_DATE=2026-12-05 ./bin/build.sh`.
+
 ## Ablauf
 - Arbeit auf einem Branch, Änderungen per Pull Request nach `main`; der Betreiber merged selbst.
 - Commit-Nachrichten auf Deutsch.

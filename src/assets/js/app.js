@@ -50,6 +50,15 @@
       release: "Release",
       announce: "From 1 December: a new door every day in the advent calendar.",
       feed: "Subscribe to the feed (Atom)",
+      adventTitle: "Advent calendar 2026",
+      adventLede: "One door a day, each with the story behind a vulnerability logo.",
+      adventArchive: "All doors so far",
+      adventDoor: "Door",
+      adventOpen: "Open door {n}",
+      adventOpened: "Door {n}: {name}",
+      adventLocked: "Door {n} opens on {n} December",
+      adventToVuln: "To the vulnerability",
+      adventToday: "Today",
       page: "Open page",
       colophon: "Plain HTML, CSS and JavaScript. No cookies, no trackers, no requests to other sites.",
       close: "Close",
@@ -131,6 +140,15 @@
       release: "Version",
       announce: "Ab 1. Dezember: jeden Tag ein Türchen im Adventskalender.",
       feed: "Feed abonnieren (Atom)",
+      adventTitle: "Adventskalender 2026",
+      adventLede: "Jeden Tag ein Türchen mit der Geschichte hinter einem Lücken-Logo.",
+      adventArchive: "Alle bisherigen Türchen",
+      adventDoor: "Türchen",
+      adventOpen: "Türchen {n} öffnen",
+      adventOpened: "Türchen {n}: {name}",
+      adventLocked: "Türchen {n} öffnet am {n}. Dezember",
+      adventToVuln: "Zur Lücke",
+      adventToday: "Heute",
       page: "Eigene Seite öffnen",
       colophon: "Reines HTML, CSS und JavaScript. Keine Cookies, keine Tracker, keine Anfragen an andere Seiten.",
       close: "Schließen",
@@ -346,17 +364,159 @@
     });
     $$("[data-lang]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.lang === state.lang)));
     renderAnnounce();
+    renderAdvent();
     const feed = $("#feed-link");
     if (feed) { feed.href = state.lang + "/feed.xml"; feed.title = t.feed; }
   }
 
-  // Bis zum Start des Adventskalenders (1. Dezember 2026, 00:00 Uhr in Berlin)
-  const ADVENT_START = Date.UTC(2026, 10, 30, 23, 0);
+  // ---------------------------------------------------------------- advent
+  // Das Datum gilt in Berlin. Zum Testen: ?advent-date=2026-12-05
+  const ADVENT_YEAR = 2026;
+  // Feste, gemischte Reihenfolge der Türchen auf der Startseite
+  const ADVENT_ORDER = [14, 3, 22, 9, 17, 1, 11, 20, 6, 24, 13, 4, 18, 8, 2, 23, 12, 7, 16, 21, 5, 19, 10, 15];
+  const ADVENT_KEY = "vn-advent-" + ADVENT_YEAR;
+  let advent = null;
+  let lastDoor = 0;
+
+  function berlinDate() {
+    const forced = params.get("advent-date");
+    const iso = /^\d{4}-\d{2}-\d{2}$/.test(forced || "") ? forced
+      : new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Berlin", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
+    const [y, m, d] = iso.split("-").map(Number);
+    return { y, m, d };
+  }
+  const today = berlinDate();
+  // Höchstes Türchen, das heute offen sein darf, oder 0 außerhalb des Kalenders
+  const adventDay = today.y === ADVENT_YEAR && today.m === 12 && today.d <= 24 ? today.d : 0;
+  const beforeAdvent = today.y < ADVENT_YEAR || (today.y === ADVENT_YEAR && today.m < 12);
+
   function renderAnnounce() {
     const box = $("#announce");
-    if (!box) return;
-    box.hidden = Date.now() >= ADVENT_START;
+    if (box) box.hidden = !beforeAdvent;
+  }
 
+  const fmt = (tpl, vars) => tpl.replace(/\{(\w+)\}/g, (_, k) => (k in vars ? String(vars[k]) : ""));
+
+  function openedDoors() {
+    try {
+      const list = JSON.parse(localStorage.getItem(ADVENT_KEY) || "[]");
+      return new Set(Array.isArray(list) ? list.filter((n) => Number.isInteger(n) && n >= 1 && n <= adventDay) : []);
+    } catch { return new Set(); }
+  }
+  function rememberDoor(n) {
+    const set = openedDoors();
+    set.add(n);
+    store.set(ADVENT_KEY, JSON.stringify([...set].sort((a, b) => a - b)));
+  }
+
+  function cleanAdvent(raw) {
+    if (!raw || raw.year !== ADVENT_YEAR || !Array.isArray(raw.doors)) return null;
+    const doors = new Map();
+    for (const d of raw.doors) {
+      if (!d || !Number.isInteger(d.day) || d.day < 1 || d.day > 24 || !RE_ID.test(d.id)) continue;
+      const v = all.find((x) => x.id === d.id);
+      if (!v) continue;
+      const txt = (o) => ({ de: str(o && o.de, 200) || "", en: str(o && o.en, 200) || "" });
+      doors.set(d.day, { day: d.day, v, title: txt(d.title), text: { de: str(d.text && d.text.de, 800) || "", en: str(d.text && d.text.en, 800) || "" } });
+    }
+    return doors.size ? doors : null;
+  }
+
+  async function loadAdvent() {
+    if (!adventDay) return;
+    try {
+      const res = await fetch("data/advent.json", { credentials: "same-origin", cache: "no-cache" });
+      if (!res.ok) return;
+      advent = cleanAdvent(await res.json());
+    } catch { advent = null; }
+    renderAdvent();
+  }
+
+  function renderAdvent() {
+    const box = $("#advent");
+    if (!box) return;
+    box.hidden = !advent;
+    if (!advent) return;
+    const t = T[state.lang];
+    $("#advent-archive").href = `${state.lang}/advent/${ADVENT_YEAR}/`;
+    const opened = openedDoors();
+    const items = ADVENT_ORDER.map((n) => {
+      const li = document.createElement("li");
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "door";
+      b.dataset.day = String(n);
+      const num = document.createElement("span");
+      num.className = "door-num";
+      num.textContent = String(n);
+      const door = advent.get(n);
+      if (n > adventDay || !door) {
+        b.disabled = true;
+        b.classList.add("locked");
+        b.setAttribute("aria-label", fmt(t.adventLocked, { n }));
+        b.append(num);
+      } else if (opened.has(n)) {
+        b.classList.add("open");
+        b.setAttribute("aria-label", fmt(t.adventOpened, { n, name: door.v.name }));
+        b.append(num, doorSticker(door.v));
+      } else {
+        b.setAttribute("aria-label", fmt(t.adventOpen, { n }));
+        b.append(num);
+      }
+      if (n === adventDay) {
+        b.classList.add("today");
+        const tag = document.createElement("span");
+        tag.className = "door-today";
+        tag.textContent = t.adventToday;
+        b.append(tag);
+      }
+      li.append(b);
+      return li;
+    });
+    $("#doors").replaceChildren(...items);
+  }
+
+  function doorSticker(v) {
+    const s = document.createElement("span");
+    s.className = "sticker door-logo" + (v.dark ? " dark" : "");
+    const img = document.createElement("img");
+    img.alt = "";
+    img.decoding = "async";
+    if (v.width && v.height) { img.width = v.width; img.height = v.height; }
+    img.src = "assets/img/" + v.image;
+    s.append(img);
+    return s;
+  }
+
+  function openDoor(n) {
+    const door = advent && advent.get(n);
+    if (!door || n > adventDay) return;
+    const t = T[state.lang];
+    const first = !openedDoors().has(n);
+    lastDoor = n;
+    rememberDoor(n);
+    const show = () => {
+      const dlg = $("#advent-dlg");
+      $("#a-day").textContent = `${t.adventDoor} ${n}`;
+      $("#a-title").textContent = door.title[state.lang] || door.title.en;
+      $("#a-text").textContent = door.text[state.lang] || door.text.en;
+      $("#a-name").textContent = door.v.name;
+      const st = $("#a-sticker");
+      st.classList.toggle("dark", door.v.dark);
+      setStickerImage(st, door.v);
+      $("img", st).alt = `${door.v.name} logo`;
+      const link = $("#a-link");
+      link.href = pageHref(door.v.id);
+      if (!dlg.open) dlg.showModal();
+    };
+    const btn = $(`.door[data-day="${n}"]`);
+    if (first && btn && matchMedia("(prefers-reduced-motion: no-preference)").matches) {
+      btn.classList.add("opening");
+      setTimeout(() => { renderAdvent(); show(); }, 650);
+    } else {
+      renderAdvent();
+      show();
+    }
   }
 
   function renderLede() {
@@ -513,6 +673,7 @@
     if (state.sort !== "new") p.set("sort", state.sort);
     if (state.view !== "grid") p.set("view", state.view);
     if (params.has("lang")) p.set("lang", state.lang);
+    if (params.has("advent-date")) p.set("advent-date", params.get("advent-date"));
     const qs = p.toString();
     history.replaceState(history.state, "", location.pathname + (qs ? "?" + qs : "") + location.hash);
   }
@@ -662,6 +823,17 @@
     el.wall.addEventListener("click", openCard);
     el.timeline.addEventListener("click", openCard);
 
+    $("#doors").addEventListener("click", (e) => {
+      const b = e.target.closest("button.door");
+      if (b && !b.disabled) openDoor(Number(b.dataset.day));
+    });
+    $("#a-close").addEventListener("click", () => $("#advent-dlg").close());
+    $("#advent-dlg").addEventListener("click", (e) => { if (e.target.id === "advent-dlg") e.target.close(); });
+    $("#advent-dlg").addEventListener("close", () => {
+      const btn = $(`.door[data-day="${lastDoor}"]`);
+      if (btn) btn.focus({ preventScroll: true });
+    });
+
     window.addEventListener("hashchange", fromHash);
     $("#d-close").addEventListener("click", closeDetail);
     el.dlg.addEventListener("close", () => { if (currentId) closeDetail(); });
@@ -708,6 +880,7 @@
     renderYears();
     render();
     fromHash();
+    loadAdvent();
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start);

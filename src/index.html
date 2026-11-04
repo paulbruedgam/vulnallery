@@ -24,8 +24,8 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/archivo-latin-wdth.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/style.css?v=d8d274389a" integrity="sha384-TAMW3G6WbSoqJ5Fp/ttKfFnQsrZ9YsRVyJeyoZejpn+MQWt81xvPfPruN068dkmF" crossorigin="anonymous">
-  <script src="assets/js/app.js?v=143490ac9d" integrity="sha384-DgfRGHllpdmpZFasFf13XcZSh5cNxUclXjEkAz28lYcMLUsEZzhoRygnezSzmzf5" crossorigin="anonymous" defer></script>
+  <link rel="stylesheet" href="assets/css/style.css?v=7bde068020" integrity="sha384-8L47j4CI14GBGeVlAqshKdhkUftVYeQl2x+jLlSUzAGVZbgarK8piDDOs44kIVrB" crossorigin="anonymous">
+  <script src="assets/js/app.js?v=17858ccf63" integrity="sha384-w5x5Fme68jhugnbekAyYyGnR041he8EZrySz5TSBjuVd9n2dOLKp1pDrDf3Et19q" crossorigin="anonymous" defer></script>
 </head>
 <body>
   <a class="skip" href="#gallery" data-i18n="skip">Zur Galerie springen</a>
@@ -51,6 +51,15 @@
       <h1 data-i18n="headline">Keine kritische Lücke ohne Logo.</h1>
       <p class="lede" id="lede"></p>
       <p class="announce" id="announce" hidden><span data-i18n="announce">Ab 1. Dezember: jeden Tag ein Türchen im Adventskalender.</span></p>
+    </section>
+
+    <section class="advent" id="advent" aria-labelledby="advent-heading" hidden>
+      <div class="advent-head">
+        <h2 id="advent-heading" data-i18n="adventTitle">Adventskalender 2026</h2>
+        <p data-i18n="adventLede">Jeden Tag ein Türchen mit der Geschichte hinter einem Lücken-Logo.</p>
+        <a id="advent-archive" href="de/advent/2026/" data-i18n="adventArchive">Alle bisherigen Türchen</a>
+      </div>
+      <ul class="doors" id="doors"></ul>
     </section>
 
     <section class="controls" aria-labelledby="filter-heading">
@@ -154,6 +163,23 @@
         <div class="d-nav">
           <button type="button" class="btn ghost" id="d-prev"><span aria-hidden="true">‹ </span><span data-i18n="prev">Vorherige</span></button>
           <button type="button" class="btn ghost" id="d-next"><span data-i18n="next">Nächste</span><span aria-hidden="true"> ›</span></button>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog id="advent-dlg" class="advent-dlg" aria-labelledby="a-title">
+    <div class="d-inner">
+      <button type="button" class="icon-btn d-close" id="a-close" data-i18n-aria="close" aria-label="Schließen">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+      <div class="d-stage"><span class="sticker big" id="a-sticker"><img alt=""></span></div>
+      <div class="d-body">
+        <p class="meta"><span id="a-day"></span><span id="a-name" class="a-name"></span></p>
+        <h2 id="a-title"></h2>
+        <p id="a-text" class="d-desc"></p>
+        <div class="d-actions">
+          <a id="a-link" class="btn primary" data-i18n="adventToVuln">Zur Lücke</a>
         </div>
       </div>
     </div>

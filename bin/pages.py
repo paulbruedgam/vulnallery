@@ -8,7 +8,9 @@ unverändert. Nur Python-Standardbibliothek, keine Abhängigkeiten.
 
 Ergebnis im Webroot:
   de/<id>/index.html, en/<id>/index.html   eine Seite je Lücke und Sprache
-  de/feed.xml, en/feed.xml                 Atom-Feeds
+  de/feed.xml, en/feed.xml                 Atom-Feeds (mit den geöffneten Türchen)
+  de/advent/<jahr>/, en/advent/<jahr>/     Archiv des Adventskalenders, nur Türchen
+                                           bis heute; advent/<jahr>/ leitet weiter
   sitemap.xml                              alle Seiten mit hreflang
   data/vulns.json                          ergänzt um width/height der Logos
 
@@ -52,6 +54,11 @@ PAGE = {
         "feedTitle": "Vulnallery – neue Sicherheitslücken mit Logo",
         "feedSub": "Neue Einträge in der Galerie der Sicherheitslücken mit eigenem Logo.",
         "skip": "Zum Inhalt springen",
+        "archiveTitle": "Adventskalender {year} – alle Türchen | Vulnallery",
+        "archiveDesc": "Der Adventskalender der Vulnallery: 24 Sicherheitslücken und die Geschichten hinter ihren Logos.",
+        "archiveSoon": "Das erste Türchen öffnet am 1. Dezember {year}.",
+        "archiveClosed": "Noch geschlossen",
+        "doorFeed": "Türchen {n}: {title}",
     },
     "en": {
         "title": "{name} – logo, CVE and background | Vulnallery",
@@ -64,6 +71,11 @@ PAGE = {
         "feedTitle": "Vulnallery – new vulnerabilities with a logo",
         "feedSub": "New entries in the gallery of vulnerabilities that come with their own logo.",
         "skip": "Skip to content",
+        "archiveTitle": "Advent calendar {year} – all doors | Vulnallery",
+        "archiveDesc": "The Vulnallery advent calendar: 24 vulnerabilities and the stories behind their logos.",
+        "archiveSoon": "The first door opens on 1 December {year}.",
+        "archiveClosed": "Still closed",
+        "doorFeed": "Door {n}: {title}",
     },
 }
 
@@ -402,12 +414,26 @@ def render_footer(lang, t, version):
 
 
 # ------------------------------------------------------------------ feeds, sitemap
-def render_feed(lang, items, ctx):
+def render_feed(lang, items, ctx, doors=(), year=None, by_id=None):
     p = PAGE[lang]
     stamp = lambda v: iso(v["added"]) if v.get("added") else iso(v["date"])
     items = sorted(items, key=lambda v: (stamp(v), v["date"], v["name"]), reverse=True)[:30]
-    updated = max(stamp(v) for v in items)
+    updated = max([stamp(v) for v in items] + [door_published(year, d["day"]) for d in doors])
     entries = []
+    for d in sorted(doors, key=lambda d: d["day"], reverse=True):
+        v = by_id[d["id"]]
+        url = archive_url(lang, year) + f"#tag-{d['day']}"
+        when = door_published(year, d["day"])
+        entries.append(f"""  <entry>
+    <title>{esc(p["doorFeed"].format(n=d["day"], title=d["title"][lang]))}</title>
+    <link rel="alternate" type="text/html" hreflang="{lang}" href="{url}"/>
+    <link rel="related" type="text/html" href="{page_url(lang, v["id"])}"/>
+    <id>{url}</id>
+    <published>{when}</published>
+    <updated>{when}</updated>
+    <category term="advent" label="{esc(ctx["T"][lang]["adventTitle"])}"/>
+    <summary type="text">{esc(d["text"][lang])}</summary>
+  </entry>""")
     for v in items:
         url = page_url(lang, v["id"])
         entries.append(f"""  <entry>
@@ -434,11 +460,21 @@ def render_feed(lang, items, ctx):
 """
 
 
-def render_sitemap(items, lastmod):
+def render_sitemap(items, lastmod, advent_year=None):
     urls = [f"""  <url>
     <loc>{BASE}/</loc>
     <lastmod>{lastmod}</lastmod>
   </url>"""]
+    if advent_year:
+        alts = "\n".join(
+            f'    <xhtml:link rel="alternate" hreflang="{h}" href="{archive_url(l, advent_year)}"/>'
+            for h, l in (("de", "de"), ("en", "en"), ("x-default", "de")))
+        for lang in LANGS:
+            urls.append(f"""  <url>
+    <loc>{archive_url(lang, advent_year)}</loc>
+    <lastmod>{lastmod}</lastmod>
+{alts}
+  </url>""")
     for v in items:
         alts = "\n".join(
             f'    <xhtml:link rel="alternate" hreflang="{h}" href="{page_url(l, v["id"])}"/>'
@@ -453,6 +489,156 @@ def render_sitemap(items, lastmod):
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 {chr(10).join(urls)}
 </urlset>
+"""
+
+
+# ------------------------------------------------------------------ advent
+def advent_today(override=None):
+    """Heutiges Datum in Berlin. Im Advent gilt dort immer MEZ (UTC+1)."""
+    if override:
+        return dt.date.fromisoformat(override)
+    return (dt.datetime.now(dt.timezone.utc) + dt.timedelta(hours=1)).date()
+
+
+def open_doors(cal, by_id, today):
+    """Türchen, die heute in Berlin schon offen sind, aufsteigend."""
+    year = cal["year"]
+    if today < dt.date(year, 12, 1):
+        return []
+    last = 24 if today > dt.date(year, 12, 24) else today.day
+    return [d for d in sorted(cal["doors"], key=lambda d: d["day"]) if d["day"] <= last and d["id"] in by_id]
+
+
+def door_published(year, day):
+    # 00:00 Uhr in Berlin (MEZ) = 23:00 UTC am Vortag
+    return (dt.datetime(year, 12, day, tzinfo=dt.timezone.utc) - dt.timedelta(hours=1)).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
+def archive_url(lang, year):
+    return f"{BASE}/{lang}/advent/{year}/"
+
+
+def render_archive(lang, cal, doors, by_id, ctx):
+    t, p = ctx["T"][lang], PAGE[lang]
+    other = "en" if lang == "de" else "de"
+    year = cal["year"]
+    url = archive_url(lang, year)
+    title = p["archiveTitle"].format(year=year)
+    items = []
+    for d in doors:
+        v = by_id[d["id"]]
+        size = ctx["sizes"].get(v["image"])
+        wh = f' width="{size[0]}" height="{size[1]}"' if size else ""
+        dark = " dark" if v.get("darkBackground") else ""
+        items.append(f"""      <li class="archive-item vcard" id="tag-{d["day"]}">
+        <div class="d-inner">
+          <div class="d-stage"><span class="sticker big{dark}"><img src="/assets/img/{esc(v["image"])}" alt="{esc(p["logoAlt"].format(name=v["name"]))}"{wh} loading="lazy" decoding="async"></span></div>
+          <div class="d-body">
+            <p class="meta"><span>{esc(t["adventDoor"])} {d["day"]}</span><span class="a-name">{esc(v["name"])}</span></p>
+            <h2>{esc(d["title"][lang])}</h2>
+            <p class="d-desc">{esc(d["text"][lang])}</p>
+            <div class="d-actions"><a class="btn primary" href="/{lang}/{esc(v["id"])}/">{esc(t["adventToVuln"])}</a></div>
+          </div>
+        </div>
+      </li>""")
+    shown = {d["day"] for d in doors}
+    closed = [n for n in range(1, 25) if n not in shown]
+    closed_html = ""
+    if closed:
+        closed_html = (f'\n    <h2 class="h3 archive-closed-title">{esc(p["archiveClosed"])}</h2>\n    <ul class="archive-closed">'
+                       + "".join(f"<li>{n}</li>" for n in closed) + "</ul>")
+    if items:
+        body = '\n    <ol class="archive-list">\n' + "\n".join(items) + "\n    </ol>"
+    else:
+        body = f'\n    <p class="announce">{esc(p["archiveSoon"].format(year=year))}</p>'
+    robots = "" if doors else '\n  <meta name="robots" content="noindex">'
+    ld = [{"@context": "https://schema.org", "@type": "CollectionPage", "@id": url, "url": url, "name": title,
+           "description": p["archiveDesc"], "inLanguage": lang, "isPartOf": {"@id": BASE + "/#website"},
+           "hasPart": [{"@type": "WebPage", "url": page_url(lang, d["id"]), "name": by_id[d["id"]]["name"]} for d in doors]},
+          {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+              {"@type": "ListItem", "position": 1, "name": "Vulnallery", "item": f"{BASE}/?lang={lang}"},
+              {"@type": "ListItem", "position": 2, "name": t["adventTitle"], "item": url}]}]
+    return f"""<!doctype html>
+<html lang="{lang}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="{esc(ctx["csp"])}">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="color-scheme" content="dark light">
+  <title>{esc(title)}</title>
+  <meta name="description" content="{esc(p["archiveDesc"])}">{robots}
+  <link rel="canonical" href="{url}">
+  <link rel="alternate" hreflang="{lang}" href="{url}">
+  <link rel="alternate" hreflang="{other}" href="{archive_url(other, year)}">
+  <link rel="alternate" hreflang="x-default" href="{archive_url("de", year)}">
+  <link rel="alternate" type="application/atom+xml" title="{esc(p["feedTitle"])}" href="/{lang}/feed.xml">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Vulnallery">
+  <meta property="og:title" content="{esc(t["adventTitle"])}">
+  <meta property="og:description" content="{esc(p["archiveDesc"])}">
+  <meta property="og:url" content="{url}">
+  <meta property="og:image" content="{BASE}/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/assets/fonts/archivo-latin-wdth.woff2" as="font" type="font/woff2" crossorigin>
+  {ctx["css_tag"]}
+  {ctx["page_js_tag"]}
+  <script type="application/ld+json">{jsonld(ld)}</script>
+</head>
+<body>
+  <a class="skip" href="#main">{esc(p["skip"])}</a>
+
+  <header class="top">
+    <a class="brand" href="/?lang={lang}">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M6 3h15l8 8v15a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3Z"/><path class="fold" d="M21 3v5a3 3 0 0 0 3 3h5Z"/></svg>
+      <span>Vulnallery</span>
+    </a>
+    <div class="toggles">
+      <nav class="seg lang" aria-label="Language / Sprache">
+        <a href="/de/advent/{year}/" hreflang="de" lang="de"{' aria-current="page"' if lang == "de" else ""}>DE</a>
+        <a href="/en/advent/{year}/" hreflang="en" lang="en"{' aria-current="page"' if lang == "en" else ""}>EN</a>
+      </nav>
+      <button type="button" class="icon-btn" id="theme-toggle" aria-label="{esc(t["theme"])}" hidden>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path class="half" d="M12 3.5a8.5 8.5 0 0 1 0 17Z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main" class="vpage">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/?lang={lang}">Vulnallery</a></li>
+        <li aria-current="page">{esc(t["adventTitle"])}</li>
+      </ol>
+    </nav>
+    <section class="intro">
+      <h1>{esc(t["adventTitle"])}</h1>
+      <p class="lede">{esc(t["adventLede"])}</p>
+    </section>{body}{closed_html}
+  </main>
+
+{ctx["footer"][lang]}
+</body>
+</html>
+"""
+
+
+def render_redirect(year):
+    target = archive_url("de", year)
+    return f"""<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex">
+  <meta http-equiv="refresh" content="0; url=/de/advent/{year}/">
+  <link rel="canonical" href="{target}">
+  <title>Vulnallery – Adventskalender {year}</title>
+</head>
+<body>
+  <p><a href="/de/advent/{year}/">Adventskalender {year}</a> · <a href="/en/advent/{year}/">Advent calendar {year}</a></p>
+</body>
+</html>
 """
 
 
@@ -489,6 +675,26 @@ def main():
         "footer": {lang: render_footer(lang, texts[lang], version) for lang in LANGS},
     }
     order = sorted(items, key=lambda v: (v["date"], v["name"].lower()), reverse=True)
+    by_id = {v["id"]: v for v in items}
+
+    # Adventskalender: nur Türchen bis heute (Berlin) veröffentlichen.
+    # Zum Testen: VULNALLERY_DATE=2026-12-05 ./bin/build.sh
+    cal, doors = None, []
+    cal_path = os.path.join(root, "data", "advent.json")
+    if os.path.exists(cal_path):
+        cal = json.load(open(cal_path, encoding="utf-8"))
+        today = advent_today(os.environ.get("VULNALLERY_DATE"))
+        doors = open_doors(cal, by_id, today)
+        for lang in LANGS:
+            out = os.path.join(root, lang, "advent", str(cal["year"]))
+            os.makedirs(out, exist_ok=True)
+            with open(os.path.join(out, "index.html"), "w", encoding="utf-8") as f:
+                f.write(render_archive(lang, cal, doors, by_id, ctx))
+        out = os.path.join(root, "advent", str(cal["year"]))
+        os.makedirs(out, exist_ok=True)
+        with open(os.path.join(out, "index.html"), "w", encoding="utf-8") as f:
+            f.write(render_redirect(cal["year"]))
+
     for lang in LANGS:
         for i, v in enumerate(order):
             prev_v = order[i - 1] if i > 0 else None
@@ -498,15 +704,15 @@ def main():
             with open(os.path.join(out, "index.html"), "w", encoding="utf-8") as f:
                 f.write(render_page(v, lang, ctx, prev_v, next_v))
         with open(os.path.join(root, lang, "feed.xml"), "w", encoding="utf-8") as f:
-            f.write(render_feed(lang, items, ctx))
+            f.write(render_feed(lang, items, ctx, doors, cal and cal["year"], by_id))
     with open(os.path.join(root, "sitemap.xml"), "w", encoding="utf-8") as f:
-        f.write(render_sitemap(order, lastmod))
+        f.write(render_sitemap(order, lastmod, cal["year"] if doors else None))
     # Galerie bekommt die Bildmaße für width/height (gegen Layout-Sprünge)
     with open(data_path, "w", encoding="utf-8") as f:
         json.dump(items, f, ensure_ascii=False, indent=1)
         f.write("\n")
     missing = sorted(v["image"] for v in items if v["image"] not in sizes)
-    print(f"{len(order) * len(LANGS)} Seiten, 2 Feeds, sitemap.xml; Bildmaße für {len(sizes)}/{len(items)} Logos"
+    print(f"{len(order) * len(LANGS)} Seiten, 2 Feeds, sitemap.xml, Advent: {len(doors)} Türchen offen; Bildmaße für {len(sizes)}/{len(items)} Logos"
           + (f" (fehlen: {', '.join(missing)})" if missing else ""))
 
 
