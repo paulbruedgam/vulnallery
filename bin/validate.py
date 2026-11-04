@@ -16,7 +16,8 @@ IMG = os.path.join(ROOT, "assets", "img")
 CATEGORIES = {"hardware", "crypto", "wireless", "software", "network"}
 LICENSES = {"CC0", "CC-BY-4.0", "CC-BY-2.5", "CC-BY-SA-4.0", "PD", "free", "none"}
 NOTES = {"chromium", "safari", "ai"}
-MAX_IMG_BYTES = 2 * 1024 * 1024  # harte Grenze; Ziel laut Plan sind deutlich kleinere Dateien
+MAX_IMG_BYTES = 300 * 1024   # harte Grenze
+WARN_IMG_BYTES = 100 * 1024  # Ziel laut CLAUDE.md
 
 RE_ID = re.compile(r"^[a-z0-9-]{1,48}$")
 RE_DATE = re.compile(r"^\d{4}(-(0[1-9]|1[0-2])(-(0[1-9]|[12]\d|3[01]))?)?$")
@@ -71,7 +72,7 @@ def main() -> int:
             size = os.path.getsize(path)
             if size > MAX_IMG_BYTES:
                 err(f"{img} ist zu groß ({size // 1024} KB)")
-            elif size > 300 * 1024:
+            elif size > WARN_IMG_BYTES:
                 warnings.append(f"{where}: {img} hat {size // 1024} KB, bitte verkleinern")
             if img.lower().endswith(".svg"):
                 with open(path, "rb") as fh:
