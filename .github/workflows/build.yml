@@ -5,6 +5,11 @@
 #   GitHub-Release mit tar.gz, zip und SHA256SUMS. Das Server-Skript
 #   deploy/pull-release.sh holt sich von dort die neueste Version.
 #
+# - Adventskalender: Vom 30.11. bis 24.12. baut ein Zeitplan kurz nach
+#   Mitternacht (Berlin) ein neues Release, damit Archiv /de|en/advent/<jahr>/,
+#   Feeds und Sitemap das Türchen des Tages enthalten. Der Server holt es mit
+#   dem stündlichen Timer ab; die Startseite öffnet das Türchen ohnehin sofort.
+#
 # Der Tag wird in diesem Lauf mit "gh release create" angelegt. Ein separater
 # Tag-Push würde mit dem GITHUB_TOKEN keinen weiteren Workflow auslösen.
 name: Build
@@ -14,13 +19,17 @@ on:
     branches: [main]
   pull_request:
   workflow_dispatch:
+  schedule:
+    # 23:05 UTC = 00:05 Uhr MEZ am Folgetag
+    - cron: "5 23 30 11 *"
+    - cron: "5 23 1-24 12 *"
 
 permissions:
   contents: read
 
 jobs:
   build:
-    if: github.event_name != 'push'
+    if: github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     concurrency:
@@ -47,7 +56,7 @@ jobs:
           if-no-files-found: error
 
   release:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    if: (github.event_name == 'push' || github.event_name == 'schedule') && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
@@ -65,7 +74,8 @@ jobs:
       - name: Nächste Version bestimmen
         id: version
         run: |
-          if existing=$(git tag --points-at HEAD --list 'v*' | head -n1) && [ -n "$existing" ]; then
+          # Zeitplan-Läufe bauen bewusst denselben Commit neu (neues Türchen)
+          if [ "$GITHUB_EVENT_NAME" = "push" ] && existing=$(git tag --points-at HEAD --list 'v*' | head -n1) && [ -n "$existing" ]; then
             echo "Commit ist bereits als $existing getaggt, nichts zu tun."
             echo "skip=true" >> "$GITHUB_OUTPUT"
             exit 0
