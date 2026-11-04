@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Berechnet die Subresource-Integrity-Hashes (SHA-384) für style.css und app.js
+# Berechnet die Subresource-Integrity-Hashes (SHA-384) für style.css, app.js und page.js
 # und trägt sie in src/index.html und src/404.html ein. Nach jeder Änderung an
 # CSS/JS ausführen.
 #
@@ -16,14 +16,18 @@ CSS_HASH="$(sri assets/css/style.css)"
 JS_HASH="$(sri assets/js/app.js)"
 CSS_V="$(short assets/css/style.css)"
 JS_V="$(short assets/js/app.js)"
+PAGE_HASH="$(sri assets/js/page.js)"
+PAGE_V="$(short assets/js/page.js)"
 
 for page in index.html 404.html; do
   [ -f "$page" ] || continue
   sed -i -E \
     -e "s#(href=\"/?assets/css/style\.css)(\?v=[0-9a-f]*)?(\" integrity=\")[^\"]*#\1?v=${CSS_V}\3${CSS_HASH}#" \
     -e "s#(src=\"/?assets/js/app\.js)(\?v=[0-9a-f]*)?(\" integrity=\")[^\"]*#\1?v=${JS_V}\3${JS_HASH}#" \
+    -e "s#(src=\"/?assets/js/page\.js)(\?v=[0-9a-f]*)?(\" integrity=\")[^\"]*#\1?v=${PAGE_V}\3${PAGE_HASH}#" \
     "$page"
 done
 
 echo "style.css  ${CSS_HASH}"
 echo "app.js     ${JS_HASH}"
+echo "page.js    ${PAGE_HASH}"

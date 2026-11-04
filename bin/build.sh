@@ -38,10 +38,13 @@ esac
 sed -i "s#<span id=\"release\" translate=\"no\">dev</span>#<span id=\"release\" translate=\"no\">${VERSION}</span>#" "dist/${NAME}/index.html"
 grep -q "<span id=\"release\" translate=\"no\">${VERSION}</span>" "dist/${NAME}/index.html" \
   || { echo "Release-Nummer konnte nicht in den Footer geschrieben werden."; exit 1; }
+
+echo "== Lückenseiten, Feeds und Sitemap erzeugen"
+STAMP="$(git log -1 --format=%ct 2>/dev/null || date +%s)"
+python3 bin/pages.py "dist/${NAME}" "${VERSION}" "${STAMP}"
 # Reproduzierbare Zeitstempel und Rechte
 find "dist/${NAME}" -type d -exec chmod 755 {} +
 find "dist/${NAME}" -type f -exec chmod 644 {} +
-STAMP="$(git log -1 --format=%ct 2>/dev/null || date +%s)"
 find "dist/${NAME}" -exec touch -d "@${STAMP}" {} +
 
 tar -C dist --owner=0 --group=0 --numeric-owner --sort=name -czf "dist/${NAME}.tar.gz" "${NAME}"

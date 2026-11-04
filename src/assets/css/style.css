@@ -179,7 +179,7 @@ button, input, select { font: inherit; color: inherit; }
   border-radius: 999px;
   background: color-mix(in srgb, var(--bg) 70%, transparent);
 }
-.seg button {
+.seg button, .seg a {
   border: 0;
   background: none;
   padding: 0.3rem 0.8rem;
@@ -189,7 +189,8 @@ button, input, select { font: inherit; color: inherit; }
   font-size: 0.9rem;
   white-space: nowrap;
 }
-.seg button[aria-pressed="true"] {
+.seg a { color: inherit; text-decoration: none; }
+.seg button[aria-pressed="true"], .seg a[aria-current="page"] {
   background: var(--accent);
   color: var(--accent-ink);
 }
@@ -547,6 +548,49 @@ dialog[open] { animation: lift 0.2s ease-out; }
   .d-inner { grid-template-columns: 5fr 6fr; }
   .d-stage { min-height: 100%; }
 }
+
+/* ---------- vulnerability pages ---------- */
+.vpage { padding-top: clamp(16px, 3vw, 32px); padding-bottom: clamp(32px, 6vw, 72px); }
+.crumbs ol { display: flex; flex-wrap: wrap; gap: 0.3rem; margin: 0 0 18px; padding: 0; list-style: none; font-size: 0.9rem; color: var(--muted); }
+.crumbs li + li::before { content: "›"; margin-right: 0.3rem; }
+.crumbs a { color: inherit; text-underline-offset: 3px; }
+.vcard {
+  max-width: 1040px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: var(--surface);
+  overflow: hidden;
+}
+.vcard .sticker.big { --tilt: -2deg; }
+.vcard .sticker img { height: auto; }
+.d-body h1 {
+  margin: 0.35rem 0 0.6rem;
+  font-size: clamp(2.1rem, 5vw, 3.2rem);
+  font-weight: 820;
+  font-stretch: 118%;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  overflow-wrap: anywhere;
+}
+.d-body .h3 { margin: 1.4rem 0 0.5rem; font-size: 0.95rem; font-weight: 650; color: var(--muted); }
+.d-body .muted { margin: 1.4rem 0 0; }
+a.cat { text-decoration: none; }
+a.cat:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---------- announcement ---------- */
+.announce {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 1rem;
+  margin: 1.2rem 0 0;
+  padding: 0.75rem 1.1rem;
+  border: 1px solid var(--accent);
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--accent) 14%, var(--surface));
+  font-weight: 600;
+}
+.announce a { font-weight: 500; text-underline-offset: 3px; }
 
 /* ---------- footer ---------- */
 .foot {

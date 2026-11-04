@@ -48,6 +48,9 @@
       imprint: "Legal notice",
       privacy: "Privacy policy",
       release: "Release",
+      announce: "From 1 December: a new door every day in the advent calendar.",
+      announceFeed: "Follow via feed",
+      page: "Open page",
       colophon: "Plain HTML, CSS and JavaScript. No cookies, no trackers, no requests to other sites.",
       close: "Close",
       cveTitle: "CVE identifiers",
@@ -126,6 +129,9 @@
       imprint: "Impressum",
       privacy: "Datenschutz",
       release: "Version",
+      announce: "Ab 1. Dezember: jeden Tag ein Türchen im Adventskalender.",
+      announceFeed: "Per Feed folgen",
+      page: "Eigene Seite öffnen",
       colophon: "Reines HTML, CSS und JavaScript. Keine Cookies, keine Tracker, keine Anfragen an andere Seiten.",
       close: "Schließen",
       cveTitle: "CVE-Kennungen",
@@ -216,7 +222,7 @@
 
   function clean(raw) {
     if (!raw || typeof raw !== "object") return null;
-    const { id, name, date, image, url, category, cve = [], description = {}, added, darkBackground, credit } = raw;
+    const { id, name, date, image, url, category, cve = [], description = {}, added, darkBackground, credit, width, height } = raw;
     if (!RE_ID.test(id) || typeof name !== "string" || !name.trim()) return null;
     if (!RE_DATE.test(date) || !RE_IMG.test(image) || !CATS.includes(category)) return null;
     const href = safeUrl(url);
@@ -237,6 +243,8 @@
       added: typeof added === "string" ? added : null,
       dark: darkBackground === true,
       credit: cleanCredit(credit),
+      width: Number.isInteger(width) && width > 0 && width < 10000 ? width : null,
+      height: Number.isInteger(height) && height > 0 && height < 10000 ? height : null,
     };
   }
 
@@ -313,6 +321,7 @@
     dCredit: $("#d-credit"),
     dCreditWrap: $("#d-credit-wrap"),
     dSrc: $("#d-src"),
+    dPage: $("#d-page"),
     dCopy: $("#d-copy"),
     dPrev: $("#d-prev"),
     dNext: $("#d-next"),
@@ -336,6 +345,16 @@
       if (typeof v === "string") n.setAttribute("placeholder", v);
     });
     $$("[data-lang]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.lang === state.lang)));
+    renderAnnounce();
+  }
+
+  // Bis zum Start des Adventskalenders (1. Dezember 2026, 00:00 Uhr in Berlin)
+  const ADVENT_START = Date.UTC(2026, 10, 30, 23, 0);
+  function renderAnnounce() {
+    const box = $("#announce");
+    if (!box) return;
+    box.hidden = Date.now() >= ADVENT_START;
+    $("#announce-feed").href = state.lang + "/feed.xml";
   }
 
   function renderLede() {
@@ -399,15 +418,19 @@
     return list;
   }
 
+  const pageHref = (id) => `${state.lang}/${id}/`;
+
   function setStickerImage(sticker, v) {
     const img = $("img", sticker);
+    if (v.width && v.height) { img.width = v.width; img.height = v.height; }
+    else { img.removeAttribute("width"); img.removeAttribute("height"); }
     img.src = "assets/img/" + v.image;
     img.alt = sticker.classList.contains("big") ? `${v.name} logo` : "";
   }
 
   function fillCard(node, v, withNew) {
     const t = T[state.lang];
-    node.href = "#" + v.id;
+    node.href = pageHref(v.id);
     node.dataset.id = v.id;
     const sticker = $(".sticker", node);
     sticker.style.setProperty("--tilt", tilt(v.id));
@@ -522,6 +545,7 @@
     el.dNoCve.hidden = v.cve.length > 0;
     renderCredit(v.credit);
     el.dSrc.href = v.url;
+    el.dPage.href = pageHref(v.id);
     el.dCopy.textContent = t.copy;
     const list = shown.some((x) => x.id === id) ? shown : all;
     const i = list.findIndex((x) => x.id === id);
@@ -627,6 +651,15 @@
       el.q.focus();
     });
 
+    const openCard = (e) => {
+      const a = e.target.closest("a.card, a.t-item");
+      if (!a || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      e.preventDefault();
+      go(a.dataset.id);
+    };
+    el.wall.addEventListener("click", openCard);
+    el.timeline.addEventListener("click", openCard);
+
     window.addEventListener("hashchange", fromHash);
     $("#d-close").addEventListener("click", closeDetail);
     el.dlg.addEventListener("close", () => { if (currentId) closeDetail(); });
@@ -639,7 +672,7 @@
     el.dPrev.addEventListener("click", () => go(el.dPrev.dataset.target));
     el.dNext.addEventListener("click", () => go(el.dNext.dataset.target));
     el.dCopy.addEventListener("click", async () => {
-      const link = location.origin + location.pathname + "#" + currentId;
+      const link = new URL(pageHref(currentId), location.href).href;
       try {
         await navigator.clipboard.writeText(link);
         el.dCopy.textContent = T[state.lang].copied;
