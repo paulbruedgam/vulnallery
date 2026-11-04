@@ -57,6 +57,10 @@ def main() -> int:
         for c in v.get("cve", []):
             if not RE_CVE.match(c):
                 err(f"CVE ungültig: {c}")
+        og = os.path.join(IMG, "..", "og", str(v.get("id", "")) + ".jpg")
+        if not os.path.isfile(og):
+            warnings.append(f"{where}: Vorschaubild fehlt, ./bin/gen_og.py ausführen")
+
         desc = v.get("description", {})
         for lang in ("de", "en"):
             if not str(desc.get(lang, "")).strip():

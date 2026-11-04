@@ -1,25 +1,34 @@
 <!doctype html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="color-scheme" content="dark light">
-  <title>Vulnallery – the gallery of vulnerabilities</title>
-  <meta name="description" content="Vulnallery collects security vulnerabilities that come with their own logo, from Heartbleed to the latest CPU side channels. In English and German.">
+  <title>Vulnallery – die Galerie der Sicherheitslücken</title>
+  <meta name="description" content="Vulnallery sammelt Sicherheitslücken mit eigenem Logo, von Heartbleed bis zu den neuesten CPU-Seitenkanälen. Jede Lücke mit CVE, Beschreibung und Bildrechten, auf Deutsch und Englisch.">
+  <link rel="canonical" href="https://vulnallery.de/">
+  <link rel="alternate" type="application/atom+xml" title="Vulnallery – neue Sicherheitslücken mit Logo" href="de/feed.xml" hreflang="de">
+  <link rel="alternate" type="application/atom+xml" title="Vulnallery – new vulnerabilities with a logo" href="en/feed.xml" hreflang="en">
   <meta property="og:title" content="Vulnallery">
-  <meta property="og:description" content="There is no critical vulnerability without a logo in this world.">
+  <meta property="og:description" content="Keine kritische Lücke ohne Logo: die Galerie der Sicherheitslücken mit eigenem Logo.">
+  <meta property="og:site_name" content="Vulnallery">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:locale:alternate" content="en_GB">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://vulnallery.de/">
   <meta property="og:image" content="https://vulnallery.de/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/archivo-latin-wdth.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/style.css?v=a737d2ac3b" integrity="sha384-mFHQ5eXaB6kVECKtQAHIz/pJ4GwRg26zB/W6F2mpdgoKautIvYuOjdmabqkREVLv" crossorigin="anonymous">
-  <script src="assets/js/app.js?v=fa395ff129" integrity="sha384-qH28bZoNPdky7TSDnWFPJMz0lAhxNJqGFMmnOzHrtEncAc4mCm9nYVoLmPg2rLLY" crossorigin="anonymous" defer></script>
+  <link rel="stylesheet" href="assets/css/style.css?v=f90bac7fb3" integrity="sha384-TgGkAYpTv/I1g0S9Ru4neptgifHEJLiaMYXahbmNeKQOwItBpo5zt+yvvurkD2wu" crossorigin="anonymous">
+  <script src="assets/js/app.js?v=4aa04b5228" integrity="sha384-1bWvKLsKmrbZQtTi1WYv2uXrciFUdDG6p3t6Ue2BEUTtu1n7SMyrMlpCcHp8roXi" crossorigin="anonymous" defer></script>
 </head>
 <body>
-  <a class="skip" href="#gallery" data-i18n="skip">Skip to the gallery</a>
+  <a class="skip" href="#gallery" data-i18n="skip">Zur Galerie springen</a>
 
   <header class="top">
     <a class="brand" href="./">
@@ -31,7 +40,7 @@
         <button type="button" data-lang="de" lang="de" aria-label="Deutsch">DE</button>
         <button type="button" data-lang="en" lang="en" aria-label="English">EN</button>
       </div>
-      <button type="button" class="icon-btn" id="theme-toggle" data-i18n-aria="theme" aria-label="Switch colour scheme">
+      <button type="button" class="icon-btn" id="theme-toggle" data-i18n-aria="theme" aria-label="Farbschema wechseln">
         <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path class="half" d="M12 3.5a8.5 8.5 0 0 1 0 17Z"/></svg>
       </button>
     </div>
@@ -39,32 +48,33 @@
 
   <main>
     <section class="intro">
-      <h1 data-i18n="headline">No critical vulnerability without a logo.</h1>
+      <h1 data-i18n="headline">Keine kritische Lücke ohne Logo.</h1>
       <p class="lede" id="lede"></p>
+      <p class="announce" id="announce" hidden><span data-i18n="announce">Ab 1. Dezember: jeden Tag ein Türchen im Adventskalender.</span> <a id="announce-feed" href="de/feed.xml" data-i18n="announceFeed">Per Feed folgen</a></p>
     </section>
 
     <section class="controls" aria-labelledby="filter-heading">
-      <h2 id="filter-heading" class="visually-hidden" data-i18n="filterHeading">Filter the gallery</h2>
+      <h2 id="filter-heading" class="visually-hidden" data-i18n="filterHeading">Galerie filtern</h2>
       <div class="search">
-        <label for="q" class="visually-hidden" data-i18n="searchLabel">Search by name, CVE or description</label>
+        <label for="q" class="visually-hidden" data-i18n="searchLabel">Nach Name, CVE oder Beschreibung suchen</label>
         <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg>
-        <input id="q" type="search" autocomplete="off" spellcheck="false" maxlength="80" data-i18n-placeholder="searchPlaceholder" placeholder="Search name, CVE or text">
+        <input id="q" type="search" autocomplete="off" spellcheck="false" maxlength="80" data-i18n-placeholder="searchPlaceholder" placeholder="Name, CVE oder Text suchen">
       </div>
-      <div class="chips" id="cats" role="group" data-i18n-aria="catGroup" aria-label="Category"></div>
+      <div class="chips" id="cats" role="group" data-i18n-aria="catGroup" aria-label="Kategorie"></div>
       <div class="selects">
-        <label class="field"><span data-i18n="year">Year</span>
+        <label class="field"><span data-i18n="year">Jahr</span>
           <select id="year"></select>
         </label>
-        <label class="field"><span data-i18n="sort">Sort</span>
+        <label class="field"><span data-i18n="sort">Sortierung</span>
           <select id="sort">
-            <option value="new" data-i18n="sortNew">Newest first</option>
-            <option value="old" data-i18n="sortOld">Oldest first</option>
-            <option value="az" data-i18n="sortAz">A to Z</option>
+            <option value="new" data-i18n="sortNew">Neueste zuerst</option>
+            <option value="old" data-i18n="sortOld">Älteste zuerst</option>
+            <option value="az" data-i18n="sortAz">A bis Z</option>
           </select>
         </label>
-        <div class="seg view" role="group" data-i18n-aria="viewGroup" aria-label="View">
-          <button type="button" data-view="grid" data-i18n="viewGrid">Sticker wall</button>
-          <button type="button" data-view="timeline" data-i18n="viewTimeline">Timeline</button>
+        <div class="seg view" role="group" data-i18n-aria="viewGroup" aria-label="Ansicht">
+          <button type="button" data-view="grid" data-i18n="viewGrid">Stickerwand</button>
+          <button type="button" data-view="timeline" data-i18n="viewTimeline">Zeitleiste</button>
         </div>
       </div>
     </section>
@@ -75,50 +85,50 @@
     <section id="timeline" class="timeline" aria-labelledby="count" hidden></section>
 
     <div class="empty" id="empty" hidden>
-      <p data-i18n="emptyText">No vulnerability matches these filters.</p>
-      <button type="button" class="btn" id="reset" data-i18n="reset">Reset filters</button>
+      <p data-i18n="emptyText">Keine Lücke passt zu diesen Filtern.</p>
+      <button type="button" class="btn" id="reset" data-i18n="reset">Filter zurücksetzen</button>
     </div>
 
     <p class="error" id="error" hidden></p>
 
     <noscript>
-      <p class="noscript">Vulnallery needs JavaScript to load the gallery. Vulnallery braucht JavaScript, um die Galerie zu laden.</p>
+      <p class="noscript">Vulnallery braucht JavaScript, um die Galerie zu laden. Vulnallery needs JavaScript to load the gallery.</p>
     </noscript>
   </main>
 
   <footer class="foot">
     <div class="foot-col">
-      <h2 data-i18n="aboutTitle">About</h2>
-      <p data-i18n="about">Vulnallery is a fun project that collects vulnerabilities that come with a logo. Every logo belongs to its creators and links to the original source.</p>
-      <p data-i18n="rights">Each vulnerability's detail view names the designer, rights holder and licence of its logo, as far as they are known. If image rights have been violated, please let me know. Requirements will be met or the image will be removed.</p>
+      <h2 data-i18n="aboutTitle">Über Vulnallery</h2>
+      <p data-i18n="about">Vulnallery ist ein Spaßprojekt, das Sicherheitslücken mit eigenem Logo sammelt. Alle Logos gehören ihren Urhebern und verlinken auf die Originalquelle.</p>
+      <p data-i18n="rights">Gestaltung, Rechteinhaber und Lizenz jedes Logos stehen, soweit bekannt, in der Detailansicht der Lücke. Falls Bildrechte verletzt werden, gib mir bitte Bescheid. Auflagen werden umgesetzt oder das Bild wird entfernt.</p>
     </div>
     <div class="foot-col">
-      <h2 data-i18n="contactTitle">Contact</h2>
+      <h2 data-i18n="contactTitle">Kontakt</h2>
       <dl class="contact">
         <dt data-i18n="website">Website</dt>
         <dd><a href="https://www.bruedgam.eu" rel="noopener noreferrer">www.bruedgam.eu</a></dd>
-        <dt data-i18n="email">Email</dt>
+        <dt data-i18n="email">E-Mail</dt>
         <dd><a href="mailto:info@vulnallery.de">info@vulnallery.de</a></dd>
       </dl>
     </div>
     <div class="legal">
       <nav aria-labelledby="legal-heading">
-        <h2 id="legal-heading" class="visually-hidden" data-i18n="legalTitle">Legal</h2>
+        <h2 id="legal-heading" class="visually-hidden" data-i18n="legalTitle">Rechtliches</h2>
         <ul>
-          <li><a href="https://www.bruedgam.eu/impressum/" rel="noopener noreferrer" data-i18n="imprint">Legal notice</a></li>
-          <li><a href="https://www.bruedgam.eu/datenschutz/" rel="noopener noreferrer" data-i18n="privacy">Privacy policy</a></li>
+          <li><a href="https://www.bruedgam.eu/impressum/" rel="noopener noreferrer" data-i18n="imprint">Impressum</a></li>
+          <li><a href="https://www.bruedgam.eu/datenschutz/" rel="noopener noreferrer" data-i18n="privacy">Datenschutz</a></li>
         </ul>
       </nav>
       <div class="colophon-wrap">
-        <p class="colophon" data-i18n="colophon">Plain HTML, CSS and JavaScript. No cookies, no trackers, no requests to other sites.</p>
-        <p class="colophon release"><span data-i18n="release">Release</span> <span id="release" translate="no">dev</span></p>
+        <p class="colophon" data-i18n="colophon">Reines HTML, CSS und JavaScript. Keine Cookies, keine Tracker, keine Anfragen an andere Seiten.</p>
+        <p class="colophon release"><span data-i18n="release">Version</span> <span id="release" translate="no">dev</span></p>
       </div>
     </div>
   </footer>
 
   <dialog id="detail" aria-labelledby="d-name">
     <div class="d-inner">
-      <button type="button" class="icon-btn d-close" id="d-close" data-i18n-aria="close" aria-label="Close">
+      <button type="button" class="icon-btn d-close" id="d-close" data-i18n-aria="close" aria-label="Schließen">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
       </button>
       <div class="d-stage"><span class="sticker big"><img id="d-img" alt=""></span></div>
@@ -127,21 +137,22 @@
         <h2 id="d-name"></h2>
         <p id="d-desc" class="d-desc"></p>
         <div id="d-cve-wrap">
-          <h3 data-i18n="cveTitle">CVE identifiers</h3>
+          <h3 data-i18n="cveTitle">CVE-Kennungen</h3>
           <ul class="cves" id="d-cves"></ul>
         </div>
-        <p id="d-nocve" class="muted" data-i18n="noCve">No CVE identifier has been assigned.</p>
+        <p id="d-nocve" class="muted" data-i18n="noCve">Es wurde keine CVE-Kennung vergeben.</p>
         <div id="d-credit-wrap">
-          <h3 data-i18n="creditTitle">Image rights</h3>
+          <h3 data-i18n="creditTitle">Bildrechte</h3>
           <dl class="credit" id="d-credit"></dl>
         </div>
         <div class="d-actions">
-          <a id="d-src" class="btn primary" target="_blank" rel="noopener noreferrer" data-i18n="source">Open original source</a>
-          <button type="button" class="btn" id="d-copy" data-i18n="copy">Copy link</button>
+          <a id="d-page" class="btn" data-i18n="page">Eigene Seite öffnen</a>
+          <a id="d-src" class="btn primary" target="_blank" rel="noopener noreferrer" data-i18n="source">Originalquelle öffnen</a>
+          <button type="button" class="btn" id="d-copy" data-i18n="copy">Link kopieren</button>
         </div>
         <div class="d-nav">
-          <button type="button" class="btn ghost" id="d-prev"><span aria-hidden="true">‹ </span><span data-i18n="prev">Previous</span></button>
-          <button type="button" class="btn ghost" id="d-next"><span data-i18n="next">Next</span><span aria-hidden="true"> ›</span></button>
+          <button type="button" class="btn ghost" id="d-prev"><span aria-hidden="true">‹ </span><span data-i18n="prev">Vorherige</span></button>
+          <button type="button" class="btn ghost" id="d-next"><span data-i18n="next">Nächste</span><span aria-hidden="true"> ›</span></button>
         </div>
       </div>
     </div>

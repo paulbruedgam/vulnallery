@@ -1,3 +1,5 @@
 # vulnallery.de – alles darf indexiert werden
 User-agent: *
 Allow: /
+
+Sitemap: https://vulnallery.de/sitemap.xml
