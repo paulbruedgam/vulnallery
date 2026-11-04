@@ -31,6 +31,13 @@ rm -f /tmp/vulnallery-index.before
 echo "== Paket ${NAME} bauen"
 rm -rf dist && mkdir -p "dist/${NAME}"
 cp -R src/. "dist/${NAME}/"
+# Release-Nummer in den Footer schreiben (nur im Paket, src/ bleibt bei "dev")
+case "${VERSION}" in
+  *[!A-Za-z0-9._-]*) echo "Ungültige Version: ${VERSION}"; exit 1 ;;
+esac
+sed -i "s#<span id=\"release\" translate=\"no\">dev</span>#<span id=\"release\" translate=\"no\">${VERSION}</span>#" "dist/${NAME}/index.html"
+grep -q "<span id=\"release\" translate=\"no\">${VERSION}</span>" "dist/${NAME}/index.html" \
+  || { echo "Release-Nummer konnte nicht in den Footer geschrieben werden."; exit 1; }
 # Reproduzierbare Zeitstempel und Rechte
 find "dist/${NAME}" -type d -exec chmod 755 {} +
 find "dist/${NAME}" -type f -exec chmod 644 {} +

@@ -161,7 +161,7 @@
   "id": "phoenix",
   "name": "Phoenix",
   "date": "2025-09-15",
-  "image": "phoenix.png",
+  "image": "phoenix.webp",
   "url": "https://comsec.ethz.ch/research/dram/phoenix/",
   "category": "hardware",
   "cve": [
@@ -301,7 +301,7 @@
   "id": "blast-radius",
   "name": "Blast-RADIUS",
   "date": "2024-07-09",
-  "image": "blast-radius.png",
+  "image": "blast-radius.webp",
   "url": "https://www.blastradius.fail/",
   "category": "network",
   "cve": [
@@ -320,7 +320,7 @@
   "id": "regresshion",
   "name": "regreSSHion",
   "date": "2024-07-01",
-  "image": "regresshion.jpg",
+  "image": "regresshion.webp",
   "url": "https://blog.qualys.com/vulnerabilities-threat-research/2024/07/01/regresshion-remote-unauthenticated-code-execution-vulnerability-in-openssh-server",
   "category": "software",
   "cve": [
@@ -395,7 +395,7 @@
   "id": "terrapin",
   "name": "Terrapin",
   "date": "2023-12-18",
-  "image": "terrapin.png",
+  "image": "terrapin.webp",
   "url": "https://terrapin-attack.com/",
   "category": "crypto",
   "cve": [
@@ -416,7 +416,7 @@
   "id": "5ghoul",
   "name": "5Ghoul",
   "date": "2023-12-07",
-  "image": "5ghoul.png",
+  "image": "5ghoul.webp",
   "url": "https://asset-group.github.io/disclosures/5ghoul/",
   "category": "wireless",
   "cve": [
@@ -499,7 +499,7 @@
   "id": "downfall",
   "name": "Downfall",
   "date": "2023-08-08",
-  "image": "downfall.png",
+  "image": "downfall.webp",
   "url": "https://downfall.page/",
   "category": "hardware",
   "cve": [
@@ -582,7 +582,7 @@
   "id": "pacman",
   "name": "PACMAN",
   "date": "2022-06-10",
-  "image": "pacman.png",
+  "image": "pacman.webp",
   "url": "https://pacmanattack.com/",
   "category": "hardware",
   "cve": [],
@@ -600,7 +600,7 @@
   "id": "log4shell",
   "name": "Log4Shell",
   "date": "2021-12-09",
-  "image": "log4shell.png",
+  "image": "log4shell.webp",
   "url": "https://www.lunasec.io/docs/blog/log4j-zero-day/",
   "category": "software",
   "cve": [
@@ -641,7 +641,7 @@
   "id": "braktooth",
   "name": "BrakTooth",
   "date": "2021-08-31",
-  "image": "braktooth.svg",
+  "image": "braktooth.webp",
   "url": "https://asset-group.github.io/disclosures/braktooth/",
   "category": "wireless",
   "cve": [
@@ -662,7 +662,7 @@
   "id": "alpaca",
   "name": "ALPACA",
   "date": "2021-06-09",
-  "image": "alpaca.png",
+  "image": "alpaca.webp",
   "url": "https://alpaca-attack.com/",
   "category": "crypto",
   "cve": [
@@ -682,7 +682,7 @@
   "id": "fragattacks",
   "name": "FragAttacks",
   "date": "2021-05-11",
-  "image": "fragattacks.png",
+  "image": "fragattacks.webp",
   "url": "https://www.fragattacks.com/",
   "category": "wireless",
   "cve": [
@@ -705,7 +705,7 @@
   "id": "proxylogon",
   "name": "ProxyLogon",
   "date": "2021-03-02",
-  "image": "proxylogon.png",
+  "image": "proxylogon.webp",
   "url": "https://proxylogon.com/",
   "category": "software",
   "cve": [
@@ -727,8 +727,8 @@
   "id": "dnspooq",
   "name": "DNSpooq",
   "date": "2021-01-19",
-  "image": "dnspooq.png",
-  "url": "https://www.jsof-tech.com/disclosures/dnspooq/",
+  "image": "dnspooq.webp",
+  "url": "https://web.archive.org/web/2021/https://www.jsof-tech.com/disclosures/dnspooq/",
   "category": "network",
   "cve": [
    "CVE-2020-25681",
@@ -746,7 +746,7 @@
   "credit": {
    "license": "none",
    "holder": "JSOF",
-   "source": "https://www.jsof-tech.com/disclosures/dnspooq/"
+   "source": "https://web.archive.org/web/2021/https://www.jsof-tech.com/disclosures/dnspooq/"
   }
  },
  {
@@ -774,7 +774,7 @@
   "id": "raccoon",
   "name": "Raccoon",
   "date": "2020-09-09",
-  "image": "racoon.png",
+  "image": "racoon.webp",
   "url": "https://raccoon-attack.com/",
   "category": "crypto",
   "cve": [
@@ -794,7 +794,7 @@
   "id": "boothole",
   "name": "BootHole",
   "date": "2020-07-29",
-  "image": "boothole.png",
+  "image": "boothole.webp",
   "url": "https://eclypsium.com/2020/07/29/theres-a-hole-in-the-boot/",
   "category": "software",
   "cve": [
@@ -814,8 +814,8 @@
   "id": "ripple20",
   "name": "Ripple20",
   "date": "2020-06-16",
-  "image": "ripple20.png",
-  "url": "https://www.jsof-tech.com/ripple20/",
+  "image": "ripple20.webp",
+  "url": "https://web.archive.org/web/2020/https://www.jsof-tech.com/ripple20/",
   "category": "network",
   "cve": [
    "CVE-2020-11896",
@@ -829,7 +829,7 @@
   "credit": {
    "license": "none",
    "holder": "JSOF",
-   "source": "https://www.jsof-tech.com/ripple20/"
+   "source": "https://web.archive.org/web/2020/https://www.jsof-tech.com/ripple20/"
   }
  },
  {
@@ -857,7 +857,7 @@
   "id": "thunderspy",
   "name": "Thunderspy",
   "date": "2020-05-10",
-  "image": "thunderspy.png",
+  "image": "thunderspy.webp",
   "url": "https://thunderspy.io/",
   "category": "hardware",
   "cve": [],
@@ -895,7 +895,7 @@
   "id": "ghostcat",
   "name": "Ghostcat",
   "date": "2020-02-20",
-  "image": "ghostcat.png",
+  "image": "ghostcat.webp",
   "url": "https://www.chaitin.cn/en/ghostcat",
   "category": "software",
   "cve": [
@@ -915,7 +915,7 @@
   "id": "sweyntooth",
   "name": "SweynTooth",
   "date": "2020-02-11",
-  "image": "sweintooth.jpg",
+  "image": "sweintooth.webp",
   "url": "https://asset-group.github.io/disclosures/sweyntooth/",
   "category": "wireless",
   "cve": [
@@ -1061,7 +1061,7 @@
   "id": "dragonblood",
   "name": "Dragonblood",
   "date": "2019-04-10",
-  "image": "dragonblood.png",
+  "image": "dragonblood.webp",
   "url": "https://wpa3.mathyvanhoef.com/",
   "category": "wireless",
   "cve": [
@@ -1083,7 +1083,7 @@
   "id": "bleeding-bit",
   "name": "BLEEDINGBIT",
   "date": "2018-11-01",
-  "image": "bleeding-bit.png",
+  "image": "bleeding-bit.webp",
   "url": "https://armis.com/bleedingbit/",
   "category": "wireless",
   "cve": [
@@ -1126,7 +1126,7 @@
   "id": "rampage",
   "name": "RAMpage",
   "date": "2018-06-28",
-  "image": "rampage.png",
+  "image": "rampage.webp",
   "url": "http://rampageattack.com/",
   "category": "hardware",
   "cve": [
@@ -1166,7 +1166,7 @@
   "id": "holeybeep",
   "name": "Holey Beep",
   "date": "2018-04",
-  "image": "holeybeep.png",
+  "image": "holeybeep.webp",
   "url": "https://holeybeep.ninja/",
   "category": "software",
   "cve": [
@@ -1247,7 +1247,7 @@
   "id": "krack",
   "name": "KRACK",
   "date": "2017-10-16",
-  "image": "krack.png",
+  "image": "krack.webp",
   "url": "https://www.krackattacks.com/",
   "category": "wireless",
   "cve": [
@@ -1270,7 +1270,7 @@
   "id": "blueborne",
   "name": "BlueBorne",
   "date": "2017-09-12",
-  "image": "blueborne.png",
+  "image": "blueborne.webp",
   "url": "https://www.armis.com/blueborne/",
   "category": "wireless",
   "cve": [
@@ -1293,8 +1293,8 @@
   "id": "orpheus",
   "name": "Orpheus' Lyre",
   "date": "2017-07",
-  "image": "orpheus.png",
-  "url": "https://www.orpheus-lyre.info/",
+  "image": "orpheus.webp",
+  "url": "https://web.archive.org/web/2017/https://www.orpheus-lyre.info/",
   "category": "network",
   "cve": [
    "CVE-2017-11103"
@@ -1305,14 +1305,14 @@
   },
   "credit": {
    "license": "none",
-   "source": "https://www.orpheus-lyre.info/"
+   "source": "https://web.archive.org/web/2017/https://www.orpheus-lyre.info/"
   }
  },
  {
   "id": "dirtycow",
   "name": "Dirty COW",
   "date": "2016-10-20",
-  "image": "cow.svg",
+  "image": "cow.webp",
   "url": "https://dirtycow.ninja/",
   "category": "software",
   "cve": [
@@ -1354,7 +1354,7 @@
   "id": "imagetragick",
   "name": "ImageTragick",
   "date": "2016-05-03",
-  "image": "imagetragick.png",
+  "image": "imagetragick.webp",
   "url": "https://imagetragick.com/",
   "category": "software",
   "cve": [
@@ -1373,7 +1373,7 @@
   "id": "badlock",
   "name": "Badlock",
   "date": "2016-04-12",
-  "image": "badlock.svg.png",
+  "image": "badlock.webp",
   "url": "https://web.archive.org/web/20170608065927/http://badlock.org/",
   "category": "network",
   "cve": [
@@ -1415,8 +1415,8 @@
   "id": "mousejack",
   "name": "MouseJack",
   "date": "2016-02-23",
-  "image": "mousejack.png",
-  "url": "https://www.mousejack.com/",
+  "image": "mousejack.webp",
+  "url": "https://web.archive.org/web/2016/https://www.mousejack.com/",
   "category": "wireless",
   "cve": [],
   "description": {
@@ -1426,14 +1426,14 @@
   "credit": {
    "license": "none",
    "holder": "Bastille Networks",
-   "source": "https://www.mousejack.com/"
+   "source": "https://web.archive.org/web/2016/https://www.mousejack.com/"
   }
  },
  {
   "id": "stagefright",
   "name": "Stagefright",
   "date": "2015-07-27",
-  "image": "stagefright.png",
+  "image": "stagefright.webp",
   "url": "https://blog.zimperium.com/experts-found-a-unicorn-in-the-heart-of-android/",
   "category": "software",
   "cve": [
@@ -1514,7 +1514,7 @@
   "id": "drupalgeddon",
   "name": "Drupalgeddon",
   "date": "2014-10-15",
-  "image": "drupalgeddon.png",
+  "image": "drupalgeddon.webp",
   "url": "https://nvd.nist.gov/vuln/detail/CVE-2014-3704",
   "category": "software",
   "cve": [
@@ -1534,7 +1534,7 @@
   "name": "POODLE",
   "date": "2014-10-14",
   "image": "poodle.png",
-  "url": "https://poodle.io/",
+  "url": "https://web.archive.org/web/2015/https://poodle.io/",
   "category": "crypto",
   "cve": [
    "CVE-2014-3566"
@@ -1545,14 +1545,14 @@
   },
   "credit": {
    "license": "none",
-   "source": "https://poodle.io/"
+   "source": "https://web.archive.org/web/2015/https://poodle.io/"
   }
  },
  {
   "id": "shellshock",
   "name": "Shellshock",
   "date": "2014-09-24",
-  "image": "shellshock.png",
+  "image": "shellshock.webp",
   "url": "https://nvd.nist.gov/vuln/detail/CVE-2014-6271",
   "category": "software",
   "cve": [
@@ -1574,7 +1574,7 @@
   "id": "ccs",
   "name": "CCS Injection",
   "date": "2014-06-05",
-  "image": "css.png",
+  "image": "css.webp",
   "url": "http://ccsinjection.lepidum.co.jp/",
   "category": "crypto",
   "cve": [
@@ -1595,7 +1595,7 @@
   "id": "heartbleed",
   "name": "Heartbleed",
   "date": "2014-04-07",
-  "image": "heartbleed.png",
+  "image": "heartbleed.webp",
   "url": "https://heartbleed.com/",
   "category": "crypto",
   "cve": [

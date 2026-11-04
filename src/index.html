@@ -15,8 +15,8 @@
   <meta property="og:image" content="https://vulnallery.de/assets/og-image.png">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/archivo-latin-wdth.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/style.css" integrity="sha384-6TFGpFNaqY6AyNGnC8CgDbCEoak2zymHzFN2PVn62uwxrkUW+PXltQ4U0hgcWsJa" crossorigin="anonymous">
-  <script src="assets/js/app.js" integrity="sha384-EPsbUrKx51qAMQ00BRxgCB+yU2DbgwvUgv2BpGi+fUscctpIWrDl8FIcvK/JXxJf" crossorigin="anonymous" defer></script>
+  <link rel="stylesheet" href="assets/css/style.css?v=a737d2ac3b" integrity="sha384-mFHQ5eXaB6kVECKtQAHIz/pJ4GwRg26zB/W6F2mpdgoKautIvYuOjdmabqkREVLv" crossorigin="anonymous">
+  <script src="assets/js/app.js?v=fa395ff129" integrity="sha384-qH28bZoNPdky7TSDnWFPJMz0lAhxNJqGFMmnOzHrtEncAc4mCm9nYVoLmPg2rLLY" crossorigin="anonymous" defer></script>
 </head>
 <body>
   <a class="skip" href="#gallery" data-i18n="skip">Skip to the gallery</a>
@@ -109,7 +109,10 @@
           <li><a href="https://www.bruedgam.eu/datenschutz/" rel="noopener noreferrer" data-i18n="privacy">Privacy policy</a></li>
         </ul>
       </nav>
-      <p class="colophon" data-i18n="colophon">Plain HTML, CSS and JavaScript. No cookies, no trackers, no requests to other sites.</p>
+      <div class="colophon-wrap">
+        <p class="colophon" data-i18n="colophon">Plain HTML, CSS and JavaScript. No cookies, no trackers, no requests to other sites.</p>
+        <p class="colophon release"><span data-i18n="release">Release</span> <span id="release" translate="no">dev</span></p>
+      </div>
     </div>
   </footer>
 
