@@ -23,7 +23,7 @@ Stand: 1. November 2026. Angaben laut offizieller Seite der Lücke; mit „Commo
 | Copy Fail | `copyfail.svg` | gemeinfrei | – | Theori | [Commons](https://commons.wikimedia.org/wiki/File:Logo_of_Copy_Fail.svg) |
 | DDRop | `ddrop.svg` | CC0 1.0 | – | – | [Quelle](https://ddropattack.eu/) |
 | Dirty COW | `cow.svg` | CC0 1.0 | – | – | [Commons](https://commons.wikimedia.org/wiki/File:DirtyCow.svg) |
-| DNSpooq | `dnspooq.png` | keine Lizenz angegeben | – | JSOF | [Quelle](https://www.jsof-tech.com/disclosures/dnspooq/) |
+| DNSpooq | `dnspooq.png` | keine Lizenz angegeben | – | JSOF | [Quelle](https://web.archive.org/web/2021/https://www.jsof-tech.com/disclosures/dnspooq/) |
 | Downfall | `downfall.png` | keine Lizenz angegeben – KI-generiert (DALL·E 2) | – | Daniel Moghimi | [Quelle](https://downfall.page/) |
 | Dragonblood | `dragonblood.png` | CC BY 4.0 | – | Mathy Vanhoef | [Quelle](https://wpa3.mathyvanhoef.com/) |
 | DROWN | `drown.svg` | CC0 1.0 | Sarah Madden | – | [Quelle](https://drownattack.com/) |
@@ -47,9 +47,9 @@ Stand: 1. November 2026. Angaben laut offizieller Seite der Lücke; mit „Commo
 | Logjam | `logjam.png` | keine Lizenz angegeben | – | – | [Quelle](https://weakdh.org/) |
 | LVI – Load Value Injection | `lviattack.svg` | CC0 1.0 | Natascha Eibl | – | [Quelle](https://lviattack.eu/) |
 | Meltdown | `meltdown.svg` | CC0 1.0 | Natascha Eibl | – | [Quelle](https://meltdownattack.com/) |
-| MouseJack | `mousejack.png` | keine Lizenz angegeben | – | Bastille Networks | [Quelle](https://www.mousejack.com/) |
+| MouseJack | `mousejack.png` | keine Lizenz angegeben | – | Bastille Networks | [Quelle](https://web.archive.org/web/2016/https://www.mousejack.com/) |
 | Opossum | `opossum.webp` | keine Lizenz angegeben | – | – | [Quelle](https://opossum-attack.com/) |
-| Orpheus' Lyre | `orpheus.png` | keine Lizenz angegeben | – | – | [Quelle](https://www.orpheus-lyre.info/) |
+| Orpheus' Lyre | `orpheus.png` | keine Lizenz angegeben | – | – | [Quelle](https://web.archive.org/web/2017/https://www.orpheus-lyre.info/) |
 | PACMAN | `pacman.png` | keine Lizenz angegeben | – | – | [Quelle](https://pacmanattack.com/) |
 | Phoenix | `phoenix.png` | keine Lizenz angegeben | – | ETH Zürich (COMSEC) | [Quelle](https://comsec.ethz.ch/research/dram/phoenix/) |
 | PHP2Shell | `php2shell.svg` | gemeinfrei | – | Wiz, Inc. | [Commons](https://commons.wikimedia.org/wiki/File:PHP2Shell_logo.png) |
@@ -57,14 +57,14 @@ Stand: 1. November 2026. Angaben laut offizieller Seite der Lücke; mit „Commo
 | PKfail | `pkfail.svg` | keine Lizenz angegeben | – | Binarly | [Quelle](https://pk.fail/) |
 | PLATYPUS | `platypus.svg` | CC0 1.0 | Natascha Eibl | – | [Quelle](https://platypusattack.com/) |
 | Plundervolt | `plundervolt.svg` | CC0 1.0 | Mike Stimpson | – | [Quelle](https://plundervolt.com/) |
-| POODLE | `poodle.png` | keine Lizenz angegeben | – | – | [Quelle](https://poodle.io/) |
+| POODLE | `poodle.png` | keine Lizenz angegeben | – | – | [Quelle](https://web.archive.org/web/2015/https://poodle.io/) |
 | ProxyLogon | `proxylogon.png` | CC0 1.0 | – | DEVCORE | [Commons](https://commons.wikimedia.org/wiki/File:ProxyLogon_logo_-_White.png) |
 | Raccoon | `racoon.png` | keine Lizenz angegeben | tnhs_project | – | [Quelle](https://raccoon-attack.com/) |
 | RAMBleed | `rambleed.svg` | CC0 1.0 | Marina Minkin | – | [Quelle](https://rambleed.com/) |
 | RAMpage | `rampage.png` | frei nutzbar (ohne Lizenz) | – | – | [Quelle](http://rampageattack.com/) |
 | regreSSHion | `regresshion.jpg` | keine Lizenz angegeben | – | Qualys, Inc. | [Quelle](https://blog.qualys.com/vulnerabilities-threat-research/2024/07/01/regresshion-remote-unauthenticated-code-execution-vulnerability-in-openssh-server) |
 | RIDL & Fallout (MDS) | `mds.svg` | CC0 1.0 | Marina Minkin | – | [Quelle](https://mdsattacks.com/) |
-| Ripple20 | `ripple20.png` | keine Lizenz angegeben | – | JSOF | [Quelle](https://www.jsof-tech.com/ripple20/) |
+| Ripple20 | `ripple20.png` | keine Lizenz angegeben | – | JSOF | [Quelle](https://web.archive.org/web/2020/https://www.jsof-tech.com/ripple20/) |
 | ROBOT | `robot.svg` | CC0 1.0 | Ange Albertini | – | [Quelle](https://robotattack.org/) |
 | SGAxe | `sgaxe.svg` | CC0 1.0 | Stephan van Schaik | – | [Quelle](https://cacheoutattack.com/) |
 | Shellshock | `shellshock.png` | CC0 1.0 | Knowledgebattle (Openclipart) | – | [Commons](https://commons.wikimedia.org/wiki/File:Shellshock-bug.svg) |

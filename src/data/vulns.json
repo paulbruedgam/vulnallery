@@ -728,7 +728,7 @@
   "name": "DNSpooq",
   "date": "2021-01-19",
   "image": "dnspooq.png",
-  "url": "https://www.jsof-tech.com/disclosures/dnspooq/",
+  "url": "https://web.archive.org/web/2021/https://www.jsof-tech.com/disclosures/dnspooq/",
   "category": "network",
   "cve": [
    "CVE-2020-25681",
@@ -746,7 +746,7 @@
   "credit": {
    "license": "none",
    "holder": "JSOF",
-   "source": "https://www.jsof-tech.com/disclosures/dnspooq/"
+   "source": "https://web.archive.org/web/2021/https://www.jsof-tech.com/disclosures/dnspooq/"
   }
  },
  {
@@ -815,7 +815,7 @@
   "name": "Ripple20",
   "date": "2020-06-16",
   "image": "ripple20.png",
-  "url": "https://www.jsof-tech.com/ripple20/",
+  "url": "https://web.archive.org/web/2020/https://www.jsof-tech.com/ripple20/",
   "category": "network",
   "cve": [
    "CVE-2020-11896",
@@ -829,7 +829,7 @@
   "credit": {
    "license": "none",
    "holder": "JSOF",
-   "source": "https://www.jsof-tech.com/ripple20/"
+   "source": "https://web.archive.org/web/2020/https://www.jsof-tech.com/ripple20/"
   }
  },
  {
@@ -1294,7 +1294,7 @@
   "name": "Orpheus' Lyre",
   "date": "2017-07",
   "image": "orpheus.png",
-  "url": "https://www.orpheus-lyre.info/",
+  "url": "https://web.archive.org/web/2017/https://www.orpheus-lyre.info/",
   "category": "network",
   "cve": [
    "CVE-2017-11103"
@@ -1305,7 +1305,7 @@
   },
   "credit": {
    "license": "none",
-   "source": "https://www.orpheus-lyre.info/"
+   "source": "https://web.archive.org/web/2017/https://www.orpheus-lyre.info/"
   }
  },
  {
@@ -1416,7 +1416,7 @@
   "name": "MouseJack",
   "date": "2016-02-23",
   "image": "mousejack.png",
-  "url": "https://www.mousejack.com/",
+  "url": "https://web.archive.org/web/2016/https://www.mousejack.com/",
   "category": "wireless",
   "cve": [],
   "description": {
@@ -1426,7 +1426,7 @@
   "credit": {
    "license": "none",
    "holder": "Bastille Networks",
-   "source": "https://www.mousejack.com/"
+   "source": "https://web.archive.org/web/2016/https://www.mousejack.com/"
   }
  },
  {
@@ -1534,7 +1534,7 @@
   "name": "POODLE",
   "date": "2014-10-14",
   "image": "poodle.png",
-  "url": "https://poodle.io/",
+  "url": "https://web.archive.org/web/2015/https://poodle.io/",
   "category": "crypto",
   "cve": [
    "CVE-2014-3566"
@@ -1545,7 +1545,7 @@
   },
   "credit": {
    "license": "none",
-   "source": "https://poodle.io/"
+   "source": "https://web.archive.org/web/2015/https://poodle.io/"
   }
  },
  {
