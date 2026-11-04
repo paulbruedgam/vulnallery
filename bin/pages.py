@@ -51,7 +51,6 @@ PAGE = {
         "otherLabel": "Diese Seite auf Englisch",
         "feedTitle": "Vulnallery – neue Sicherheitslücken mit Logo",
         "feedSub": "Neue Einträge in der Galerie der Sicherheitslücken mit eigenem Logo.",
-        "feed": "Feed",
         "skip": "Zum Inhalt springen",
     },
     "en": {
@@ -64,7 +63,6 @@ PAGE = {
         "otherLabel": "This page in German",
         "feedTitle": "Vulnallery – new vulnerabilities with a logo",
         "feedSub": "New entries in the gallery of vulnerabilities that come with their own logo.",
-        "feed": "Feed",
         "skip": "Skip to content",
     },
 }
@@ -385,8 +383,6 @@ def render_footer(lang, t, version):
         <dd><a href="https://www.bruedgam.eu" rel="noopener noreferrer">www.bruedgam.eu</a></dd>
         <dt>{esc(t["email"])}</dt>
         <dd><a href="mailto:info@vulnallery.de">info@vulnallery.de</a></dd>
-        <dt>{esc(p["feed"])}</dt>
-        <dd><a href="/{lang}/feed.xml">Atom</a></dd>
       </dl>
     </div>
     <div class="legal">
@@ -394,6 +390,7 @@ def render_footer(lang, t, version):
         <ul>
           <li><a href="https://www.bruedgam.eu/impressum/" rel="noopener noreferrer">{esc(t["imprint"])}</a></li>
           <li><a href="https://www.bruedgam.eu/datenschutz/" rel="noopener noreferrer">{esc(t["privacy"])}</a></li>
+          <li><a class="feed-link" href="/{lang}/feed.xml" type="application/atom+xml" aria-label="{esc(t["feed"])}" title="{esc(t["feed"])}"><svg class="feed-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4.5a14.5 14.5 0 0 1 14.5 14.5M5 10a9 9 0 0 1 9 9"/><circle cx="6" cy="18" r="1.6"/></svg></a></li>
         </ul>
       </nav>
       <div class="colophon-wrap">
