@@ -8,7 +8,7 @@ GitHub baut nur; ausgeliefert wird vom eigenen Server des Betreibers (siehe depl
 - Jeder Eintrag in `src/data/vulns.json` braucht `description.de` und `description.en` (je ein Satz) und `credit` (Bildrechte, Schema in der README).
 - Lizenz und Gestaltung nur angeben, wenn eine Quelle sie nennt; Angaben von Wikimedia Commons mit `"commons": true` kennzeichnen.
 - Daten nur so genau angeben, wie sie belegt sind (`YYYY`, `YYYY-MM` oder `YYYY-MM-DD`).
-- Neue Einträge 1–2 Monate lang mit `"added": "<YYYY-MM>"` markieren.
+- Die Markierung „Neu“ setzt die Galerie automatisch: 30 Tage ab `date` (Erscheinen der Lücke, Berliner Zeit). `"added": "<YYYY-MM>"` ist optional und bestimmt nur die Sortierung im Feed.
 
 ## Logos
 - SVG bevorzugt, sonst WebP/PNG auf ca. 600 px Breite, Ziel unter 100 KB pro Datei.

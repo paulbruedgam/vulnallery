@@ -582,6 +582,15 @@
 
   const pageHref = (id) => `${state.lang}/${id}/`;
 
+  // „Neu“ gilt 30 Tage ab dem Erscheinen der Lücke (Feld date, Berliner Datum).
+  // Ist nur Jahr oder Monat belegt, zählt der erste Tag des Zeitraums.
+  const NEW_DAYS = 30;
+  function isNew(v) {
+    const [y, m = 1, d = 1] = v.date.split("-").map(Number);
+    const days = (Date.UTC(today.y, today.m - 1, today.d) - Date.UTC(y, m - 1, d)) / 86400000;
+    return days >= 0 && days < NEW_DAYS;
+  }
+
   function setStickerImage(sticker, v) {
     const img = $("img", sticker);
     if (v.width && v.height) { img.width = v.width; img.height = v.height; }
@@ -605,7 +614,7 @@
     const cat = $(".cat", node);
     cat.dataset.cat = v.category;
     cat.textContent = t.cats[v.category];
-    if (withNew && v.added) {
+    if (withNew && isNew(v)) {
       const tag = document.createElement("span");
       tag.className = "new-tag";
       tag.textContent = t.isNew;
