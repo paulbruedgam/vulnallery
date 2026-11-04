@@ -1,0 +1,39 @@
+# Prüft einmal pro Woche alle Links in vulns.json und CREDITS.md.
+# Bei toten Links legt der Lauf ein Issue an (oder aktualisiert es).
+name: Links
+
+on:
+  schedule:
+    - cron: "17 5 * * 1"   # montags 05:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Links prüfen
+        id: lychee
+        uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
+        with:
+          args: --config lychee.toml --no-progress src/data/vulns.json CREDITS.md
+          output: lychee/report.md
+          fail: false
+
+      - name: Issue anlegen
+        if: steps.lychee.outputs.exit_code != 0
+        uses: peter-evans/create-issue-from-file@fca9117c27cdc29c6c4db3b86c48e4115a786710 # v6.0.0
+        with:
+          title: Tote Links gefunden
+          content-filepath: lychee/report.md
+          labels: links

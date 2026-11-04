@@ -74,8 +74,14 @@ Ohne Timer spielst du Versionen bewusst von Hand ein.
 - **nginx:** `nginx-security-headers.conf` nach `/etc/nginx/snippets/vulnallery-security-headers.conf` kopieren, `nginx.conf` als Server-Block übernehmen, Zertifikatspfade anpassen, `nginx -t && systemctl reload nginx`. `http2 on;` braucht nginx ab 1.25.1, sonst `listen 443 ssl http2;`.
 - **Apache:** `apache.htaccess` als `.htaccess` in den Webroot oder in den VirtualHost (`mod_headers`, `mod_rewrite`, `mod_deflate`).
 
-Beide setzen CSP (inkl. `frame-ancestors`), HSTS, `nosniff`, Referrer-, Permissions- und
-Cross-Origin-Policy und liefern Fremd-SVGs nur in einer Sandbox aus.
+Beide setzen CSP (inkl. `frame-ancestors`), HSTS, `nosniff`, `X-Frame-Options`, Referrer-,
+Permissions- und Cross-Origin-Policy und liefern Fremd-SVGs nur in einer Sandbox aus.
+Lückenseiten (`/de/`, `/en/`), `sitemap.xml` und die Feeds werden mit `no-cache` ausgeliefert,
+damit nach einem Release sofort die neue Fassung ankommt.
+
+Getestet mit nginx 1.24 (ohne `http2 on;`, das erst ab 1.25.1 geht): alle Seiten, Logos,
+SVG-Sandbox, Sitemap, Feeds, 404 und die Sperre für versteckte Dateien liefern die erwarteten
+Header und Statuscodes.
 
 ## Prüfen
 
