@@ -49,7 +49,7 @@
       privacy: "Privacy policy",
       release: "Release",
       announce: "From 1 December: a new door every day in the advent calendar.",
-      announceFeed: "Follow via feed",
+      feed: "Subscribe to the feed (Atom)",
       page: "Open page",
       colophon: "Plain HTML, CSS and JavaScript. No cookies, no trackers, no requests to other sites.",
       close: "Close",
@@ -130,7 +130,7 @@
       privacy: "Datenschutz",
       release: "Version",
       announce: "Ab 1. Dezember: jeden Tag ein Türchen im Adventskalender.",
-      announceFeed: "Per Feed folgen",
+      feed: "Feed abonnieren (Atom)",
       page: "Eigene Seite öffnen",
       colophon: "Reines HTML, CSS und JavaScript. Keine Cookies, keine Tracker, keine Anfragen an andere Seiten.",
       close: "Schließen",
@@ -346,6 +346,8 @@
     });
     $$("[data-lang]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.lang === state.lang)));
     renderAnnounce();
+    const feed = $("#feed-link");
+    if (feed) { feed.href = state.lang + "/feed.xml"; feed.title = t.feed; }
   }
 
   // Bis zum Start des Adventskalenders (1. Dezember 2026, 00:00 Uhr in Berlin)
@@ -354,7 +356,7 @@
     const box = $("#announce");
     if (!box) return;
     box.hidden = Date.now() >= ADVENT_START;
-    $("#announce-feed").href = state.lang + "/feed.xml";
+
   }
 
   function renderLede() {

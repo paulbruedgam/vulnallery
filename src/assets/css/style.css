@@ -621,7 +621,11 @@ a.cat:hover { color: var(--ink); text-decoration: underline; text-underline-offs
   padding-top: 18px;
   border-top: 1px solid var(--line);
 }
-.legal ul { display: flex; flex-wrap: wrap; gap: 0.4rem 1.4rem; }
+.legal ul { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem 1.4rem; }
+.feed-link { display: inline-grid; place-items: center; width: 28px; height: 28px; border-radius: 6px; color: var(--ink); }
+.feed-link:hover, .feed-link:focus-visible { color: var(--accent-ink); background: var(--accent); }
+.feed-icon { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; }
+.feed-icon circle { fill: currentColor; stroke: none; }
 .legal .colophon { margin: 0; font-size: 0.88rem; }
 .colophon-wrap { display: flex; flex-direction: column; gap: 0.2rem; }
 .legal .release { color: var(--muted); font-variant-numeric: tabular-nums; }
