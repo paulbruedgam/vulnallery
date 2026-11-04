@@ -1,0 +1,3 @@
+# vulnallery.de – alles darf indexiert werden
+User-agent: *
+Allow: /

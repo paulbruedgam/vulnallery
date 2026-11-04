@@ -4,8 +4,8 @@
   font-family: "Archivo";
   font-style: normal;
   font-display: swap;
-  font-weight: 100 900;
-  font-stretch: 62% 125%;
+  font-weight: 400 900;
+  font-stretch: 100% 125%;
   src: url("../fonts/archivo-latin-wdth.woff2") format("woff2");
 }
 
@@ -603,3 +603,16 @@ dialog[open] { animation: lift 0.2s ease-out; }
   .controls, .toggles { display: none; }
   body { background: #fff; color: #000; }
 }
+
+/* ---------- 404 ---------- */
+.notfound .intro { max-width: 760px; }
+.notfound .intro + .intro { padding-top: 0; border-top: 1px solid var(--line); }
+.notfound .code {
+  margin: 0;
+  font-size: clamp(4rem, 14vw, 8rem);
+  font-weight: 800;
+  line-height: 1;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+.notfound h2 { margin-top: 1.6rem; }

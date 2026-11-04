@@ -2,6 +2,7 @@
 # Benötigt mod_headers, mod_rewrite, mod_expires, mod_deflate.
 
 Options -Indexes
+ErrorDocument 404 /404.html
 ServerSignature Off
 
 RewriteEngine On
