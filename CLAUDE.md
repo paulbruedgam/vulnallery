@@ -14,6 +14,7 @@ GitHub baut nur; ausgeliefert wird vom eigenen Server des Betreibers (siehe depl
 - SVG bevorzugt, sonst WebP/PNG auf ca. 600 px Breite, Ziel unter 100 KB pro Datei.
 - SVGs vor dem Einchecken auf Scripts und Event-Attribute prüfen; `bin/validate.py` weist sie ab.
 - Logos für dunklen Hintergrund mit `"darkBackground": true` markieren.
+- Für neue Rasterlogos `./bin/gen_thumbs.py` ausführen (kleine Fassungen `src/assets/img/200/` und `400/` für die Kacheln, nur wenn sie deutlich sparen) und einchecken.
 - Für jeden neuen Eintrag `./bin/gen_og.py` ausführen (Vorschaubild `src/assets/og/<id>.jpg`, braucht Playwright und Chrome) und das Bild einchecken.
 
 ## Code

@@ -245,7 +245,7 @@
 
   function clean(raw) {
     if (!raw || typeof raw !== "object") return null;
-    const { id, name, date, image, url, category, cve = [], description = {}, added, darkBackground, credit, width, height } = raw;
+    const { id, name, date, image, url, category, cve = [], description = {}, added, darkBackground, credit, width, height, thumbs } = raw;
     if (!RE_ID.test(id) || typeof name !== "string" || !name.trim()) return null;
     if (!RE_DATE.test(date) || !RE_IMG.test(image) || !CATS.includes(category)) return null;
     const href = safeUrl(url);
@@ -268,6 +268,7 @@
       credit: cleanCredit(credit),
       width: Number.isInteger(width) && width > 0 && width < 10000 ? width : null,
       height: Number.isInteger(height) && height > 0 && height < 10000 ? height : null,
+      thumbs: Array.isArray(thumbs) ? thumbs.filter((w) => w === 200 || w === 400) : [],
     };
   }
 
@@ -428,20 +429,23 @@
   }
 
   async function loadAdvent() {
-    if (!adventDay) return;
+    if (!adventDay) { adventLoaded = true; renderAdvent(); return; }
     try {
       const res = await fetch("data/advent.json", { credentials: "same-origin", cache: "no-cache" });
-      if (!res.ok) return;
+      if (!res.ok) { adventLoaded = true; renderAdvent(); return; }
       advent = cleanAdvent(await res.json());
     } catch { advent = null; }
+    adventLoaded = true;
     renderAdvent();
   }
 
+  let adventLoaded = false;
   function renderAdvent() {
     const box = $("#advent");
     if (!box) return;
-    box.hidden = !advent;
-    if (!advent) return;
+    // Vor dem Laden bleibt der vom Build vorbereitete Kalender stehen
+    if (!advent) { if (adventLoaded || !adventDay) box.hidden = true; return; }
+    box.hidden = false;
     const t = T[state.lang];
     $("#advent-archive").href = `${state.lang}/advent/${ADVENT_YEAR}/`;
     const opened = openedDoors();
@@ -488,7 +492,7 @@
     img.alt = "";
     img.decoding = "async";
     if (v.width && v.height) { img.width = v.width; img.height = v.height; }
-    img.src = "assets/img/" + v.image;
+    setSrc(img, v, true);
     s.append(img);
     return s;
   }
@@ -600,8 +604,21 @@
     const img = $("img", sticker);
     if (v.width && v.height) { img.width = v.width; img.height = v.height; }
     else { img.removeAttribute("width"); img.removeAttribute("height"); }
-    img.src = "assets/img/" + v.image;
+    setSrc(img, v, !sticker.classList.contains("big"));
     img.alt = sticker.classList.contains("big") ? `${v.name} logo` : "";
+  }
+
+  // Kacheln und Türchen laden die kleine Fassung, wenn es eine gibt
+  function setSrc(img, v, small) {
+    if (small && v.thumbs.length && v.width) {
+      const base = v.image.replace(/\.[a-z0-9]+$/i, ".webp");
+      img.srcset = [...v.thumbs.map((w) => `assets/img/${w}/${base} ${w}w`), `assets/img/${v.image} ${v.width}w`].join(", ");
+      img.sizes = "(max-width: 640px) 44vw, 190px";
+    } else {
+      img.removeAttribute("srcset");
+      img.removeAttribute("sizes");
+    }
+    img.src = "assets/img/" + v.image;
   }
 
   function fillCard(node, v, withNew) {
