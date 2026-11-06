@@ -33,6 +33,7 @@ LICENSE_URLS = {
     "CC-BY-4.0": "https://creativecommons.org/licenses/by/4.0/",
     "CC-BY-2.5": "https://creativecommons.org/licenses/by/2.5/",
     "CC-BY-SA-4.0": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "MIT": "https://opensource.org/license/mit",
     "PD": "https://creativecommons.org/publicdomain/mark/1.0/",
 }
 MONTHS = {

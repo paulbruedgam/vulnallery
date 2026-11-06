@@ -13,10 +13,10 @@ ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "src")
 DATA = os.path.join(ROOT, "data", "vulns.json")
 IMG = os.path.join(ROOT, "assets", "img")
 ADVENT = os.path.join(ROOT, "data", "advent.json")
-FREE_LICENSES = {"CC0", "CC-BY-4.0", "CC-BY-2.5", "CC-BY-SA-4.0", "PD"}
+FREE_LICENSES = {"CC0", "CC-BY-4.0", "CC-BY-2.5", "CC-BY-SA-4.0", "MIT", "PD"}
 
 CATEGORIES = {"hardware", "crypto", "wireless", "software", "network"}
-LICENSES = {"CC0", "CC-BY-4.0", "CC-BY-2.5", "CC-BY-SA-4.0", "PD", "free", "none"}
+LICENSES = {"CC0", "CC-BY-4.0", "CC-BY-2.5", "CC-BY-SA-4.0", "MIT", "PD", "free", "none"}
 NOTES = {"chromium", "safari", "ai"}
 MAX_IMG_BYTES = 300 * 1024   # harte Grenze
 WARN_IMG_BYTES = 100 * 1024  # Ziel laut CLAUDE.md

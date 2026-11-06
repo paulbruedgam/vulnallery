@@ -1,5 +1,24 @@
 [
  {
+  "id": "sshole",
+  "name": "*sshole",
+  "date": "2026-11-05",
+  "image": "sshole.webp",
+  "url": "https://sshhole.com/",
+  "category": "software",
+  "cve": [],
+  "description": {
+   "de": "OpenSSH ohne PAM auf musl-Systemen wie Alpine oder OpenWrt lässt jedes Passwort mit mehr als 256 Zeichen für Konten mit „*“ im Passwortfeld zu, darunter root.",
+   "en": "OpenSSH built without PAM on musl systems such as Alpine or OpenWrt accepts any password longer than 256 characters for accounts with “*” as their password field, root included."
+  },
+  "darkBackground": true,
+  "credit": {
+   "license": "MIT",
+   "holder": "Özgün Kültekin",
+   "source": "https://github.com/oz9un/sshole"
+  }
+ },
+ {
   "id": "broccoli2shell",
   "name": "Broccoli2Shell",
   "date": "2026-10-22",
