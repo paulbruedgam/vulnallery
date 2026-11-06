@@ -84,6 +84,7 @@
         chromium: "Contains the Chromium logo (Google, CC BY 2.5).",
         safari: "Contains a modified Safari logo, which is in the public domain.",
         ai: "Created with the AI system DALL·E 2.",
+        css: "The original exists only as styled text on the website; recreated here from its CSS (font Rubik Microbe, SIL OFL).",
       },
       source: "Open original source",
       copy: "Copy link",
@@ -175,6 +176,7 @@
         chromium: "Enthält das Chromium-Logo (Google, CC BY 2.5).",
         safari: "Enthält ein abgewandeltes Safari-Logo, das gemeinfrei ist.",
         ai: "Mit dem KI-System DALL·E 2 erstellt.",
+        css: "Das Original ist nur ein gestalteter Schriftzug auf der Website; hier aus dessen CSS nachgebaut (Schrift Rubik Microbe, SIL OFL).",
       },
       source: "Originalquelle öffnen",
       copy: "Link kopieren",
@@ -226,7 +228,7 @@
     "free": null,
     "none": null,
   };
-  const NOTES = ["chromium", "safari", "ai"];
+  const NOTES = ["chromium", "safari", "ai", "css"];
   const str = (x, n = 120) => (typeof x === "string" && x.trim() ? x.trim().slice(0, n) : null);
 
   function cleanCredit(c) {

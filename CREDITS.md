@@ -80,6 +80,7 @@ Stand: 6. November 2026. Angaben laut offizieller Seite der Lücke; mit „Commo
 | TEE.fail | `teefail.svg` | CC0 1.0 | – | – | [Quelle](https://tee.fail/) |
 | Terrapin | `terrapin.webp` | CC0 1.0 | tnhs_project | – | [Commons](https://commons.wikimedia.org/wiki/File:Terrapin-square.png) |
 | Thunderspy | `thunderspy.webp` | CC BY 4.0 | Björn Ruytenberg | – | [Quelle](https://thunderspy.io/) |
+| Tailworm | `tailworm.webp` | keine Lizenz angegeben – Schriftzug aus dem CSS der Website nachgebaut (Schrift Rubik Microbe, SIL OFL) | – | Erica Windisch (Cyberdione Labs Corporation) | [Quelle](https://tailworm.com/) |
 | TPM-Fail | `tpmfail.webp` | keine Lizenz angegeben | – | – | [Quelle](https://tpm.fail/) |
 | TunnelVision | `tunnelvision.webp` | keine Lizenz angegeben | – | Dani Cronce, Lizzie Moratti (Leviathan Security Group) | [Quelle](https://www.tunnelvisionbug.com/) |
 | VENOM | `venom.png` | CC BY-SA 4.0 | – | CrowdStrike | [Commons](https://commons.wikimedia.org/wiki/File:Venom-logo.png) |
