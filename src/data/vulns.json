@@ -63,6 +63,25 @@
   }
  },
  {
+  "id": "tailworm",
+  "name": "Tailworm",
+  "date": "2026-10",
+  "image": "tailworm.webp",
+  "url": "https://tailworm.com/",
+  "category": "network",
+  "cve": [],
+  "description": {
+   "de": "Bündel von Schwachstellen in Tailscale und headscale, über das berechtigte Nutzer per Tailscale SSH root-Rechte auf Zielrechnern erlangen, interne Dienste erreichen oder Komponenten lahmlegen können.",
+   "en": "Set of flaws in Tailscale and headscale that let authorised users gain root on target hosts via Tailscale SSH, reach internal services or knock components offline."
+  },
+  "credit": {
+   "license": "none",
+   "holder": "Erica Windisch (Cyberdione Labs Corporation)",
+   "note": "css",
+   "source": "https://tailworm.com/"
+  }
+ },
+ {
   "id": "ddrop",
   "name": "DDRop",
   "date": "2026-09-14",

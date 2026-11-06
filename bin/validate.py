@@ -17,7 +17,7 @@ FREE_LICENSES = {"CC0", "CC-BY-4.0", "CC-BY-2.5", "CC-BY-SA-4.0", "MIT", "PD"}
 
 CATEGORIES = {"hardware", "crypto", "wireless", "software", "network"}
 LICENSES = {"CC0", "CC-BY-4.0", "CC-BY-2.5", "CC-BY-SA-4.0", "MIT", "PD", "free", "none"}
-NOTES = {"chromium", "safari", "ai"}
+NOTES = {"chromium", "safari", "ai", "css"}
 MAX_IMG_BYTES = 300 * 1024   # harte Grenze
 WARN_IMG_BYTES = 100 * 1024  # Ziel laut CLAUDE.md
 

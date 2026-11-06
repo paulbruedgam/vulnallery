@@ -80,7 +80,7 @@ Einträge, die die Regeln verletzen, blendet `app.js` aus.
 | `license` | `CC0`, `CC-BY-4.0`, `CC-BY-2.5`, `CC-BY-SA-4.0`, `MIT`, `PD` (gemeinfrei), `free` (Nutzung laut Quelle erlaubt, ohne Lizenz) oder `none` (keine Lizenz angegeben) |
 | `author` | Gestaltung, falls genannt |
 | `holder` | Rechteinhaber, falls bekannt |
-| `note` | optional: `chromium`, `safari` oder `ai` für Zusatzhinweise |
+| `note` | optional: `chromium`, `safari`, `ai` oder `css` (aus dem CSS der Website nachgebauter Schriftzug) für Zusatzhinweise |
 | `source` | Fundstelle der Angabe |
 | `commons` | `true`, wenn die Angabe von Wikimedia Commons statt von der offiziellen Seite stammt |
 
