@@ -12,7 +12,11 @@ Ergebnis im Webroot:
   de/advent/<jahr>/, en/advent/<jahr>/     Archiv des Adventskalenders, nur Türchen
                                            bis heute; advent/<jahr>/ leitet weiter
   sitemap.xml                              alle Seiten mit hreflang
-  data/vulns.json                          ergänzt um width/height der Logos
+  data/vulns.json                          ergänzt um width/height der Logos und
+                                           thumbs (Breiten der kleinen Fassungen
+                                           in assets/img/200/ und assets/img/400/)
+  index.html                               Einleitungstext, Hinweisband und im Advent
+                                           die Türchen vorab im HTML (gegen Layoutsprünge)
 
 Texte kommen aus dem Objekt T in assets/js/app.js, damit Galerie und Seiten
 dieselben Bezeichnungen nutzen. Nur seitenspezifische Texte stehen unten.
@@ -643,6 +647,69 @@ def render_redirect(year):
 """
 
 
+# ------------------------------------------------------------------ index.html
+def prerender_index(root, items, cal, today, texts):
+    """Schreibt Inhalte, die sonst erst per JavaScript entstehen, schon ins HTML.
+
+    So verschiebt sich beim Laden nichts mehr (Cumulative Layout Shift). Das
+    Script ersetzt die Inhalte später durch gleich große Fassungen."""
+    path = os.path.join(root, "index.html")
+    html_ = open(path, encoding="utf-8").read()
+
+    # Einleitung wie T.de.lede in app.js
+    by_date = sorted(items, key=lambda v: v["date"])
+    old, new = by_date[0], by_date[-1]
+    lede = (f'{len(items)} Sicherheitslücken mit eigenem Namen und Logo, von <strong>{esc(old["name"])}</strong>'
+            f' ({old["date"][:4]}) bis <strong>{esc(new["name"])}</strong> ({new["date"][:4]}).')
+    html_ = _swap(html_, '<p class="lede" id="lede"></p>', f'<p class="lede" id="lede">{lede}</p>')
+
+    # Kategorie-Chips und Zähler wie renderChips() und T.de.count in app.js
+    t = texts["de"]
+    def chip(key, label, n):
+        cat = f' data-cat="{key}"' if key != "all" else ""
+        return (f'<button type="button" class="chip" data-value="{key}"{cat} aria-pressed="{"true" if key == "all" else "false"}">'
+                f'<span>{esc(label)}</span><span class="n">{n}</span></button>')
+    chips = [chip("all", t["all"], len(items))] + [
+        chip(c, t["cats"][c], sum(1 for v in items if v["category"] == c)) for c in CATS]
+    html_ = _swap(html_, 'aria-label="Kategorie"></div>', 'aria-label="Kategorie">' + "".join(chips) + "</div>")
+    html_ = _swap(html_, '<p class="count" id="count" role="status" aria-live="polite"></p>',
+                  f'<p class="count" id="count" role="status" aria-live="polite">Alle {len(items)} Lücken</p>')
+
+    if cal:
+        year = cal["year"]
+        if today < dt.date(year, 12, 1):
+            html_ = _swap(html_, '<p class="announce" id="announce" hidden>', '<p class="announce" id="announce">')
+        elif today <= dt.date(year, 12, 24):
+            order = [int(n) for n in re.search(r"ADVENT_ORDER = \[([\d,\s]+)\]",
+                     open(os.path.join(root, "assets", "js", "app.js"), encoding="utf-8").read()).group(1).split(",")]
+            t = texts["de"]
+            doors = []
+            for n in order:
+                if n > today.day:
+                    label = t["adventLocked"].replace("{n}", str(n))
+                    attrs, cls = " disabled", "door locked"
+                else:
+                    label = t["adventOpen"].replace("{n}", str(n))
+                    attrs, cls = "", "door"
+                extra = ""
+                if n == today.day:
+                    cls += " today"
+                    extra = f'<span class="door-today">{esc(t["adventToday"])}</span>'
+                doors.append(f'<li><button type="button" class="{cls}" data-day="{n}" aria-label="{esc(label)}"{attrs}>'
+                             f'<span class="door-num">{n}</span>{extra}</button></li>')
+            html_ = _swap(html_, '<section class="advent" id="advent" aria-labelledby="advent-heading" hidden>',
+                          '<section class="advent" id="advent" aria-labelledby="advent-heading">')
+            html_ = _swap(html_, '<ul class="doors" id="doors"></ul>', '<ul class="doors" id="doors">' + "".join(doors) + "</ul>")
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(html_)
+
+
+def _swap(text, old, new):
+    if old not in text:
+        sys.exit(f"pages.py: Stelle für die Vorab-Ausgabe nicht gefunden: {old[:60]}")
+    return text.replace(old, new, 1)
+
+
 # ------------------------------------------------------------------ main
 def main():
     if len(sys.argv) < 3:
@@ -669,6 +736,11 @@ def main():
         if s:
             sizes[v["image"]] = s
             v["width"], v["height"] = s
+        if not v["image"].endswith(".svg"):
+            base = os.path.splitext(v["image"])[0] + ".webp"
+            widths = [w for w in (200, 400) if os.path.exists(os.path.join(root, "assets", "img", str(w), base))]
+            if widths:
+                v["thumbs"] = widths
 
     ctx = {
         "root": root, "T": texts, "sizes": sizes, "csp": csp, "css_tag": css_tag,
@@ -695,6 +767,8 @@ def main():
         os.makedirs(out, exist_ok=True)
         with open(os.path.join(out, "index.html"), "w", encoding="utf-8") as f:
             f.write(render_redirect(cal["year"]))
+
+    prerender_index(root, items, cal, advent_today(os.environ.get("VULNALLERY_DATE")), texts)
 
     for lang in LANGS:
         for i, v in enumerate(order):

@@ -357,6 +357,9 @@ main { max-width: 1440px; margin: 0 auto; padding: 0 var(--gutter); }
 .sticker.dark { background: #15171a; }
 
 /* ---------- wall ---------- */
+/* Bis die Galerie geladen ist, hält sie Platz frei, damit der Footer nicht
+   erst sichtbar ist und dann nach unten springt. */
+.wall:empty { min-height: 150vh; }
 .wall {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(176px, 1fr));
