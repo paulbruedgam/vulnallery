@@ -77,7 +77,7 @@ Einträge, die die Regeln verletzen, blendet `app.js` aus.
 
 | Feld | Bedeutung |
 |---|---|
-| `license` | `CC0`, `CC-BY-4.0`, `CC-BY-2.5`, `CC-BY-SA-4.0`, `PD` (gemeinfrei), `free` (Nutzung laut Quelle erlaubt, ohne Lizenz) oder `none` (keine Lizenz angegeben) |
+| `license` | `CC0`, `CC-BY-4.0`, `CC-BY-2.5`, `CC-BY-SA-4.0`, `MIT`, `PD` (gemeinfrei), `free` (Nutzung laut Quelle erlaubt, ohne Lizenz) oder `none` (keine Lizenz angegeben) |
 | `author` | Gestaltung, falls genannt |
 | `holder` | Rechteinhaber, falls bekannt |
 | `note` | optional: `chromium`, `safari` oder `ai` für Zusatzhinweise |

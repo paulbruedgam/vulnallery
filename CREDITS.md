@@ -1,6 +1,6 @@
 # Bildnachweise
 
-Stand: 1. November 2026. Angaben laut offizieller Seite der Lücke; mit „Commons“ markierte Angaben stammen von Wikimedia Commons.
+Stand: 6. November 2026. Angaben laut offizieller Seite der Lücke; mit „Commons“ markierte Angaben stammen von Wikimedia Commons.
 
 | Lücke | Datei | Lizenz | Gestaltung | Rechteinhaber | Nachweis |
 |---|---|---|---|---|---|
@@ -73,6 +73,7 @@ Stand: 1. November 2026. Angaben laut offizieller Seite der Lücke; mit „Commo
 | SnailLoad | `snailload.png` | CC0 1.0 | – | – | [Quelle](https://www.snailload.com/) |
 | Spectre | `spectre.svg` | CC0 1.0 | Natascha Eibl | – | [Quelle](https://spectreattack.com/) |
 | Spook.js | `spookjs.svg` | CC BY 2.5 – enthält Chromium-Logo (Google, CC BY 2.5) | Jason Kim | – | [Quelle](https://www.spookjs.com/) |
+| *sshole | `sshole.webp` | MIT-Lizenz | – | Özgün Kültekin | [Quelle](https://github.com/oz9un/sshole) |
 | Stagefright | `stagefright.webp` | keine Lizenz angegeben | – | Zimperium | [Quelle](https://commons.wikimedia.org/wiki/File:Stagefright_bug_logo.png) |
 | Sweet32 | `sweet32.svg` | CC0 1.0 | Gaëtan Leurent | – | [Quelle](https://sweet32.info/) |
 | SweynTooth | `sweintooth.webp` | keine Lizenz angegeben | – | ASSET Research Group (SUTD) | [Quelle](https://asset-group.github.io/disclosures/sweyntooth/) |
